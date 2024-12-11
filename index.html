@@ -14,35 +14,57 @@
             line-height: 1.6;
         }
 
-        nav {
+        /* Desktop Navigation */
+        nav.desktop-nav {
             display: flex;
             justify-content: space-between;
             align-items: center;
             padding: 15px 25px;
             background-color: #f4a261;
             color: white;
-            position: relative;
         }
 
-        nav .logo {
+        nav.desktop-nav .logo {
             font-size: 1.5rem;
             font-weight: bold;
         }
 
-        nav .menu-icon {
-            display: none;
-            font-size: 1.5rem;
-            cursor: pointer;
+        nav.desktop-nav ul {
+            list-style: none;
+            display: flex;
+            gap: 15px;
+            margin: 0;
+            padding: 0;
         }
 
-        @media (max-width: 768px) {
-            nav .menu-icon {
-                display: block;
-            }
+        nav.desktop-nav ul li a {
+            text-decoration: none;
+            color: white;
+            font-weight: bold;
+        }
 
-            nav ul {
-                display: none;
-            }
+        nav.desktop-nav ul li a:hover {
+            text-decoration: underline;
+        }
+
+        /* Mobile Navigation */
+        nav.mobile-nav {
+            display: none;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 25px;
+            background-color: #f4a261;
+            color: white;
+        }
+
+        nav.mobile-nav .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+        }
+
+        nav.mobile-nav .menu-icon {
+            font-size: 1.5rem;
+            cursor: pointer;
         }
 
         #fullscreen-menu {
@@ -63,6 +85,15 @@
 
         #fullscreen-menu.show {
             display: flex;
+        }
+
+        #fullscreen-menu .close-icon {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            font-size: 1.5rem;
+            cursor: pointer;
+            color: white;
         }
 
         #fullscreen-menu a {
@@ -121,6 +152,14 @@
         }
 
         @media (max-width: 768px) {
+            nav.desktop-nav {
+                display: none;
+            }
+
+            nav.mobile-nav {
+                display: flex;
+            }
+
             header h1 {
                 font-size: 2.5rem;
             }
@@ -207,12 +246,24 @@
     </style>
 </head>
 <body>
-    <nav>
+    <!-- Desktop Navigation -->
+    <nav class="desktop-nav">
+        <div class="logo">Heated.city</div>
+        <ul>
+            <li><a href="#cities">Cities</a></li>
+            <li><a href="#">Contributors</a></li>
+            <li><a href="#">About</a></li>
+        </ul>
+    </nav>
+
+    <!-- Mobile Navigation -->
+    <nav class="mobile-nav">
         <div class="logo">Heated.city</div>
         <div class="menu-icon" onclick="toggleMenu()">☰</div>
     </nav>
 
     <div id="fullscreen-menu">
+        <span class="close-icon" onclick="toggleMenu()">&times;</span>
         <a href="#cities">Cities</a>
         <a href="#">Contributors</a>
         <a href="#">About</a>
