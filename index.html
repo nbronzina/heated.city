@@ -215,4 +215,99 @@
 <body>
     <nav>
         <div class="logo">Heated.city</div>
-        <div class="menu-icon" on
+        <div class="menu-icon" onclick="toggleMenu()">☰</div>
+        <ul>
+            <li><a href="#cities">Cities</a></li>
+            <li><a href="#">Contributors</a></li>
+            <li><a href="#">About</a></li>
+        </ul>
+    </nav>
+
+    <header id="dynamic-header">
+        <h1>Future Cities Guide</h1>
+        <p>A curated collection of city visions, transforming the way we inhabit our world.</p>
+        <div class="cta">
+            <a href="#cities">Choose a City</a>
+        </div>
+    </header>
+
+    <main>
+        <section id="cities" class="cities">
+            <div class="city-card">
+                <img src="img/berlin.png" alt="Berlin">
+                <div class="city-info">
+                    <h3>Berlin</h3>
+                    <p>Pioneering urban regeneration and sustainability.</p>
+                </div>
+            </div>
+            <div class="city-card">
+                <img src="img/BsAs.png" alt="Buenos Aires">
+                <div class="city-info">
+                    <h3>Buenos Aires</h3>
+                    <p>A vibrant city transformed for a sustainable future.</p>
+                </div>
+            </div>
+            <div class="city-card">
+                <img src="img/Madrid.png" alt="Madrid">
+                <div class="city-info">
+                    <h3>Madrid</h3>
+                    <p>Embracing resilience with bioclimatic designs.</p>
+                </div>
+            </div>
+            <div class="city-card">
+                <img src="img/Melbourne.png" alt="Melbourne">
+                <div class="city-info">
+                    <h3>Melbourne</h3>
+                    <p>A city designed for extreme heat adaptation.</p>
+                </div>
+            </div>
+            <div class="city-card">
+                <img src="img/Nairobi.png" alt="Nairobi">
+                <div class="city-info">
+                    <h3>Nairobi</h3>
+                    <p>Leading the way in green infrastructure.</p>
+                </div>
+            </div>
+            <div class="city-card">
+                <img src="img/tokyo.png" alt="Tokyo">
+                <div class="city-info">
+                    <h3>Tokyo</h3>
+                    <p>Innovating in dense urban spaces for 2030.</p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 Heated.city. Built with love for the future. <a href="#">Contact us</a></p>
+    </footer>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            const header = document.getElementById('dynamic-header');
+            const images = [
+                'img/city1.png', 
+                'img/city2.png',
+                'img/city3.png'
+            ];
+            let index = 0;
+
+            function changeBackground() {
+                header.style.backgroundImage = `url('${images[index]}')`;
+                index = (index + 1) % images.length;
+            }
+
+            // Cambia el fondo cada 5 segundos
+            setInterval(changeBackground, 5000);
+
+            // Configura la primera imagen
+            changeBackground();
+        });
+
+        function toggleMenu() {
+            const menu = document.querySelector('nav ul');
+            menu.classList.toggle('show');
+        }
+    </script>
+</body>
+</html>
