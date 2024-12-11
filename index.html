@@ -9,20 +9,29 @@
         body {
             margin: 0;
             font-family: 'Roboto', sans-serif;
-            background-color: #f7f7f7;
+            background-color: #fff;
             color: #333;
+            line-height: 1.6;
         }
 
         header {
-            background: linear-gradient(135deg, #ff5f6d, #ffc371);
-            color: white;
-            padding: 20px;
             text-align: center;
+            padding: 50px 20px;
+            background: #f7f7f7;
+            border-bottom: 1px solid #ddd;
         }
 
         header h1 {
             margin: 0;
-            font-size: 2.5rem;
+            font-size: 3rem;
+            font-weight: bold;
+            color: #222;
+        }
+
+        header p {
+            margin: 10px 0;
+            font-size: 1.25rem;
+            color: #555;
         }
 
         .cta {
@@ -32,42 +41,45 @@
         .cta a {
             display: inline-block;
             padding: 10px 20px;
-            background-color: white;
-            color: #ff5f6d;
-            border-radius: 5px;
+            background-color: #222;
+            color: #fff;
+            border-radius: 3px;
             text-decoration: none;
             font-weight: bold;
-            transition: background-color 0.3s, color 0.3s;
+            transition: background-color 0.3s, transform 0.2s;
         }
 
         .cta a:hover {
-            background-color: #ff5f6d;
-            color: white;
+            background-color: #555;
+            transform: scale(1.05);
         }
 
         .cities {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 20px;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
             padding: 20px;
+            max-width: 1200px;
+            margin: 0 auto;
         }
 
         .city-card {
-            background: white;
-            border-radius: 10px;
+            width: calc(33.333% - 20px);
+            background: #fff;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            margin-bottom: 20px;
             overflow: hidden;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-            transition: transform 0.3s;
+            transition: box-shadow 0.3s;
         }
 
         .city-card:hover {
-            transform: translateY(-5px);
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
         }
 
         .city-card img {
             width: 100%;
-            height: 150px;
-            object-fit: cover;
+            height: auto;
         }
 
         .city-card .city-info {
@@ -75,22 +87,29 @@
         }
 
         .city-card .city-info h3 {
-            margin: 0;
+            margin: 0 0 10px;
             font-size: 1.5rem;
-            color: #ff5f6d;
+            color: #222;
         }
 
         .city-card .city-info p {
-            margin: 10px 0 0;
+            margin: 0;
             font-size: 1rem;
+            color: #555;
         }
 
         footer {
             text-align: center;
-            padding: 10px;
-            background-color: #333;
-            color: white;
-            font-size: 0.9rem;
+            padding: 20px;
+            background-color: #f7f7f7;
+            border-top: 1px solid #ddd;
+            color: #777;
+        }
+
+        footer a {
+            color: #222;
+            text-decoration: none;
+            font-weight: bold;
         }
     </style>
 </head>
@@ -144,7 +163,7 @@
     </main>
 
     <footer>
-        <p>&copy; 2024 Heated.city. All rights reserved.</p>
+        <p>&copy; 2024 Heated.city. Built with love for the future. <a href="#">Contact us</a></p>
     </footer>
 </body>
 </html>
