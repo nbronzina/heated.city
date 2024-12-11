@@ -56,6 +56,13 @@
             flex-direction: column;
             justify-content: center;
             align-items: center;
+            background-size: cover;
+            background-position: center;
+            transition: opacity 1s ease-in-out;
+        }
+
+        header.hidden {
+            opacity: 0;
         }
 
         header h1 {
@@ -229,11 +236,18 @@
             let index = 0;
 
             function changeBackground() {
-                index = (index + 1) % images.length;
-                header.style.backgroundImage = `url('${images[index]}')`;
+                header.classList.add('hidden');
+
+                setTimeout(() => {
+                    header.style.backgroundImage = `url('${images[index]}')`;
+                    index = (index + 1) % images.length;
+                    header.classList.remove('hidden');
+                }, 1000);
             }
 
             setInterval(changeBackground, 5000);
+
+            changeBackground();
         });
     </script>
 </body>
