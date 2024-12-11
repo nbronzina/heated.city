@@ -91,6 +91,50 @@
             transform: scale(1.1);
         }
 
+        .cities {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            padding: 20px;
+            max-width: 1200px;
+            margin: 40px auto;
+        }
+
+        .city-card {
+            width: calc(33.333% - 20px);
+            background: #fff;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            margin-bottom: 20px;
+            overflow: hidden;
+            transition: box-shadow 0.3s;
+        }
+
+        .city-card:hover {
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .city-card img {
+            width: 100%;
+            height: auto;
+        }
+
+        .city-card .city-info {
+            padding: 15px;
+        }
+
+        .city-card .city-info h3 {
+            margin: 0 0 10px;
+            font-size: 1.5rem;
+            color: #222;
+        }
+
+        .city-card .city-info p {
+            margin: 0;
+            font-size: 1rem;
+            color: #555;
+        }
+
         footer {
             text-align: center;
             padding: 20px;
@@ -122,6 +166,46 @@
             <a href="#cities">Choose a City</a>
         </div>
     </header>
+
+    <main>
+        <section id="cities" class="cities">
+            <div class="city-card">
+                <img src="https://via.placeholder.com/300x150" alt="Buenos Aires">
+                <div class="city-info">
+                    <h3>Buenos Aires</h3>
+                    <p>A vibrant city transformed for a sustainable future.</p>
+                </div>
+            </div>
+            <div class="city-card">
+                <img src="https://via.placeholder.com/300x150" alt="Madrid">
+                <div class="city-info">
+                    <h3>Madrid</h3>
+                    <p>Embracing resilience with bioclimatic designs.</p>
+                </div>
+            </div>
+            <div class="city-card">
+                <img src="https://via.placeholder.com/300x150" alt="Tokyo">
+                <div class="city-info">
+                    <h3>Tokyo</h3>
+                    <p>Innovating in dense urban spaces for 2030.</p>
+                </div>
+            </div>
+            <div class="city-card">
+                <img src="https://via.placeholder.com/300x150" alt="Nairobi">
+                <div class="city-info">
+                    <h3>Nairobi</h3>
+                    <p>Leading the way in green infrastructure.</p>
+                </div>
+            </div>
+            <div class="city-card">
+                <img src="https://via.placeholder.com/300x150" alt="Melbourne">
+                <div class="city-info">
+                    <h3>Melbourne</h3>
+                    <p>A city designed for extreme heat adaptation.</p>
+                </div>
+            </div>
+        </section>
+    </main>
 
     <footer>
         <p>&copy; 2024 Heated.city. Built with love for the future. <a href="#">Contact us</a></p>
