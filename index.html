@@ -57,6 +57,7 @@
             flex-direction: column;
             justify-content: center;
             align-items: center;
+            transition: background-image 1s ease-in-out;
         }
 
         header h1 {
@@ -159,7 +160,7 @@
         </ul>
     </nav>
 
-    <header>
+    <header id="dynamic-header">
         <h1>Explore the World</h1>
         <p>Heated.city is a curated collection of speculative city guides, reimagining urban spaces in 2030.</p>
         <div class="cta">
@@ -210,5 +211,22 @@
     <footer>
         <p>&copy; 2024 Heated.city. Built with love for the future. <a href="#">Contact us</a></p>
     </footer>
+
+    <script>
+        const header = document.getElementById('dynamic-header');
+        const images = [
+            'https://via.placeholder.com/1920x1080/ff7f7f/333333',
+            'https://via.placeholder.com/1920x1080/7f7fff/333333',
+            'https://via.placeholder.com/1920x1080/7fff7f/333333'
+        ];
+        let index = 0;
+
+        function changeBackground() {
+            index = (index + 1) % images.length;
+            header.style.backgroundImage = `url('${images[index]}')`;
+        }
+
+        setInterval(changeBackground, 5000);
+    </script>
 </body>
 </html>
