@@ -67,21 +67,22 @@
             cursor: pointer;
         }
 
-        #fullscreen-menu {
-            display: none;
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-           background-color: rgba(244, 162, 97, 0.95);
-            color: white;
-            justify-content: center;
-            align-items: center;
-            flex-direction: column;
-            gap: 20px;
-            z-index: 1000;
-        }
+       #fullscreen-menu {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh; /* Asegura que cubre toda la ventana */
+    background-color: rgba(244, 162, 97, 0.95); /* Naranja con transparencia */
+    color: white;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: 20px;
+    z-index: 1000;
+    overflow: hidden; /* Evita desplazamiento si el contenido excede */
+}
 
         #fullscreen-menu.show {
             display: flex;
