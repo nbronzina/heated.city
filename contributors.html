@@ -183,6 +183,22 @@
             background-color: #f4a261;
             color: white;
         }
+
+        @media (max-width: 768px) {
+            #map-container {
+                flex-direction: column;
+            }
+
+            #map, #contributor-list {
+                width: 100%;
+                margin-left: 0;
+            }
+
+            #map {
+                height: 400px;
+                margin-bottom: 20px;
+            }
+        }
     </style>
 </head>
 <body>
