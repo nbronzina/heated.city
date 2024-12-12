@@ -17,58 +17,83 @@
             min-height: 100vh;
         }
 
-        nav {
+        .desktop-nav, .mobile-nav {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 15px 20px;
+            padding: 15px 25px;
             background-color: #f4a261;
             color: white;
         }
 
-        nav .logo a {
+        .desktop-nav .logo a, .mobile-nav .logo a {
             font-size: 1.5rem;
             font-weight: bold;
-            color: white;
             text-decoration: none;
+            color: white;
         }
 
-        nav ul {
+        .desktop-nav ul {
             list-style: none;
             display: flex;
-            gap: 15px;
+            gap: 20px;
             margin: 0;
             padding: 0;
         }
 
-        nav ul li a {
+        .desktop-nav ul li a {
             text-decoration: none;
             color: white;
             font-weight: bold;
         }
 
-        nav ul li a:hover {
+        .desktop-nav ul li a:hover {
             text-decoration: underline;
         }
 
-        .hamburger {
-            display: none;
+        /* Mobile Navigation */
+        .mobile-nav .hamburger {
             font-size: 1.5rem;
             cursor: pointer;
         }
 
-        .mobile-menu {
+        #fullscreen-menu {
             display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100vh;
+            background-color: rgba(244, 162, 97, 0.95);
+            color: white;
+            justify-content: center;
+            align-items: center;
             flex-direction: column;
-            gap: 10px;
-            background-color: #f4a261;
-            padding: 10px;
+            gap: 20px;
+            z-index: 1000;
         }
 
-        .mobile-menu a {
-            text-decoration: none;
+        #fullscreen-menu.show {
+            display: flex;
+        }
+
+        #fullscreen-menu .close-icon {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+
+        #fullscreen-menu a {
             color: white;
+            text-decoration: none;
+            font-size: 2rem;
             font-weight: bold;
+        }
+
+        #fullscreen-menu a:hover {
+            text-decoration: underline;
         }
 
         .about-header {
@@ -130,21 +155,11 @@
         }
 
         @media (max-width: 768px) {
-            nav {
-                flex-direction: row;
-                justify-content: space-between;
-                align-items: center;
-            }
-
-            nav .hamburger {
-                display: block;
-            }
-
-            nav ul {
+            .desktop-nav {
                 display: none;
             }
 
-            nav ul.mobile-menu {
+            .mobile-nav {
                 display: flex;
             }
 
@@ -167,21 +182,36 @@
     </style>
     <script>
         function toggleMenu() {
-            const menu = document.querySelector('.mobile-menu');
-            menu.style.display = menu.style.display === 'flex' ? 'none' : 'flex';
+            const menu = document.getElementById('fullscreen-menu');
+            menu.classList.toggle('show');
         }
     </script>
 </head>
 <body>
-    <nav>
-        <div class="logo"><a href="index.html">Heated.city</a></div>
-        <div class="hamburger" onclick="toggleMenu()">☰</div>
-        <ul class="mobile-menu">
+    <nav class="desktop-nav">
+        <div class="logo">
+            <a href="index.html">Heated.city</a>
+        </div>
+        <ul>
             <li><a href="cities.html">Cities</a></li>
             <li><a href="contributors.html">Contributors</a></li>
             <li><a href="about.html">About</a></li>
         </ul>
     </nav>
+
+    <nav class="mobile-nav">
+        <div class="logo">
+            <a href="index.html">Heated.city</a>
+        </div>
+        <div class="hamburger" onclick="toggleMenu()">☰</div>
+    </nav>
+
+    <div id="fullscreen-menu">
+        <span class="close-icon" onclick="toggleMenu()">&times;</span>
+        <a href="cities.html">Cities</a>
+        <a href="contributors.html">Contributors</a>
+        <a href="about.html">About</a>
+    </div>
 
     <div class="about-header">
         <h1>Reimagining Cities: A Global Guide for 2030 and Beyond</h1>
