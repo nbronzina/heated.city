@@ -120,11 +120,10 @@
             text-decoration: underline;
         }
 
-        /* Cities Section */
+        /* Cities Grid Section */
         #cities-section {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
             gap: 20px;
             padding: 20px;
             max-width: 1200px;
@@ -133,38 +132,34 @@
         }
 
         .city-card {
-            width: calc(33.333% - 20px);
-            background: #fff;
-            border: 1px solid #ddd;
+            background: #2a2a72;
+            color: white;
             border-radius: 5px;
-            overflow: hidden;
-            transition: box-shadow 0.3s;
+            text-align: center;
+            padding: 20px;
+            transition: transform 0.3s, box-shadow 0.3s;
         }
 
         .city-card:hover {
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            transform: scale(1.05);
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
         }
 
         .city-card img {
-            width: 100%;
-            height: 200px;
-            object-fit: cover;
+            width: 100px;
+            height: 100px;
+            object-fit: contain;
+            margin-bottom: 15px;
         }
 
-        .city-card .city-info {
-            padding: 15px;
-        }
-
-        .city-card .city-info h3 {
+        .city-card h3 {
             margin: 0 0 10px;
-            font-size: 1.5rem;
-            color: #222;
+            font-size: 1.2rem;
         }
 
-        .city-card .city-info p {
+        .city-card p {
             margin: 0;
-            font-size: 1rem;
-            color: #555;
+            font-size: 0.9rem;
         }
 
         footer {
@@ -183,12 +178,12 @@
 
         @media (max-width: 768px) {
             #cities-section {
-                flex-direction: column;
-                align-items: center;
+                grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
             }
 
-            .city-card {
-                width: 100%;
+            .city-card img {
+                width: 80px;
+                height: 80px;
             }
         }
     </style>
@@ -220,45 +215,33 @@
     <section id="cities-section">
         <div class="city-card">
             <img src="img/berlin.png" alt="Berlin">
-            <div class="city-info">
-                <h3>Berlin</h3>
-                <p>Pioneering urban regeneration and sustainability.</p>
-            </div>
+            <h3>Berlin</h3>
+            <p>Pioneering urban regeneration and sustainability.</p>
         </div>
         <div class="city-card">
             <img src="img/BsAs.png" alt="Buenos Aires">
-            <div class="city-info">
-                <h3>Buenos Aires</h3>
-                <p>A vibrant city transformed for a sustainable future.</p>
-            </div>
+            <h3>Buenos Aires</h3>
+            <p>A vibrant city transformed for a sustainable future.</p>
         </div>
         <div class="city-card">
             <img src="img/Madrid.png" alt="Madrid">
-            <div class="city-info">
-                <h3>Madrid</h3>
-                <p>Embracing resilience with bioclimatic designs.</p>
-            </div>
+            <h3>Madrid</h3>
+            <p>Embracing resilience with bioclimatic designs.</p>
         </div>
         <div class="city-card">
             <img src="img/Melbourne.png" alt="Melbourne">
-            <div class="city-info">
-                <h3>Melbourne</h3>
-                <p>A city designed for extreme heat adaptation.</p>
-            </div>
+            <h3>Melbourne</h3>
+            <p>A city designed for extreme heat adaptation.</p>
         </div>
         <div class="city-card">
             <img src="img/Nairobi.png" alt="Nairobi">
-            <div class="city-info">
-                <h3>Nairobi</h3>
-                <p>Leading the way in green infrastructure.</p>
-            </div>
+            <h3>Nairobi</h3>
+            <p>Leading the way in green infrastructure.</p>
         </div>
         <div class="city-card">
             <img src="img/tokyo.png" alt="Tokyo">
-            <div class="city-info">
-                <h3>Tokyo</h3>
-                <p>Innovating in dense urban spaces for 2030.</p>
-            </div>
+            <h3>Tokyo</h3>
+            <p>Innovating in dense urban spaces for 2030.</p>
         </div>
     </section>
 
