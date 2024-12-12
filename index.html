@@ -1,3 +1,11 @@
+Para añadir la tipografía "Noto Sans Mono" al código HTML que has proporcionado, necesitas hacer dos cosas:
+
+1. Asegurarte de que el enlace a la fuente de Google Fonts esté correctamente incluido en la sección `<head>` de tu HTML.
+2. Actualizar la propiedad `font-family` en tu CSS para usar "Noto Sans Mono".
+
+Aquí tienes el código actualizado:
+
+```html
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -5,12 +13,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Heated.city - Imagine Your City in 2030</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Mono:wght@100..900&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Mono:wght@100..900&display=swap" rel="stylesheet">
     <style>
         body {
             margin: 0;
-            font-family: 'Artico', sans-serif;
+            font-family: 'Noto Sans Mono', sans-serif;
             background-color: #fff;
             color: #333;
             line-height: 1.6;
@@ -335,7 +343,7 @@
         document.addEventListener("DOMContentLoaded", () => {
             const header = document.getElementById('dynamic-header');
             const images = [
-                'img/city1.png', 
+                'img/city1.png',
                 'img/city2.png',
                 'img/city3.png'
             ];
@@ -360,3 +368,6 @@
     </script>
 </body>
 </html>
+```
+
+En este código, he cambiado la propiedad `font-family` en la sección `<style>` para usar "Noto Sans Mono". Ahora, toda la tipografía en tu página web utilizará esta fuente.
