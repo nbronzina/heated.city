@@ -17,7 +17,8 @@
             min-height: 100vh;
         }
 
-        .desktop-nav, .mobile-nav {
+        /* Desktop Navigation */
+        .desktop-nav {
             display: flex;
             justify-content: space-between;
             align-items: center;
@@ -26,7 +27,7 @@
             color: white;
         }
 
-        .desktop-nav .logo a, .mobile-nav .logo a {
+        .desktop-nav .logo a {
             font-size: 1.5rem;
             font-weight: bold;
             text-decoration: none;
@@ -52,6 +53,22 @@
         }
 
         /* Mobile Navigation */
+        .mobile-nav {
+            display: none;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 25px;
+            background-color: #f4a261;
+            color: white;
+        }
+
+        .mobile-nav .logo a {
+            font-size: 1.5rem;
+            font-weight: bold;
+            text-decoration: none;
+            color: white;
+        }
+
         .mobile-nav .hamburger {
             font-size: 1.5rem;
             cursor: pointer;
@@ -188,17 +205,19 @@
     </script>
 </head>
 <body>
-     <nav class="desktop-nav">
+    <!-- Desktop Navigation -->
+    <nav class="desktop-nav">
         <div class="logo">
             <a href="index.html">Heated.city</a>
         </div>
         <ul>
-            <li><a href="cities.html" style="color: white;">Cities</a></li>
-            <li><a href="contributors.html" style="color: white;">Contributors</a></li>
-            <li><a href="about.html" style="color: white;">About</a></li>
+            <li><a href="cities.html">Cities</a></li>
+            <li><a href="contributors.html">Contributors</a></li>
+            <li><a href="about.html">About</a></li>
         </ul>
     </nav>
 
+    <!-- Mobile Navigation -->
     <nav class="mobile-nav">
         <div class="logo">
             <a href="index.html">Heated.city</a>
@@ -208,9 +227,9 @@
 
     <div id="fullscreen-menu">
         <span class="close-icon" onclick="toggleMenu()">&times;</span>
-        <a href="cities.html" style="color: white;">Cities</a>
-        <a href="contributors.html" style="color: white;">Contributors</a>
-        <a href="about.html" style="color: white;">About</a>
+        <a href="cities.html">Cities</a>
+        <a href="contributors.html">Contributors</a>
+        <a href="about.html">About</a>
     </div>
 
     <div class="about-header">
