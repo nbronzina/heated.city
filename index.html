@@ -228,6 +228,38 @@
             color: #555;
         }
 
+        .cta-section {
+            text-align: center;
+            padding: 20px;
+            background-color: #f4a261;
+            color: white;
+            font-size: 1rem;
+            margin: 20px auto;
+            max-width: 600px;
+            border-radius: 5px;
+        }
+
+        .cta-section p {
+            margin: 0 0 20px;
+        }
+
+        .cta-button {
+            display: inline-block;
+            padding: 10px 20px;
+            background-color: #e76f51;
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 1rem;
+            border-radius: 5px;
+            transition: background-color 0.3s, transform 0.2s;
+        }
+
+        .cta-button:hover {
+            background-color: #f4a261;
+            transform: scale(1.1);
+        }
+
         footer {
             text-align: center;
             padding: 20px;
@@ -325,6 +357,7 @@
                 </div>
             </div>
         </section>
+
         <div class="cta-section">
             <h3>Join the Movement</h3>
             <p>Are you a designer, architect, urban planner, or a company focused on climate change? We invite you to share your vision for the future of cities. Together, we can create a sustainable and resilient urban future.</p>
@@ -337,32 +370,10 @@
     </footer>
 
     <script>
-        document.addEventListener("DOMContentLoaded", () => {
-            const header = document.getElementById('dynamic-header');
-            const images = [
-                'img/city1.png',
-                'img/city2.png',
-                'img/city3.png'
-            ];
-            let index = 0;
-
-            function changeBackground() {
-                header.style.backgroundImage = `url('${images[index]}')`;
-                index = (index + 1) % images.length;
-            }
-
-            // Cambia el fondo cada 5 segundos
-            setInterval(changeBackground, 5000);
-
-            // Configura la primera imagen
-            changeBackground();
-        });
-
         function toggleMenu() {
             const menu = document.getElementById('fullscreen-menu');
             menu.classList.toggle('show');
         }
     </script>
 </body>
-</html>
 </html>
