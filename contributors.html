@@ -10,7 +10,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/ol/ol.css">
     <style>
         body {
             margin: 0;
@@ -247,7 +247,7 @@
 
             #map {
                 height: 400px;
-                margin-bottom: 20px; /* Margen adicional para separación */
+                margin-bottom: 20px;
             }
 
             .join-section {
@@ -356,27 +356,41 @@
         <p>&copy; 2024 Heated.city</p>
     </footer>
 
-    <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/ol/ol.js"></script>
     <script>
         document.addEventListener("DOMContentLoaded", function() {
-            var map = L.map('map').setView([20, 0], 2);
+            const map = new ol.Map({
+                target: 'map',
+                layers: [
+                    new ol.layer.Tile({
+                        source: new ol.source.OSM()
+                    })
+                ],
+                view: new ol.View({
+                    center: ol.proj.fromLonLat([0, 20]),
+                    zoom: 2
+                })
+            });
 
-            L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-                attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
-            }).addTo(map);
-
-            var contributors = [
-                { name: "GreenTech Innovations", location: [52.5200, 13.4050], description: "Berlin, Germany" },
-                { name: "María Fernanda Domínguez", location: [-34.6037, -58.3816], description: "Buenos Aires, Argentina" },
-                { name: "Isabél Sánchez", location: [40.4168, -3.7038], description: "Madrid, Spain" },
-                { name: "EcoCity Solutions", location: [-37.8136, 144.9631], description: "Melbourne, Australia" },
-                { name: "Kamau Mwangi", location: [-1.2921, 36.8219], description: "Nairobi, Kenya" },
-                { name: "Himari Satō", location: [35.6895, 139.6917], description: "Tokyo, Japan" }
+            const locations = [
+                { name: "Berlin", coords: [13.4050, 52.5200] },
+                { name: "Buenos Aires", coords: [-58.3816, -34.6037] },
+                { name: "Madrid", coords: [-3.7038, 40.4168] },
+                { name: "Melbourne", coords: [144.9631, -37.8136] },
+                { name: "Nairobi", coords: [36.8219, -1.2921] },
+                { name: "Tokyo", coords: [139.6917, 35.6895] }
             ];
 
-            contributors.forEach(function(contributor) {
-                L.marker(contributor.location).addTo(map)
-                    .bindPopup(contributor.name + "<br>" + contributor.description);
+            locations.forEach(location => {
+                const marker = new ol.Overlay({
+                    position: ol.proj.fromLonLat(location.coords),
+                    positioning: 'center-center',
+                    element: document.createElement('div'),
+                    stopEvent: false
+                });
+
+                marker.getElement().innerHTML = `<div style="background-color: #f4a261; color: white; padding: 5px; border-radius: 5px;">${location.name}</div>`;
+                map.addOverlay(marker);
             });
         });
 
