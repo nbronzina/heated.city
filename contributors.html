@@ -27,9 +27,11 @@
             color: white;
         }
 
-        nav.desktop-nav .logo {
+        nav.desktop-nav .logo a {
             font-size: 1.5rem;
             font-weight: bold;
+            text-decoration: none;
+            color: white;
         }
 
         nav.desktop-nav ul {
@@ -60,9 +62,11 @@
             color: white;
         }
 
-        nav.mobile-nav .logo {
+        nav.mobile-nav .logo a {
             font-size: 1.5rem;
             font-weight: bold;
+            text-decoration: none;
+            color: white;
         }
 
         nav.mobile-nav .menu-icon {
@@ -121,18 +125,24 @@
             margin: 30px auto;
         }
 
-        #map {
+        #map-container {
+            display: flex;
             width: 100%;
-            height: 400px;
             margin-bottom: 20px;
         }
 
+        #map {
+            width: 50%;
+            height: 400px;
+        }
+
         #contributor-list {
-            width: 100%;
+            width: 50%;
             padding: 20px;
             background: #f9f9f9;
             border: 1px solid #ddd;
             border-radius: 5px;
+            margin-left: 20px;
         }
 
         #contributor-list h2, #contributor-list h3, #contributor-list h4 {
@@ -181,13 +191,23 @@
             footer {
                 font-size: 0.9rem;
             }
+
+            #map-container {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            #map, #contributor-list {
+                width: 100%;
+                margin-left: 0;
+            }
         }
     </style>
 </head>
 <body>
     <!-- Desktop Navigation -->
     <nav class="desktop-nav">
-        <div class="logo"><a href="index.html" style="text-decoration: none; color: white;">Heated.city</a></div>
+        <div class="logo"><a href="index.html">Heated.city</a></div>
         <ul>
             <li><a href="index.html#cities">Cities</a></li>
             <li><a href="contributors.html">Contributors</a></li>
@@ -197,7 +217,7 @@
 
     <!-- Mobile Navigation -->
     <nav class="mobile-nav">
-        <div class="logo"><a href="index.html" style="text-decoration: none; color: white;">Heated.city</a></div>
+        <div class="logo"><a href="index.html">Heated.city</a></div>
         <div class="menu-icon" onclick="toggleMenu()">☰</div>
     </nav>
 
@@ -209,70 +229,72 @@
     </div>
 
     <section id="contributors">
-        <div id="map"></div>
-        <div id="contributor-list">
-            <h2>Contributors</h2>
-            <p>Heated City is a global directory where designers, architects, urban planners, and climate-focused companies from around the world have shared their visions for cities in 2030 and beyond. Our contributors are passionate about creating sustainable, resilient, and innovative urban environments that will transform the way we inhabit our world.</p>
+        <div id="map-container">
+            <div id="map"></div>
+            <div id="contributor-list">
+                <h2>Contributors</h2>
+                <p>Heated City is a global directory where designers, architects, urban planners, and climate-focused companies from around the world have shared their visions for cities in 2030 and beyond. Our contributors are passionate about creating sustainable, resilient, and innovative urban environments that will transform the way we inhabit our world.</p>
 
-            <h3>Meet Our Contributors</h3>
+                <h3>Meet Our Contributors</h3>
 
-            <div class="contributor-category">
-                <h4>Designers and Architects</h4>
-                <div class="contributor">
-                    <h5>Jane Doe</h5>
-                    <p><strong>Location:</strong> New York, USA</p>
-                    <p><strong>Vision:</strong> Jane envisions a New York City with green roofs on every building, reducing the urban heat island effect and promoting biodiversity.</p>
-                    <p><strong>Quote:</strong> "Sustainable design is not just about aesthetics; it's about creating a livable future for all."</p>
+                <div class="contributor-category">
+                    <h4>Designers and Architects</h4>
+                    <div class="contributor">
+                        <h5>Jane Doe</h5>
+                        <p><strong>Location:</strong> New York, USA</p>
+                        <p><strong>Vision:</strong> Jane envisions a New York City with green roofs on every building, reducing the urban heat island effect and promoting biodiversity.</p>
+                        <p><strong>Quote:</strong> "Sustainable design is not just about aesthetics; it's about creating a livable future for all."</p>
+                    </div>
+                    <div class="contributor">
+                        <h5>Carlos García</h5>
+                        <p><strong>Location:</strong> Madrid, Spain</p>
+                        <p><strong>Vision:</strong> Carlos imagines a Madrid with extensive urban gardens and vertical farming, ensuring food security and reducing carbon emissions.</p>
+                        <p><strong>Quote:</strong> "Urban agriculture is the key to a greener, healthier city."</p>
+                    </div>
+                    <div class="contributor">
+                        <h5>Aisha Patel</h5>
+                        <p><strong>Location:</strong> Mumbai, India</p>
+                        <p><strong>Vision:</strong> Aisha's vision for Mumbai includes floating cities and advanced water management systems to combat sea-level rise.</p>
+                        <p><strong>Quote:</strong> "Innovation in urban planning is crucial for adapting to climate change."</p>
+                    </div>
                 </div>
-                <div class="contributor">
-                    <h5>Carlos García</h5>
-                    <p><strong>Location:</strong> Madrid, Spain</p>
-                    <p><strong>Vision:</strong> Carlos imagines a Madrid with extensive urban gardens and vertical farming, ensuring food security and reducing carbon emissions.</p>
-                    <p><strong>Quote:</strong> "Urban agriculture is the key to a greener, healthier city."</p>
+
+                <div class="contributor-category">
+                    <h4>Urban Planners</h4>
+                    <div class="contributor">
+                        <h5>Li Wei</h5>
+                        <p><strong>Location:</strong> Shanghai, China</p>
+                        <p><strong>Vision:</strong> Li Wei sees a Shanghai with integrated smart grids and renewable energy sources, making the city energy-efficient and eco-friendly.</p>
+                        <p><strong>Quote:</strong> "Smart cities are the future, and Shanghai is leading the way."</p>
+                    </div>
+                    <div class="contributor">
+                        <h5>Maria Silva</h5>
+                        <p><strong>Location:</strong> São Paulo, Brazil</p>
+                        <p><strong>Vision:</strong> Maria's vision for São Paulo includes extensive green spaces and bike-friendly infrastructure, promoting a healthier lifestyle.</p>
+                        <p><strong>Quote:</strong> "Green spaces are essential for the well-being of urban residents."</p>
+                    </div>
                 </div>
-                <div class="contributor">
-                    <h5>Aisha Patel</h5>
-                    <p><strong>Location:</strong> Mumbai, India</p>
-                    <p><strong>Vision:</strong> Aisha's vision for Mumbai includes floating cities and advanced water management systems to combat sea-level rise.</p>
-                    <p><strong>Quote:</strong> "Innovation in urban planning is crucial for adapting to climate change."</p>
+
+                <div class="contributor-category">
+                    <h4>Climate-Focused Companies</h4>
+                    <div class="contributor">
+                        <h5>GreenTech Innovations</h5>
+                        <p><strong>Location:</strong> Berlin, Germany</p>
+                        <p><strong>Vision:</strong> GreenTech Innovations is developing cutting-edge technologies to reduce carbon emissions and promote sustainable urban living.</p>
+                        <p><strong>Quote:</strong> "Technology and innovation are our best tools to fight climate change."</p>
+                    </div>
+                    <div class="contributor">
+                        <h5>EcoCity Solutions</h5>
+                        <p><strong>Location:</strong> Sydney, Australia</p>
+                        <p><strong>Vision:</strong> EcoCity Solutions focuses on creating resilient urban infrastructure that can withstand the impacts of climate change.</p>
+                        <p><strong>Quote:</strong> "Building resilient cities is our mission and our passion."</p>
+                    </div>
                 </div>
+
+                <h3>Join the Movement</h3>
+                <p>Are you a designer, architect, urban planner, or a company focused on climate change? We invite you to share your vision for the future of cities. Together, we can create a sustainable and resilient urban future.</p>
+                <p><a href="#contact">Contact us</a> to become a contributor and be part of the Heated City community.</p>
             </div>
-
-            <div class="contributor-category">
-                <h4>Urban Planners</h4>
-                <div class="contributor">
-                    <h5>Li Wei</h5>
-                    <p><strong>Location:</strong> Shanghai, China</p>
-                    <p><strong>Vision:</strong> Li Wei sees a Shanghai with integrated smart grids and renewable energy sources, making the city energy-efficient and eco-friendly.</p>
-                    <p><strong>Quote:</strong> "Smart cities are the future, and Shanghai is leading the way."</p>
-                </div>
-                <div class="contributor">
-                    <h5>Maria Silva</h5>
-                    <p><strong>Location:</strong> São Paulo, Brazil</p>
-                    <p><strong>Vision:</strong> Maria's vision for São Paulo includes extensive green spaces and bike-friendly infrastructure, promoting a healthier lifestyle.</p>
-                    <p><strong>Quote:</strong> "Green spaces are essential for the well-being of urban residents."</p>
-                </div>
-            </div>
-
-            <div class="contributor-category">
-                <h4>Climate-Focused Companies</h4>
-                <div class="contributor">
-                    <h5>GreenTech Innovations</h5>
-                    <p><strong>Location:</strong> Berlin, Germany</p>
-                    <p><strong>Vision:</strong> GreenTech Innovations is developing cutting-edge technologies to reduce carbon emissions and promote sustainable urban living.</p>
-                    <p><strong>Quote:</strong> "Technology and innovation are our best tools to fight climate change."</p>
-                </div>
-                <div class="contributor">
-                    <h5>EcoCity Solutions</h5>
-                    <p><strong>Location:</strong> Sydney, Australia</p>
-                    <p><strong>Vision:</strong> EcoCity Solutions focuses on creating resilient urban infrastructure that can withstand the impacts of climate change.</p>
-                    <p><strong>Quote:</strong> "Building resilient cities is our mission and our passion."</p>
-                </div>
-            </div>
-
-            <h3>Join the Movement</h3>
-            <p>Are you a designer, architect, urban planner, or a company focused on climate change? We invite you to share your vision for the future of cities. Together, we can create a sustainable and resilient urban future.</p>
-            <p><a href="#contact">Contact us</a> to become a contributor and be part of the Heated City community.</p>
         </div>
     </section>
 
