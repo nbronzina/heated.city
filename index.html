@@ -369,6 +369,27 @@
     </footer>
 
     <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            const header = document.getElementById('dynamic-header');
+            const images = [
+                'img/city1.png',
+                'img/city2.png',
+                'img/city3.png'
+            ];
+            let index = 0;
+
+            function changeBackground() {
+                header.style.backgroundImage = `url('${images[index]}')`;
+                index = (index + 1) % images.length;
+            }
+
+            // Cambia el fondo cada 5 segundos
+            setInterval(changeBackground, 5000);
+
+            // Configura la primera imagen
+            changeBackground();
+        });
+
         function toggleMenu() {
             const menu = document.getElementById('fullscreen-menu');
             menu.classList.toggle('show');
