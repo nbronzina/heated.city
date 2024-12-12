@@ -90,7 +90,7 @@
             align-items: center;
             flex-direction: column;
             gap: 20px;
-            z-index: 1000;
+            z-index: 2000;
             overflow: hidden;
         }
 
@@ -145,6 +145,11 @@
             border-radius: 5px;
             border: 1px solid #ddd;
             margin-bottom: 20px;
+            z-index: 1; /* Ensure it is behind the menu */
+        }
+
+        #fullscreen-menu.show ~ #map-container #map {
+            display: none; /* Hide map when menu is open */
         }
 
         #contributor-list {
@@ -184,10 +189,6 @@
         }
 
         @media (min-width: 769px) {
-            nav.mobile-nav {
-                display: none;
-            }
-
             #map-container {
                 flex-direction: row;
             }
@@ -200,16 +201,6 @@
             #contributor-list {
                 flex: 1;
                 margin-left: 20px;
-            }
-        }
-
-        @media (max-width: 768px) {
-            nav.desktop-nav {
-                display: none;
-            }
-
-            nav.mobile-nav {
-                display: flex;
             }
         }
     </style>
@@ -314,7 +305,15 @@
         });
 
         function toggleMenu() {
-            document.getElementById("fullscreen-menu").classList.toggle("show");
+            const menu = document.getElementById("fullscreen-menu");
+            const map = document.getElementById("map");
+            menu.classList.toggle("show");
+
+            if (menu.classList.contains("show")) {
+                map.style.pointerEvents = "none";
+            } else {
+                map.style.pointerEvents = "auto";
+            }
         }
     </script>
 </body>
