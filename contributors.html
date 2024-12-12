@@ -20,6 +20,7 @@
             line-height: 1.6;
         }
 
+        /* Desktop Navigation */
         nav.desktop-nav {
             display: flex;
             justify-content: space-between;
@@ -54,6 +55,7 @@
             text-decoration: underline;
         }
 
+        /* Mobile Navigation */
         nav.mobile-nav {
             display: none;
             justify-content: space-between;
@@ -88,7 +90,8 @@
             align-items: center;
             flex-direction: column;
             gap: 20px;
-            z-index: 1000;
+            z-index: 2000;
+            overflow: hidden;
         }
 
         #fullscreen-menu.show {
@@ -115,6 +118,7 @@
             text-decoration: underline;
         }
 
+        /* Contributors Section */
         #contributors {
             display: flex;
             flex-direction: column;
@@ -137,16 +141,18 @@
         }
 
         #map {
-            flex: 2;
-            height: 600px;
+            height: 400px;
             border-radius: 5px;
             border: 1px solid #ddd;
-            z-index: 0;
             margin-bottom: 20px;
+            z-index: 1; /* Ensure it is behind the menu */
+        }
+
+        #fullscreen-menu.show ~ #map-container #map {
+            display: none; /* Hide map when menu is open */
         }
 
         #contributor-list {
-            flex: 1;
             padding: 20px;
             background: #f9f9f9;
             border: 1px solid #ddd;
@@ -182,32 +188,19 @@
             color: white;
         }
 
-        @media (max-width: 768px) {
-            nav.desktop-nav {
-                display: none;
-            }
-
-            nav.mobile-nav {
-                display: flex;
-            }
-
-            footer {
-                font-size: 0.9rem;
-            }
-
+        @media (min-width: 769px) {
             #map-container {
-                flex-direction: column;
-                align-items: center;
+                flex-direction: row;
             }
 
             #map {
-                width: 100%;
-                margin-bottom: 20px;
-                height: 400px;
+                flex: 2;
+                height: 600px;
             }
 
             #contributor-list {
-                width: 100%;
+                flex: 1;
+                margin-left: 20px;
             }
         }
     </style>
@@ -241,42 +234,44 @@
             <h2>Contributors</h2>
             <p>Heated.city is a global directory where designers, architects, urban planners, and climate-focused companies worldwide have shared their visions for cities in 2030 and beyond. Our contributors are passionate about creating sustainable, resilient, and innovative urban environments that will transform the way we inhabit our world.</p>
         </div>
-        <div id="map"></div>
-        <div id="contributor-list">
-            <div class="contributor-category">
-                <h4>Buenos Aires organized by María Fernanda Domínguez</h4>
-                <div class="contributor">
-                    <p><strong>Vision:</strong> Resilient urban infrastructure to combat climate change.</p>
+        <div id="map-container">
+            <div id="map"></div>
+            <div id="contributor-list">
+                <div class="contributor-category">
+                    <h4>Buenos Aires organized by María Fernanda Domínguez</h4>
+                    <div class="contributor">
+                        <p><strong>Vision:</strong> Resilient urban infrastructure to combat climate change.</p>
+                    </div>
                 </div>
-            </div>
-            <div class="contributor-category">
-                <h4>Madrid organized by Isabél Sánchez</h4>
-                <div class="contributor">
-                    <p><strong>Vision:</strong> Extensive urban gardens and vertical farming.</p>
+                <div class="contributor-category">
+                    <h4>Madrid organized by Isabél Sánchez</h4>
+                    <div class="contributor">
+                        <p><strong>Vision:</strong> Extensive urban gardens and vertical farming.</p>
+                    </div>
                 </div>
-            </div>
-            <div class="contributor-category">
-                <h4>Melbourne organized by Callagun Smith</h4>
-                <div class="contributor">
-                    <p><strong>Vision:</strong> Floating cities and advanced water management systems.</p>
+                <div class="contributor-category">
+                    <h4>Melbourne organized by Callagun Smith</h4>
+                    <div class="contributor">
+                        <p><strong>Vision:</strong> Floating cities and advanced water management systems.</p>
+                    </div>
                 </div>
-            </div>
-            <div class="contributor-category">
-                <h4>Nairobi organized by Kamau Mwangi</h4>
-                <div class="contributor">
-                    <p><strong>Vision:</strong> Extensive green spaces and bike-friendly infrastructure.</p>
+                <div class="contributor-category">
+                    <h4>Nairobi organized by Kamau Mwangi</h4>
+                    <div class="contributor">
+                        <p><strong>Vision:</strong> Extensive green spaces and bike-friendly infrastructure.</p>
+                    </div>
                 </div>
-            </div>
-            <div class="contributor-category">
-                <h4>New Delhi organized by Priya Sharma</h4>
-                <div class="contributor">
-                    <p><strong>Vision:</strong> Community-driven renewable energy and urban solutions.</p>
+                <div class="contributor-category">
+                    <h4>New Delhi organized by Priya Sharma</h4>
+                    <div class="contributor">
+                        <p><strong>Vision:</strong> Community-driven renewable energy and urban solutions.</p>
+                    </div>
                 </div>
-            </div>
-            <div class="contributor-category">
-                <h4>Tokyo organized by Himari Satō</h4>
-                <div class="contributor">
-                    <p><strong>Vision:</strong> Integrated smart grids and renewable energy sources.</p>
+                <div class="contributor-category">
+                    <h4>Tokyo organized by Himari Satō</h4>
+                    <div class="contributor">
+                        <p><strong>Vision:</strong> Integrated smart grids and renewable energy sources.</p>
+                    </div>
                 </div>
             </div>
         </div>
@@ -307,12 +302,18 @@
                     .addTo(map)
                     .bindPopup(`<b>${contributor.name}</b><br>${contributor.description}`);
             });
-
-            map.invalidateSize();
         });
 
         function toggleMenu() {
-            document.getElementById("fullscreen-menu").classList.toggle("show");
+            const menu = document.getElementById("fullscreen-menu");
+            const map = document.getElementById("map");
+            menu.classList.toggle("show");
+
+            if (menu.classList.contains("show")) {
+                map.style.pointerEvents = "none";
+            } else {
+                map.style.pointerEvents = "auto";
+            }
         }
     </script>
 </body>
