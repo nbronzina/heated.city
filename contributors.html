@@ -184,6 +184,10 @@
         }
 
         @media (min-width: 769px) {
+            nav.mobile-nav {
+                display: none;
+            }
+
             #map-container {
                 flex-direction: row;
             }
@@ -196,6 +200,16 @@
             #contributor-list {
                 flex: 1;
                 margin-left: 20px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            nav.desktop-nav {
+                display: none;
+            }
+
+            nav.mobile-nav {
+                display: flex;
             }
         }
     </style>
