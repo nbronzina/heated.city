@@ -190,20 +190,27 @@
     </style>
 </head>
 <body>
-    <nav class="navbar">
-        <div class="logo">
-            <a href="/">Heated.city</a>
-        </div>
-        <button class="menu-button" aria-label="Toggle menu">☰</button>
+    <!-- Desktop Navigation -->
+    <nav class="desktop-nav">
+        <div class="logo"><a href="index.html">Heated.city</a></div>
+        <ul>
+            <li><a href="cities.html">Cities</a></li>
+            <li><a href="contributors.html">Contributors</a></li>
+            <li><a href="about.html">About</a></li>
+        </ul>
     </nav>
 
-    <div class="fullscreen-menu">
-        <button class="close-button" aria-label="Close menu">×</button>
-        <div class="menu-links">
-            <a href="cities.html">Cities</a>
-            <a href="contributors.html">Contributors</a>
-            <a href="about.html">About</a>
-        </div>
+    <!-- Mobile Navigation -->
+    <nav class="mobile-nav">
+        <div class="logo"><a href="index.html">Heated.city</a></div>
+        <div class="menu-icon" onclick="toggleMenu()">☰</div>
+    </nav>
+
+    <div id="fullscreen-menu">
+        <span class="close-icon" onclick="toggleMenu()">&times;</span>
+        <a href="cities.html">Cities</a>
+        <a href="contributors.html">Contributors</a>
+        <a href="about.html">About</a>
     </div>
 
     <main class="container">
