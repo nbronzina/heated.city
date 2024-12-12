@@ -209,6 +209,21 @@
             transform: scale(1.1);
         }
 
+        .join-section {
+            text-align: center;
+            padding: 20px;
+            background-color: #f4a261;
+            color: white;
+            font-size: 1rem;
+            margin: 20px auto;
+            max-width: 600px;
+            border-radius: 5px;
+        }
+
+        .join-section p {
+            margin: 0 0 20px;
+        }
+
         footer {
             text-align: center;
             padding: 20px;
@@ -260,36 +275,42 @@
             <a href="#cities">Choose a City</a>
         </div>
     </header>
+
+    <div class="join-section">
+        <h3>Join the Movement</h3>
+        <p>Share your vision for your city's future. Together, we can create a sustainable and resilient urban future. <a href="#contact">Contact us</a> to become a contributor and be part of the Heated City community.</p>
+    </div>
+
     <footer>
         <p>&copy; 2024 Heated.city</p>
     </footer>
 
     <script>
-    document.addEventListener("DOMContentLoaded", () => {
-        const header = document.getElementById('dynamic-header');
-        const images = [
-            'img/city1.png',
-            'img/city2.png',
-            'img/city3.png'
-        ];
-        let index = 0;
+        document.addEventListener("DOMContentLoaded", () => {
+            const header = document.getElementById('dynamic-header');
+            const images = [
+                'img/city1.png',
+                'img/city2.png',
+                'img/city3.png'
+            ];
+            let index = 0;
 
-        function changeBackground() {
-            header.style.backgroundImage = `url('${images[index]}')`; // Corrección aquí
-            index = (index + 1) % images.length;
+            function changeBackground() {
+                header.style.backgroundImage = `url('${images[index]}')`; // Corrección aquí
+                index = (index + 1) % images.length;
+            }
+
+            // Cambia el fondo cada 5 segundos
+            setInterval(changeBackground, 5000);
+
+            // Configura la primera imagen
+            changeBackground();
+        });
+
+        function toggleMenu() {
+            const menu = document.getElementById('fullscreen-menu');
+            menu.classList.toggle('show');
         }
-
-        // Cambia el fondo cada 5 segundos
-        setInterval(changeBackground, 5000);
-
-        // Configura la primera imagen
-        changeBackground();
-    });
-
-    function toggleMenu() {
-        const menu = document.getElementById('fullscreen-menu');
-        menu.classList.toggle('show');
-    }
-</script>
+    </script>
 </body>
 </html>
