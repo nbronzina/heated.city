@@ -190,6 +190,38 @@
             font-weight: bold;
         }
 
+        .cta-section {
+            text-align: center;
+            padding: 20px;
+            background-color: #f4a261;
+            color: white;
+            font-size: 1rem;
+            margin: 20px auto;
+            max-width: 600px;
+            border-radius: 5px;
+        }
+
+        .cta-section p {
+            margin: 0 0 20px;
+        }
+
+        .cta-button {
+            display: inline-block;
+            padding: 10px 20px;
+            background-color: #e76f51;
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 1rem;
+            border-radius: 5px;
+            transition: background-color 0.3s, transform 0.2s;
+        }
+
+        .cta-button:hover {
+            background-color: #f4a261;
+            transform: scale(1.1);
+        }
+
         footer {
             text-align: center;
             padding: 20px;
@@ -264,7 +296,7 @@
                 <div class="contributor-category">
                     <h4>Buenos Aires organized by María Fernanda Domínguez</h4>
                     <div class="contributor">
-                        <h5>Aisha Patel</h5>
+                        <h5>María Fernanda Domínguez</h5>
                         <p><strong>Location:</strong> Buenos Aires, Argentina</p>
                         <p><strong>Vision:</strong> María's vision for Buenos Aires includes floating cities and advanced water management systems to combat sea-level rise.</p>
                         <p><strong>Quote:</strong> "Innovation in urban planning is crucial for adapting to climate change."</p>
@@ -273,7 +305,7 @@
                 <div class="contributor-category">
                     <h4>Madrid organized by Isabél Sánchez</h4>
                     <div class="contributor">
-                        <h5>Carlos García</h5>
+                        <h5>Isabél Sánchez</h5>
                         <p><strong>Location:</strong> Madrid, Spain</p>
                         <p><strong>Vision:</strong> Isabél imagines a Madrid with extensive urban gardens and vertical farming, ensuring food security and reducing carbon emissions.</p>
                         <p><strong>Quote:</strong> "Urban agriculture is the key to a greener, healthier city."</p>
@@ -291,14 +323,14 @@
                 <div class="contributor-category">
                     <h4>Nairobi organized by Kamau Mwangi</h4>
                     <div class="contributor">
-                        <h5>Maria Silva</h5>
+                        <h5>Kamau Mwangi</h5>
                         <p><strong>Location:</strong> Nairobi, Kenya</p>
-                        <p><strong>Vision:</strong> Maria's vision for Nairobi includes extensive green spaces and bike-friendly infrastructure, promoting a healthier lifestyle.</p>
+                        <p><strong>Vision:</strong> Kamau's vision for Nairobi includes extensive green spaces and bike-friendly infrastructure, promoting a healthier lifestyle.</p>
                         <p><strong>Quote:</strong> "Green spaces are essential for the well-being of urban residents."</p>
                     </div>
                 </div>
                 <div class="contributor-category">
-                    <h4>Tokyo organized by Li Wei</h4>
+                    <h4>Tokyo organized by Himari Satō</h4>
                     <div class="contributor">
                         <h5>Himari Satō</h5>
                         <p><strong>Location:</strong> Tokyo, Japan</p>
@@ -308,11 +340,13 @@
                 </div>
             </div>
         </div>
-           <div class="cta-section">
-            <h3>Join the Movement</h3>
-            <p><a href="#contact" class="cta-button">Contact us</a> to become a contributor and be part of the Heated City community.</p>
-        </div>
     </section>
+
+    <div class="cta-section">
+        <h3>Join the Movement</h3>
+        <p>Are you a designer, architect, urban planner, or a company focused on climate change? We invite you to share your vision for the future of cities. Together, we can create a sustainable and resilient urban future.</p>
+        <p><a href="#contact" class="cta-button">Contact us</a> to become a contributor and be part of the Heated City community.</p>
+    </div>
 
     <footer>
         <p>&copy; 2024 Heated.city. Built with love for the future. <a href="#">Contact us</a></p>
@@ -333,7 +367,7 @@
                 { name: "Isabél Sánchez", location: [40.4168, -3.7038], description: "Madrid, Spain" },
                 { name: "EcoCity Solutions", location: [-37.8136, 144.9631], description: "Melbourne, Australia" },
                 { name: "Kamau Mwangi", location: [-1.2921, 36.8219], description: "Nairobi, Kenya" },
-                { name: "Li Wei", location: [35.6895, 139.6917], description: "Tokyo, Japan" }
+                { name: "Himari Satō", location: [35.6895, 139.6917], description: "Tokyo, Japan" }
             ];
 
             contributors.forEach(function(contributor) {
