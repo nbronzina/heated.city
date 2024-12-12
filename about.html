@@ -51,6 +51,26 @@
             text-decoration: underline;
         }
 
+        .hamburger {
+            display: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+
+        .mobile-menu {
+            display: none;
+            flex-direction: column;
+            gap: 10px;
+            background-color: #f4a261;
+            padding: 10px;
+        }
+
+        .mobile-menu a {
+            text-decoration: none;
+            color: white;
+            font-weight: bold;
+        }
+
         .about-header {
             text-align: center;
             padding: 40px 20px;
@@ -111,14 +131,21 @@
 
         @media (max-width: 768px) {
             nav {
-                flex-direction: column;
-                align-items: flex-start;
+                flex-direction: row;
+                justify-content: space-between;
+                align-items: center;
+            }
+
+            nav .hamburger {
+                display: block;
             }
 
             nav ul {
-                flex-direction: column;
-                gap: 10px;
-                margin-top: 10px;
+                display: none;
+            }
+
+            nav ul.mobile-menu {
+                display: flex;
             }
 
             .about-header {
@@ -138,11 +165,23 @@
             }
         }
     </style>
+    <script>
+        function toggleMenu() {
+            const menu = document.querySelector('.mobile-menu');
+            menu.style.display = menu.style.display === 'flex' ? 'none' : 'flex';
+        }
+    </script>
 </head>
 <body>
     <nav>
         <div class="logo"><a href="index.html">Heated.city</a></div>
-        <ul>
+        <div class="hamburger" onclick="toggleMenu()">☰</div>
+        <ul class="mobile-menu">
+            <li><a href="cities.html">Cities</a></li>
+            <li><a href="contributors.html">Contributors</a></li>
+            <li><a href="about.html">About</a></li>
+        </ul>
+        <ul class="desktop-menu">
             <li><a href="cities.html">Cities</a></li>
             <li><a href="contributors.html">Contributors</a></li>
             <li><a href="about.html">About</a></li>
