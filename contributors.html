@@ -157,11 +157,6 @@
             max-height: 600px;
         }
 
-        #contributor-list h2, #contributor-list h3, #contributor-list h4 {
-            text-align: center;
-            margin-bottom: 20px;
-        }
-
         .contributor-category {
             margin-bottom: 20px;
         }
@@ -182,78 +177,11 @@
             margin-bottom: 10px;
         }
 
-        .contributor h5 {
-            margin-top: 0;
-        }
-
-        .contributor p {
-            margin: 5px 0;
-        }
-
-        .contributor p strong {
-            font-weight: bold;
-        }
-
-        .join-section {
-            text-align: center;
-            padding: 20px;
-            background-color: #f4a261;
-            color: white;
-            font-size: 1rem;
-            margin: 20px auto;
-            max-width: 600px;
-            border-radius: 5px;
-        }
-
-        .join-section p {
-            margin: 0 0 20px;
-        }
-
         footer {
             text-align: center;
             padding: 20px;
             background-color: #f4a261;
             color: white;
-            font-size: 1rem;
-        }
-
-        footer a {
-            color: white;
-            text-decoration: underline;
-        }
-
-        @media (max-width: 768px) {
-            nav.desktop-nav {
-                display: none;
-            }
-
-            nav.mobile-nav {
-                display: flex;
-            }
-
-            footer {
-                font-size: 0.9rem;
-            }
-
-            #map-container {
-                flex-direction: column;
-                align-items: center;
-            }
-
-            #map, #contributor-list {
-                width: 100%;
-                margin-left: 0;
-            }
-
-            #map {
-                height: 400px;
-                margin-bottom: 20px;
-            }
-
-            .join-section {
-                font-size: 0.9rem;
-                padding: 10px;
-            }
         }
     </style>
 </head>
@@ -290,91 +218,74 @@
             <div id="map"></div>
             <div id="contributor-list">
                 <div class="contributor-category">
-                    <h4>Berlin organized by GreenTech Innovations</h4>
+                    <h4>Buenos Aires organized by María Fernanda Domínguez</h4>
                     <div class="contributor">
-                        <p><strong>Vision:</strong> GreenTech Innovations is developing cutting-edge technologies to reduce carbon emissions and promote sustainable urban living.</p>
-                        <p><strong>Quote:</strong> "Technology and innovation are our best tools to fight climate change."</p>
+                        <p><strong>Vision:</strong>Resilient urban infrastructure to combat climate change.</p>
                     </div>
                 </div>
-               <div id="map-container">
-    <div id="map"></div>
-    <div id="contributor-list">
-        <div class="contributor-category">
-            <h4>Buenos Aires organized by María Fernanda Domínguez</h4>
-            <div class="contributor">
-                <p><strong>Vision:</strong> María's vision for Buenos Aires includes floating cities and advanced water management systems to combat sea-level rise.</p>
-                <p><strong>Quote:</strong> "Innovation in urban planning is crucial for adapting to climate change."</p>
+                <div class="contributor-category">
+                    <h4>Madrid organized by Isabél Sánchez</h4>
+                    <div class="contributor">
+                        <p><strong>Vision:</strong> Extensive urban gardens and vertical farming.</p>
+                    </div>
+                </div>
+                <div class="contributor-category">
+                    <h4>Melbourne organized by Callagun Smith</h4>
+                    <div class="contributor">
+                        <p><strong>Vision:</strong> Floating cities and advanced water management systems.</p>
+                    </div>
+                </div>
+                <div class="contributor-category">
+                    <h4>Nairobi organized by Kamau Mwangi</h4>
+                    <div class="contributor">
+                        <p><strong>Vision:</strong> Extensive green spaces and bike-friendly infrastructure.</p>
+                    </div>
+                </div>
+                <div class="contributor-category">
+                    <h4>New Delhi organized by Priya Sharma</h4>
+                    <div class="contributor">
+                        <p><strong>Vision:</strong> Community-driven renewable energy and urban solutions.</p>
+                    </div>
+                </div>
+                <div class="contributor-category">
+                    <h4>Tokyo organized by Himari Satō</h4>
+                    <div class="contributor">
+                        <p><strong>Vision:</strong> Integrated smart grids and renewable energy sources.</p>
+                    </div>
+                </div>
             </div>
         </div>
-        <div class="contributor-category">
-            <h4>Madrid organized by Isabél Sánchez</h4>
-            <div class="contributor">
-                <p><strong>Vision:</strong> Isabél imagines a Madrid with extensive urban gardens and vertical farming, ensuring food security and reducing carbon emissions.</p>
-                <p><strong>Quote:</strong> "Urban agriculture is the key to a greener, healthier city."</p>
-            </div>
-        </div>
-        <div class="contributor-category">
-            <h4>Melbourne organized by EcoCity Solutions</h4>
-            <div class="contributor">
-                <p><strong>Vision:</strong> EcoCity Solutions focuses on creating resilient urban infrastructure that can withstand the impacts of climate change.</p>
-                <p><strong>Quote:</strong> "Building resilient cities is our mission and our passion."</p>
-            </div>
-        </div>
-        <div class="contributor-category">
-            <h4>Nairobi organized by Kamau Mwangi</h4>
-            <div class="contributor">
-                <p><strong>Vision:</strong> Kamau's vision for Nairobi includes extensive green spaces and bike-friendly infrastructure, promoting a healthier lifestyle.</p>
-                <p><strong>Quote:</strong> "Green spaces are essential for the well-being of urban residents."</p>
-            </div>
-        </div>
-        <div class="contributor-category">
-            <h4>New Delhi organized by Priya Sharma</h4>
-            <div class="contributor">
-                <p><strong>Vision:</strong> Priya envisions New Delhi with renewable energy systems and community-driven solutions for tackling urban challenges.</p>
-                <p><strong>Quote:</strong> "Empowering communities is the first step to building a sustainable future."</p>
-            </div>
-        </div>
-        <div class="contributor-category">
-            <h4>Tokyo organized by Himari Satō</h4>
-            <div class="contributor">
-                <p><strong>Vision:</strong> Himari Satō sees a Tokyo with integrated smart grids and renewable energy sources, making the city energy-efficient and eco-friendly.</p>
-                <p><strong>Quote:</strong> "Smart cities are the future, and Tokyo is leading the way."</p>
-            </div>
-        </div>
-    </div>
-</div>
     </section>
     <footer>
         <p>&copy; 2024 Heated.city</p>
     </footer>
-
     <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
     <script>
-        document.addEventListener("DOMContentLoaded", function() {
-            var map = L.map('map').setView([20, 0], 2);
+        document.addEventListener("DOMContentLoaded", function () {
+            const map = L.map("map").setView([20, 0], 2);
 
-            L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-                attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+            L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
+                attribution: 'Map data &copy; <a href="https://openstreetmap.org">OpenStreetMap</a>',
             }).addTo(map);
 
-            var contributors = [
-    { name: "María Fernanda Domínguez", location: [-34.6037, -58.3816], description: "Buenos Aires, Argentina" },
-    { name: "Isabél Sánchez", location: [40.4168, -3.7038], description: "Madrid, Spain" },
-    { name: "EcoCity Solutions", location: [-37.8136, 144.9631], description: "Melbourne, Australia" },
-    { name: "Kamau Mwangi", location: [-1.2921, 36.8219], description: "Nairobi, Kenya" },
-    { name: "Priya Sharma", location: [28.6139, 77.2090], description: "New Delhi, India" },
-    { name: "Himari Satō", location: [35.6895, 139.6917], description: "Tokyo, Japan" }
-];
+            const contributors = [
+                { name: "María Fernanda Domínguez", location: [-34.6037, -58.3816], description: "Buenos Aires" },
+                { name: "Isabél Sánchez", location: [40.4168, -3.7038], description: "Madrid" },
+                { name: "Callagun Smith", location: [-37.8136, 144.9631], description: "Melbourne" },
+                { name: "Kamau Mwangi", location: [-1.2921, 36.8219], description: "Nairobi" },
+                { name: "Priya Sharma", location: [28.6139, 77.2090], description: "New Delhi" },
+                { name: "Himari Satō", location: [35.6895, 139.6917], description: "Tokyo" }
+            ];
 
-contributors.forEach(function(contributor) {
-    L.marker(contributor.location).addTo(map)
-        .bindPopup(contributor.name + "<br>" + contributor.description);
-});
+            contributors.forEach(contributor => {
+                L.marker(contributor.location)
+                    .addTo(map)
+                    .bindPopup(`<b>${contributor.name}</b><br>${contributor.description}`);
+            });
         });
 
         function toggleMenu() {
-            const menu = document.getElementById('fullscreen-menu');
-            menu.classList.toggle('show');
+            document.getElementById("fullscreen-menu").classList.toggle("show");
         }
     </script>
 </body>
