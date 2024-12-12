@@ -209,6 +209,17 @@
             const menu = document.getElementById('fullscreen-menu');
             menu.classList.toggle('show');
         }
+        function toggleMenu() {
+    const menu = document.getElementById("fullscreen-menu");
+    const map = document.getElementById("map");
+    menu.classList.toggle("show");
+
+    if (menu.classList.contains("show")) {
+        map.style.pointerEvents = "none"; // Deshabilita interacción con el mapa
+    } else {
+        map.style.pointerEvents = "auto"; // Habilita interacción con el mapa
+    }
+}
     </script>
 </head>
 <body>
