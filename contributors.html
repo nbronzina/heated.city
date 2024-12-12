@@ -57,7 +57,7 @@
 
         /* Mobile Navigation */
         nav.mobile-nav {
-            display: flex;
+            display: none;
             justify-content: space-between;
             align-items: center;
             padding: 15px 25px;
@@ -223,6 +223,14 @@
         }
 
         @media (max-width: 768px) {
+            nav.desktop-nav {
+                display: none;
+            }
+
+            nav.mobile-nav {
+                display: flex;
+            }
+
             footer {
                 font-size: 0.9rem;
             }
@@ -250,6 +258,16 @@
     </style>
 </head>
 <body>
+    <!-- Desktop Navigation -->
+    <nav class="desktop-nav">
+        <div class="logo"><a href="index.html">Heated.city</a></div>
+        <ul>
+            <li><a href="index.html#cities">Cities</a></li>
+            <li><a href="contributors.html">Contributors</a></li>
+            <li><a href="index.html#about">About</a></li>
+        </ul>
+    </nav>
+
     <!-- Mobile Navigation -->
     <nav class="mobile-nav">
         <div class="logo"><a href="index.html">Heated.city</a></div>
