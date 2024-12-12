@@ -3,10 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Heated.city - Imagine Your City in 2030</title>
+    <meta name="description" content="Heated City is a global directory where urban planners, designers, and climate-focused innovators share visions for the cities of 2030 and beyond.">
+    <meta name="keywords" content="Heated City, Contributors, Urban Planning, Sustainability, Cities in 2030">
+    <meta name="author" content="Heated City">
+    <title>Heated.city - Contributors</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Mono:wght@100..900&family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css">
     <style>
         body {
             margin: 0;
@@ -26,9 +30,11 @@
             color: white;
         }
 
-        nav.desktop-nav .logo {
+        nav.desktop-nav .logo a {
             font-size: 1.5rem;
             font-weight: bold;
+            text-decoration: none;
+            color: white;
         }
 
         nav.desktop-nav ul {
@@ -59,9 +65,11 @@
             color: white;
         }
 
-        nav.mobile-nav .logo {
+        nav.mobile-nav .logo a {
             font-size: 1.5rem;
             font-weight: bold;
+            text-decoration: none;
+            color: white;
         }
 
         nav.mobile-nav .menu-icon {
@@ -75,15 +83,15 @@
             top: 0;
             left: 0;
             width: 100%;
-            height: 100vh; /* Asegura que cubre toda la ventana */
-            background-color: rgba(244, 162, 97, 0.95); /* Naranja con transparencia */
+            height: 100vh;
+            background-color: rgba(244, 162, 97, 0.95);
             color: white;
             justify-content: center;
             align-items: center;
             flex-direction: column;
             gap: 20px;
             z-index: 1000;
-            overflow: hidden; /* Evita desplazamiento si el contenido excede */
+            overflow: hidden;
         }
 
         #fullscreen-menu.show {
@@ -110,74 +118,46 @@
             text-decoration: underline;
         }
 
-        header {
-            position: relative;
-            height: 100vh;
-            color: white;
-            text-align: center;
+        /* Contributors Section */
+        #contributors {
             display: flex;
             flex-direction: column;
-            justify-content: center;
             align-items: center;
-            background-size: cover;
-            background-position: center;
-            background-repeat: no-repeat;
-            transition: background-image 1s ease-in-out;
-            padding: 0 20px;
+            padding: 20px;
+            max-width: 1200px;
+            margin: 30px auto;
         }
 
-        header h1 {
-            font-size: 3rem;
-            margin: 0 0 20px;
-            text-shadow: 2px 2px 15px rgba(0, 0, 0, 0.8);
+        #description {
+            width: 100%;
+            text-align: center;
+            margin-bottom: 20px;
         }
 
-        header p {
-            font-size: 1.5rem;
-            margin: 0 0 30px;
-            text-shadow: 1px 1px 10px rgba(0, 0, 0, 0.7);
+        #map-container {
+            display: flex;
+            width: 100%;
         }
 
-        header .cta a {
-            padding: 15px 30px;
-            background-color: #e76f51;
-            color: white;
-            text-decoration: none;
-            font-weight: bold;
-            font-size: 1.2rem;
+        #map {
+            flex: 2;
+            height: 600px;
             border-radius: 5px;
-            transition: background-color 0.3s, transform 0.2s;
+            border: 1px solid #ddd;
         }
 
-        header .cta a:hover {
-            background-color: #f4a261;
-            transform: scale(1.1);
+        #contributor-list {
+            flex: 1;
+            padding: 20px;
+            background: #f9f9f9;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            margin-left: 20px;
+            overflow-y: auto;
+            max-height: 600px;
         }
 
-        @media (max-width: 768px) {
-            nav.desktop-nav {
-                display: none;
-            }
-
-            nav.mobile-nav {
-                display: flex;
-            }
-
-            header h1 {
-                font-size: 2.5rem;
-            }
-
-            header p {
-                font-size: 1.2rem;
-            }
-
-            header .cta a {
-                font-size: 1rem;
-                padding: 10px 20px;
-            }
-        }
-
-        .cta-section {
+        .join-section {
             text-align: center;
             padding: 20px;
             background-color: #f4a261;
@@ -188,25 +168,8 @@
             border-radius: 5px;
         }
 
-        .cta-section p {
+        .join-section p {
             margin: 0 0 20px;
-        }
-
-        .cta-button {
-            display: inline-block;
-            padding: 10px 20px;
-            background-color: #e76f51;
-            color: white;
-            text-decoration: none;
-            font-weight: bold;
-            font-size: 1rem;
-            border-radius: 5px;
-            transition: background-color 0.3s, transform 0.2s;
-        }
-
-        .cta-button:hover {
-            background-color: #f4a261;
-            transform: scale(1.1);
         }
 
         footer {
@@ -223,8 +186,36 @@
         }
 
         @media (max-width: 768px) {
+            nav.desktop-nav {
+                display: none;
+            }
+
+            nav.mobile-nav {
+                display: flex;
+            }
+
             footer {
                 font-size: 0.9rem;
+            }
+
+            #map-container {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            #map, #contributor-list {
+                width: 100%;
+                margin-left: 0;
+            }
+
+            #map {
+                height: 400px;
+                margin-bottom: 20px;
+            }
+
+            .join-section {
+                font-size: 0.9rem;
+                padding: 10px;
             }
         }
     </style>
@@ -232,58 +223,67 @@
 <body>
     <!-- Desktop Navigation -->
     <nav class="desktop-nav">
-        <div class="logo">Heated.city</div>
+        <div class="logo"><a href="index.html">Heated.city</a></div>
         <ul>
-            <li><a href="cities.html">Cities</a></li>
+            <li><a href="index.html#cities">Cities</a></li>
             <li><a href="contributors.html">Contributors</a></li>
-            <li><a href="#about">About</a></li>
+            <li><a href="index.html#about">About</a></li>
         </ul>
     </nav>
 
     <!-- Mobile Navigation -->
     <nav class="mobile-nav">
-        <div class="logo">Heated.city</div>
+        <div class="logo"><a href="index.html">Heated.city</a></div>
         <div class="menu-icon" onclick="toggleMenu()">☰</div>
     </nav>
 
     <div id="fullscreen-menu">
         <span class="close-icon" onclick="toggleMenu()">&times;</span>
-        <a href="#cities">Cities</a>
+        <a href="index.html#cities">Cities</a>
         <a href="contributors.html">Contributors</a>
-        <a href="#about">About</a>
+        <a href="index.html#about">About</a>
     </div>
 
-    <header id="dynamic-header">
-        <h1>Future Cities Guide</h1>
-        <p>A curated collection of city visions, transforming how we inhabit our world.</p>
-        <div class="cta">
-            <a href="#cities">Choose a City</a>
+    <section id="contributors">
+        <div id="description">
+            <h2>Contributors</h2>
+            <p>Heated City is a global directory where designers, architects, urban planners, and climate-focused companies worldwide have shared their visions for cities in 2030 and beyond. Our contributors are passionate about creating sustainable, resilient, and innovative urban environments that will transform the way we inhabit our world.</p>
         </div>
-    </header>
+        <div id="map-container">
+            <div id="map"></div>
+            <div id="contributor-list">
+                <!-- Your list content here -->
+            </div>
+        </div>
+    </section>
+
+    <div class="join-section">
+        <h3>Join the Movement</h3>
+        <p>Share your vision for your city's future. Together, we can create a sustainable and resilient urban future. <a href="#contact">Contact us</a> to become a contributor and be part of the Heated City community.</p>
+    </div>
+
     <footer>
         <p>&copy; 2024 Heated.city</p>
     </footer>
 
+    <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
     <script>
-        document.addEventListener("DOMContentLoaded", () => {
-            const header = document.getElementById('dynamic-header');
-            const images = [
-                'img/city1.png',
-                'img/city2.png',
-                'img/city3.png'
+        document.addEventListener("DOMContentLoaded", function() {
+            var map = L.map('map').setView([20, 0], 2);
+
+            L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+                attribution: '&copy; OpenStreetMap contributors'
+            }).addTo(map);
+
+            var contributors = [
+                { name: "GreenTech Innovations", location: [52.5200, 13.4050], description: "Berlin, Germany" },
+                { name: "María Fernanda Domínguez", location: [-34.6037, -58.3816], description: "Buenos Aires, Argentina" },
             ];
-            let index = 0;
 
-            function changeBackground() {
-                header.style.backgroundImage = `url('${images[index]}')`;
-                index = (index + 1) % images.length;
-            }
-
-            // Cambia el fondo cada 5 segundos
-            setInterval(changeBackground, 5000);
-
-            // Configura la primera imagen
-            changeBackground();
+            contributors.forEach(function(contributor) {
+                L.marker(contributor.location).addTo(map)
+                    .bindPopup(contributor.name + "<br>" + contributor.description);
+            });
         });
 
         function toggleMenu() {
