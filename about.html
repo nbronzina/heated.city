@@ -6,6 +6,7 @@
     <title>Heated.city - About</title>
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;700&display=swap">
     <style>
+        /* General Styles */
         body {
             margin: 0;
             font-family: 'Open Sans', sans-serif;
@@ -20,27 +21,24 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 15px 25px;
+            padding: 15px 20px;
             background-color: #f4a261;
             color: white;
         }
 
-        nav .logo {
+        nav .logo a {
             font-size: 1.5rem;
             font-weight: bold;
             color: white;
+            text-decoration: none;
         }
 
         nav ul {
             list-style: none;
             display: flex;
-            gap: 20px;
+            gap: 15px;
             margin: 0;
             padding: 0;
-        }
-
-        nav ul li {
-            display: inline;
         }
 
         nav ul li a {
@@ -55,7 +53,7 @@
 
         .about-header {
             text-align: center;
-            padding: 50px 20px;
+            padding: 40px 20px;
             margin: 20px auto;
             max-width: 800px;
         }
@@ -63,17 +61,43 @@
         .about-header h1 {
             font-size: 2.5rem;
             margin-bottom: 20px;
+            color: #222;
         }
 
         .about-header p {
-            font-size: 1.2rem;
-            margin: 0 auto;
+            font-size: 1.1rem;
             line-height: 1.8;
+            margin-bottom: 15px;
+        }
+
+        .cta-section {
+            text-align: center;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: #f9f9f9;
+            border-radius: 5px;
+            max-width: 800px;
+        }
+
+        .cta-section p {
+            font-size: 1rem;
+            line-height: 1.6;
+            margin: 0;
+        }
+
+        .cta-section a {
+            color: #e76f51;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        .cta-section a:hover {
+            text-decoration: underline;
         }
 
         footer {
             text-align: center;
-            padding: 20px;
+            padding: 15px;
             background-color: #f4a261;
             color: white;
             font-size: 0.9rem;
@@ -86,8 +110,31 @@
         }
 
         @media (max-width: 768px) {
+            nav {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            nav ul {
+                flex-direction: column;
+                gap: 10px;
+                margin-top: 10px;
+            }
+
             .about-header {
-                padding: 30px 20px;
+                padding: 30px 15px;
+            }
+
+            .about-header h1 {
+                font-size: 2rem;
+            }
+
+            .about-header p {
+                font-size: 1rem;
+            }
+
+            .cta-section {
+                padding: 15px;
             }
         }
     </style>
@@ -107,6 +154,10 @@
         <p>Heated.city is your gateway to the vibrant communities redefining urban living. Through curated stories and innovative ideas, we explore how neighborhoods around the world are shaping the cities of tomorrow.</p>
         <p>This guide is a beacon of urban transformation, highlighting the intersection of creativity and resilience. From sustainable infrastructure to cultural breakthroughs, we delve into how forward-thinking communities are reimagining what it means to live, work, and thrive in urban spaces.</p>
         <p>At Heated.city, we collaborate with architects, planners, and innovators to inspire action and foster connections. By sharing transformative stories and showcasing pioneering projects, we empower communities to design cities that are not only inclusive but also equipped to flourish amid global challenges. Together, we shape future cities—adaptable, resilient, and alive with possibility.</p>
+    </div>
+
+    <div class="cta-section">
+        <p>Have an idea or a vision for your city? <a href="#contact">Contact us</a> and join the movement to shape the future of urban living.</p>
     </div>
 
     <footer>
