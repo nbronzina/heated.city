@@ -4,20 +4,22 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Heated.city - Imagine Your City in 2030</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Mono:wght@100..900&family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;700&display=swap">
     <style>
+        /* General Styles */
         body {
             margin: 0;
             font-family: 'Open Sans', sans-serif;
             background-color: #fff;
             color: #333;
             line-height: 1.6;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
         }
 
         /* Desktop Navigation */
-        nav.desktop-nav {
+        .desktop-nav {
             display: flex;
             justify-content: space-between;
             align-items: center;
@@ -26,12 +28,14 @@
             color: white;
         }
 
-        nav.desktop-nav .logo {
+        .desktop-nav .logo a {
             font-size: 1.5rem;
             font-weight: bold;
+            text-decoration: none;
+            color: white;
         }
 
-        nav.desktop-nav ul {
+        .desktop-nav ul {
             list-style: none;
             display: flex;
             gap: 15px;
@@ -39,18 +43,18 @@
             padding: 0;
         }
 
-        nav.desktop-nav ul li a {
+        .desktop-nav ul li a {
             text-decoration: none;
             color: white;
             font-weight: bold;
         }
 
-        nav.desktop-nav ul li a:hover {
+        .desktop-nav ul li a:hover {
             text-decoration: underline;
         }
 
         /* Mobile Navigation */
-        nav.mobile-nav {
+        .mobile-nav {
             display: none;
             justify-content: space-between;
             align-items: center;
@@ -59,12 +63,14 @@
             color: white;
         }
 
-        nav.mobile-nav .logo {
+        .mobile-nav .logo a {
             font-size: 1.5rem;
             font-weight: bold;
+            text-decoration: none;
+            color: white;
         }
 
-        nav.mobile-nav .menu-icon {
+        .mobile-nav .menu-icon {
             font-size: 1.5rem;
             cursor: pointer;
         }
@@ -75,15 +81,14 @@
             top: 0;
             left: 0;
             width: 100%;
-            height: 100vh; /* Asegura que cubre toda la ventana */
-            background-color: rgba(244, 162, 97, 0.95); /* Naranja con transparencia */
+            height: 100vh;
+            background-color: rgba(244, 162, 97, 0.95);
             color: white;
             justify-content: center;
             align-items: center;
             flex-direction: column;
             gap: 20px;
             z-index: 1000;
-            overflow: hidden; /* Evita desplazamiento si el contenido excede */
         }
 
         #fullscreen-menu.show {
@@ -154,12 +159,26 @@
             transform: scale(1.1);
         }
 
+        footer {
+            text-align: center;
+            padding: 20px;
+            background-color: #f4a261;
+            color: white;
+            font-size: 1rem;
+            margin-top: auto;
+        }
+
+        footer a {
+            color: white;
+            text-decoration: underline;
+        }
+
         @media (max-width: 768px) {
-            nav.desktop-nav {
+            .desktop-nav {
                 display: none;
             }
 
-            nav.mobile-nav {
+            .mobile-nav {
                 display: flex;
             }
 
@@ -176,78 +195,36 @@
                 padding: 10px 20px;
             }
         }
-
-        .cta-section {
-            text-align: center;
-            padding: 20px;
-            background-color: #f4a261;
-            color: white;
-            font-size: 1rem;
-            margin: 20px auto;
-            max-width: 600px;
-            border-radius: 5px;
-        }
-
-        .cta-section p {
-            margin: 0 0 20px;
-        }
-
-        .cta-button {
-            display: inline-block;
-            padding: 10px 20px;
-            background-color: #e76f51;
-            color: white;
-            text-decoration: none;
-            font-weight: bold;
-            font-size: 1rem;
-            border-radius: 5px;
-            transition: background-color 0.3s, transform 0.2s;
-        }
-
-        .cta-button:hover {
-            background-color: #f4a261;
-            transform: scale(1.1);
-        }
-
-        .join-section {
-            text-align: center;
-            padding: 20px;
-            background-color: #f4a261;
-            color: white;
-            font-size: 1rem;
-            margin: 20px auto;
-            max-width: 600px;
-            border-radius: 5px;
-        }
-
-        .join-section p {
-            margin: 0 0 20px;
-        }
-
-        footer {
-            text-align: center;
-            padding: 20px;
-            background-color: #f4a261;
-            color: white;
-            font-size: 1rem;
-        }
-
-        footer a {
-            color: white;
-            text-decoration: underline;
-        }
-
-        @media (max-width: 768px) {
-            footer {
-                font-size: 0.9rem;
-            }
-        }
     </style>
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            const header = document.getElementById('dynamic-header');
+            const images = [
+                'img/city1.png',
+                'img/city2.png',
+                'img/city3.png'
+            ];
+            let index = 0;
+
+            function changeBackground() {
+                header.style.backgroundImage = `url('${images[index]}')`;
+                index = (index + 1) % images.length;
+            }
+
+            setInterval(changeBackground, 5000);
+            changeBackground();
+        });
+
+        function toggleMenu() {
+            const menu = document.getElementById('fullscreen-menu');
+            menu.classList.toggle('show');
+        }
+    </script>
 </head>
 <body>
     <!-- Desktop Navigation -->
     <nav class="desktop-nav">
-        <div class="logo">Heated.city</div>
+        <div class="logo"><a href="index.html">Heated.city</a></div>
         <ul>
             <li><a href="cities.html">Cities</a></li>
             <li><a href="contributors.html">Contributors</a></li>
@@ -257,13 +234,13 @@
 
     <!-- Mobile Navigation -->
     <nav class="mobile-nav">
-        <div class="logo">Heated.city</div>
+        <div class="logo"><a href="index.html">Heated.city</a></div>
         <div class="menu-icon" onclick="toggleMenu()">☰</div>
     </nav>
 
     <div id="fullscreen-menu">
         <span class="close-icon" onclick="toggleMenu()">&times;</span>
-        <a href="#cities.html">Cities</a>
+        <a href="cities.html">Cities</a>
         <a href="contributors.html">Contributors</a>
         <a href="about.html">About</a>
     </div>
@@ -279,33 +256,5 @@
     <footer>
         <p>&copy; 2024 Heated.city</p>
     </footer>
-
-    <script>
-        document.addEventListener("DOMContentLoaded", () => {
-            const header = document.getElementById('dynamic-header');
-            const images = [
-                'img/city1.png',
-                'img/city2.png',
-                'img/city3.png'
-            ];
-            let index = 0;
-
-            function changeBackground() {
-                header.style.backgroundImage = `url('${images[index]}')`; // Corrección aquí
-                index = (index + 1) % images.length;
-            }
-
-            // Cambia el fondo cada 5 segundos
-            setInterval(changeBackground, 5000);
-
-            // Configura la primera imagen
-            changeBackground();
-        });
-
-        function toggleMenu() {
-            const menu = document.getElementById('fullscreen-menu');
-            menu.classList.toggle('show');
-        }
-    </script>
 </body>
 </html>
