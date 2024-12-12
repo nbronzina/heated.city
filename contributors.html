@@ -125,24 +125,32 @@
             margin: 30px auto;
         }
 
-        #map-container {
-            display: flex;
+        #description {
             width: 100%;
+            text-align: center;
             margin-bottom: 20px;
         }
 
+        #map-container {
+            display: flex;
+            width: 100%;
+        }
+
         #map {
-            width: 70%;
+            flex: 2;
             height: 600px;
+            border-radius: 5px;
         }
 
         #contributor-list {
-            width: 30%;
+            flex: 1;
             padding: 20px;
             background: #f9f9f9;
             border: 1px solid #ddd;
             border-radius: 5px;
             margin-left: 20px;
+            overflow-y: auto;
+            max-height: 600px;
         }
 
         #contributor-list h2, #contributor-list h3, #contributor-list h4 {
@@ -151,15 +159,23 @@
         }
 
         .contributor-category {
-            margin-bottom: 40px;
+            margin-bottom: 20px;
+        }
+
+        .contributor-category h4 {
+            background-color: #f4a261;
+            color: white;
+            padding: 10px;
+            border-radius: 5px;
+            margin-bottom: 10px;
         }
 
         .contributor {
             background: #fff;
             border: 1px solid #ddd;
             border-radius: 5px;
-            padding: 20px;
-            margin-bottom: 20px;
+            padding: 10px;
+            margin-bottom: 10px;
         }
 
         .contributor h5 {
@@ -229,61 +245,75 @@
     </div>
 
     <section id="contributors">
-        <div id="map-container">
+        <div id="description">
             <h2>Contributors</h2>
             <p>Heated City is a global directory where designers, architects, urban planners, and climate-focused companies from around the world have shared their visions for cities in 2030 and beyond. Our contributors are passionate about creating sustainable, resilient, and innovative urban environments that will transform the way we inhabit our world.</p>
+        </div>
+        <div id="map-container">
             <div id="map"></div>
             <div id="contributor-list">
                 <div class="contributor-category">
-                    <h4>Designers and Architects</h4>
+                    <h4>Dubai organized by Orikami Lab</h4>
                     <div class="contributor">
-                        <h5>Jane Doe</h5>
-                        <p><strong>Location:</strong> New York, USA</p>
-                        <p><strong>Vision:</strong> Jane envisions a New York City with green roofs on every building, reducing the urban heat island effect and promoting biodiversity.</p>
+                        <h5>Khalid Mezaina</h5>
+                        <p><strong>Curator of:</strong> Deira</p>
                     </div>
                     <div class="contributor">
-                        <h5>Carlos García</h5>
-                        <p><strong>Location:</strong> Madrid, Spain</p>
-                        <p><strong>Vision:</strong> Carlos imagines a Madrid with extensive urban gardens and vertical farming, ensuring food security and reducing carbon emissions.</p>
+                        <h5>Leen Sadder</h5>
+                        <p><strong>Curator of:</strong> Al Quoz</p>
                     </div>
                     <div class="contributor">
-                        <h5>Aisha Patel</h5>
-                        <p><strong>Location:</strong> Mumbai, India</p>
-                        <p><strong>Vision:</strong> Aisha's vision for Mumbai includes floating cities and advanced water management systems to combat sea-level rise.</p>
+                        <h5>Mobius Studio</h5>
+                        <p><strong>Curator of:</strong> Al Satwa</p>
+                    </div>
+                    <div class="contributor">
+                        <h5>Samia Kallidin</h5>
+                        <p><strong>Curator of:</strong> Umm Suqeim</p>
+                    </div>
+                    <div class="contributor">
+                        <h5>Orikami Lab</h5>
+                        <p><strong>Ambassador of:</strong> Downtown Dubai</p>
                     </div>
                 </div>
-
                 <div class="contributor-category">
-                    <h4>Urban Planners</h4>
+                    <h4>Dublin organized by It's Okay</h4>
                     <div class="contributor">
-                        <h5>Li Wei</h5>
-                        <p><strong>Location:</strong> Shanghai, China</p>
-                        <p><strong>Vision:</strong> Li Wei sees a Shanghai with integrated smart grids and renewable energy sources, making the city energy-efficient and eco-friendly.</p>
+                        <h5>Kooba</h5>
+                        <p><strong>Curator of:</strong> Northside</p>
                     </div>
                     <div class="contributor">
-                        <h5>Maria Silva</h5>
-                        <p><strong>Location:</strong> São Paulo, Brazil</p>
-                        <p><strong>Vision:</strong> Maria's vision for São Paulo includes extensive green spaces and bike-friendly infrastructure, promoting a healthier lifestyle.</p>
+                        <h5>It's Okay</h5>
+                        <p><strong>Ambassador of:</strong> Southside</p>
                     </div>
                 </div>
-
                 <div class="contributor-category">
-                    <h4>Climate-Focused Companies</h4>
+                    <h4>Durham organized by WillowTree Durham</h4>
                     <div class="contributor">
-                        <h5>GreenTech Innovations</h5>
-                        <p><strong>Location:</strong> Berlin, Germany</p>
-                        <p><strong>Vision:</strong> GreenTech Innovations is developing cutting-edge technologies to reduce carbon emissions and promote sustainable urban living.</p>
+                        <h5>Draamten</h5>
+                        <p><strong>Curator of:</strong> Ninth Street & Trinity Park</p>
+                        <p><strong>Status:</strong> COMING SOON</p>
                     </div>
                     <div class="contributor">
-                        <h5>EcoCity Solutions</h5>
-                        <p><strong>Location:</strong> Sydney, Australia</p>
-                        <p><strong>Vision:</strong> EcoCity Solutions focuses on creating resilient urban infrastructure that can withstand the impacts of climate change.</p>
+                        <h5>WillowTree Durham</h5>
+                        <p><strong>Ambassador of:</strong> Downtown Durham</p>
                     </div>
                 </div>
-
-                <h3>Join the Movement</h3>
-                <p>Are you a designer, architect, urban planner, or a company focused on climate change? We invite you to share your vision for the future of cities. Together, we can create a sustainable and resilient urban future.</p>
-                <p><a href="#contact">Contact us</a> to become a contributor and be part of the Heated City community.</p>
+                <div class="contributor-category">
+                    <h4>Edinburgh organized by fourcolourblack</h4>
+                    <div class="contributor">
+                        <h5>Chris Brott</h5>
+                        <p><strong>Curator of:</strong> West End</p>
+                    </div>
+                    <div class="contributor">
+                        <h5>CRE-ATE</h5>
+                        <p><strong>Curator of:</strong> Stockbridge</p>
+                    </div>
+                    <div class="contributor">
+                        <h5>Alix McIntosh</h5>
+                        <p><strong>Curator of:</strong> Old Town</p>
+                        <p><strong>Status:</strong> COMING SOON</p>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
@@ -302,18 +332,27 @@
             }).addTo(map);
 
             var contributors = [
-                { name: "Jane Doe", location: [40.7128, -74.0060], description: "New York, USA" },
-                { name: "Carlos García", location: [40.4168, -3.7038], description: "Madrid, Spain" },
-                { name: "Aisha Patel", location: [19.0760, 72.8777], description: "Mumbai, India" },
-                { name: "Li Wei", location: [31.2304, 121.4737], description: "Shanghai, China" },
-                { name: "Maria Silva", location: [-23.5505, -46.6333], description: "São Paulo, Brazil" },
-                { name: "GreenTech Innovations", location: [52.5200, 13.4050], description: "Berlin, Germany" },
-                { name: "EcoCity Solutions", location: [-33.8688, 151.2093], description: "Sydney, Australia" }
+                { name: "Khalid Mezaina", location: [25.2585, 55.3065], description: "Curator of Deira" },
+                { name: "Leen Sadder", location: [25.1940, 55.2550], description: "Curator of Al Quoz" },
+                { name: "Mobius Studio", location: [25.2225, 55.2800], description: "Curator of Al Satwa" },
+                { name: "Samia Kallidin", location: [25.2155, 55.2600], description: "Curator of Umm Suqeim" },
+                { name: "Orikami Lab", location: [25.2048, 55.2700], description: "Ambassador of Downtown Dubai" },
+                { name: "Kooba", location: [53.3498, -6.2603], description: "Curator of Northside" },
+                { name: "It's Okay", location: [53.3498, -6.2603], description: "Ambassador of Southside" },
+                { name: "Draamten", location: [36.0007, -78.9096], description: "Curator of Ninth Street & Trinity Park", status: "COMING SOON" },
+                { name: "WillowTree Durham", location: [36.0007, -78.9096], description: "Ambassador of Downtown Durham" },
+                { name: "Chris Brott", location: [55.9520, -3.2075], description: "Curator of West End" },
+                { name: "CRE-ATE", location: [55.9520, -3.2075], description: "Curator of Stockbridge" },
+                { name: "Alix McIntosh", location: [55.9520, -3.2075], description: "Curator of Old Town", status: "COMING SOON" }
             ];
 
             contributors.forEach(function(contributor) {
-                L.marker(contributor.location).addTo(map)
-                    .bindPopup(contributor.name + "<br>" + contributor.description);
+                var marker = L.marker(contributor.location).addTo(map);
+                var popupContent = contributor.name + "<br>" + contributor.description;
+                if (contributor.status) {
+                    popupContent += "<br><strong>Status:</strong> " + contributor.status;
+                }
+                marker.bindPopup(popupContent);
             });
         });
 
