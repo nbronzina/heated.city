@@ -6,11 +6,10 @@
     <meta name="description" content="Explore cities reimagined for 2030 with Heated.city. Discover sustainable and innovative urban visions from around the globe.">
     <meta name="keywords" content="Cities, Heated.city, Sustainability, Urban Planning, Future Cities">
     <meta name="author" content="Heated.city">
-    <title>Heated City - Cities</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;700&display=swap" rel="stylesheet">
+    <title>Heated.city - Cities</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;700&display=swap">
     <style>
+        /* General Styles */
         body {
             margin: 0;
             font-family: 'Open Sans', sans-serif;
@@ -23,7 +22,7 @@
         }
 
         /* Desktop Navigation */
-        nav.desktop-nav {
+        .desktop-nav {
             display: flex;
             justify-content: space-between;
             align-items: center;
@@ -32,14 +31,14 @@
             color: white;
         }
 
-        nav.desktop-nav .logo a {
+        .desktop-nav .logo a {
             font-size: 1.5rem;
             font-weight: bold;
             text-decoration: none;
             color: white;
         }
 
-        nav.desktop-nav ul {
+        .desktop-nav ul {
             list-style: none;
             display: flex;
             gap: 15px;
@@ -47,18 +46,18 @@
             padding: 0;
         }
 
-        nav.desktop-nav ul li a {
+        .desktop-nav ul li a {
             text-decoration: none;
             color: white;
             font-weight: bold;
         }
 
-        nav.desktop-nav ul li a:hover {
+        .desktop-nav ul li a:hover {
             text-decoration: underline;
         }
 
         /* Mobile Navigation */
-        nav.mobile-nav {
+        .mobile-nav {
             display: none;
             justify-content: space-between;
             align-items: center;
@@ -67,14 +66,14 @@
             color: white;
         }
 
-        nav.mobile-nav .logo a {
+        .mobile-nav .logo a {
             font-size: 1.5rem;
             font-weight: bold;
             text-decoration: none;
             color: white;
         }
 
-        nav.mobile-nav .menu-icon {
+        .mobile-nav .menu-icon {
             font-size: 1.5rem;
             cursor: pointer;
         }
@@ -93,7 +92,6 @@
             flex-direction: column;
             gap: 20px;
             z-index: 1000;
-            overflow: hidden;
         }
 
         #fullscreen-menu.show {
@@ -106,7 +104,6 @@
             right: 20px;
             font-size: 1.5rem;
             cursor: pointer;
-            color: white;
         }
 
         #fullscreen-menu a {
@@ -198,11 +195,25 @@
         }
 
         @media (max-width: 768px) {
+            .desktop-nav {
+                display: none;
+            }
+
+            .mobile-nav {
+                display: flex;
+            }
+
             .city-card {
                 width: calc(100% - 30px);
             }
         }
     </style>
+    <script>
+        function toggleMenu() {
+            const menu = document.getElementById('fullscreen-menu');
+            menu.classList.toggle('show');
+        }
+    </script>
 </head>
 <body>
     <!-- Desktop Navigation -->
@@ -263,12 +274,5 @@
     <footer>
         <p>&copy; 2024 Heated.city</p>
     </footer>
-
-    <script>
-        function toggleMenu() {
-            const menu = document.getElementById('fullscreen-menu');
-            menu.classList.toggle('show');
-        }
-    </script>
 </body>
 </html>
