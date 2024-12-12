@@ -11,7 +11,9 @@
             font-family: 'Open Sans', sans-serif;
             background-color: #f4a261;
             color: #333;
-            line-height: 1.6;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
         }
 
         nav {
@@ -55,6 +57,9 @@
             padding: 50px 20px;
             background-color: #fff;
             color: #333;
+            border-radius: 5px;
+            margin: 20px auto;
+            max-width: 800px;
         }
 
         .about-header h1 {
@@ -64,51 +69,21 @@
 
         .about-header p {
             font-size: 1.2rem;
-            max-width: 800px;
             margin: 0 auto;
-        }
-
-        .content {
-            display: flex;
-            justify-content: space-between;
-            align-items: flex-start;
-            flex-wrap: wrap;
-            padding: 40px;
-            max-width: 1200px;
-            margin: 0 auto;
-            gap: 20px;
-            background-color: #fff;
-            border-radius: 5px;
-        }
-
-        .content p {
-            font-size: 1rem;
             line-height: 1.8;
-            color: #333;
-        }
-
-        .content a {
-            color: #e76f51;
-            text-decoration: none;
-            font-weight: bold;
-        }
-
-        .content a:hover {
-            text-decoration: underline;
         }
 
         .logos {
             display: flex;
-            justify-content: space-between;
+            justify-content: center;
             align-items: center;
-            margin: 50px auto 0;
+            margin: 50px auto;
             max-width: 800px;
             gap: 20px;
         }
 
         .logos img {
             max-width: 80px;
-            margin: 0 10px;
         }
 
         footer {
@@ -117,6 +92,7 @@
             background-color: #f4a261;
             color: white;
             font-size: 0.9rem;
+            margin-top: auto;
         }
 
         footer a {
@@ -125,10 +101,6 @@
         }
 
         @media (max-width: 768px) {
-            .content {
-                flex-direction: column;
-            }
-
             .logos {
                 flex-wrap: wrap;
                 justify-content: center;
@@ -152,25 +124,9 @@
 
     <div class="about-header">
         <h1>Reimagining Cities: A Global Guide for 2030 and Beyond</h1>
-        <p>Heated.city is your gateway to the vibrant communities redefining urban living. Through curated stories and innovative ideas, we explore how neighborhoods around the world are shaping the cities of tomorrow.</p>
+        <p>Heated.city is your gateway to the vibrant communities redefining urban living. Through curated stories and innovative ideas, we explore how neighborhoods around the world are shaping the cities of tomorrow. From sustainable infrastructure to cultural breakthroughs, we delve into how forward-thinking communities are reimagining what it means to live, work, and thrive in urban spaces. Together, we shape the cities of the future—adaptable, resilient, and alive with possibility.</p>
     </div>
-
-    <div class="content">
-        <p>
-            This guide is a beacon of urban transformation, highlighting the intersection of creativity and resilience. From sustainable infrastructure to cultural breakthroughs, we delve into how forward-thinking communities are reimagining what it means to live, work, and thrive in urban spaces.
-        </p>
-        <p>
-            At Heated.city, we collaborate with architects, planners, and innovators to inspire action and foster connections. By sharing transformative stories and showcasing pioneering projects, we empower communities to design cities that are not only inclusive but also equipped to flourish amid global challenges. Together, we shape the cities of the future—adaptable, resilient, and alive with possibility.
-        </p>
-    </div>
-
-    <div class="logos">
-        <img src="img/logo1.png" alt="Logo 1">
-        <img src="img/logo2.png" alt="Logo 2">
-        <img src="img/logo3.png" alt="Logo 3">
-        <img src="img/logo4.png" alt="Logo 4">
-    </div>
-
+    
     <footer>
         <p>&copy; 2024 Heated.city</p>
     </footer>
