@@ -53,26 +53,28 @@
         }
 
         /* Mobile Navigation */
-        .mobile-nav {
-            display: none; /* Por defecto no visible */
-            justify-content: space-between;
-            align-items: center;
-            padding: 15px 25px;
-            background-color: #f4a261;
-            color: white;
-        }
+       .mobile-nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 25px; /* Consistente en todas las páginas */
+    background-color: #f4a261;
+    color: white;
+    height: auto; /* Ajuste automático del alto */
+    box-sizing: border-box; /* Para evitar diferencias por márgenes/padding */
+}
 
-        .mobile-nav .logo a {
-            font-size: 1.5rem;
-            font-weight: bold;
-            text-decoration: none;
-            color: white;
-        }
+.mobile-nav .logo a {
+    font-size: 1.5rem; /* Consistente para todas */
+    font-weight: bold;
+    text-decoration: none;
+    color: white;
+}
 
-        .hamburger {
-            font-size: 1.5rem; /* Ajuste de tamaño para consistencia */
-            cursor: pointer;
-        }
+.mobile-nav .menu-icon, .hamburger {
+    font-size: 1.5rem; /* Consistencia del ícono */
+    cursor: pointer;
+}
 
         /* Fullscreen Mobile Menu */
         #fullscreen-menu {
