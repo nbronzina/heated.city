@@ -336,24 +336,24 @@
     <script>
         const map = L.map("map").setView([35.0116, 135.7681], 12);
 
-        L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
-            attribution: '&copy; <a href="https://openstreetmap.org">OpenStreetMap</a>'
-        }).addTo(map);
+L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
+    attribution: '&copy; <a href="https://openstreetmap.org">OpenStreetMap</a>'
+}).addTo(map);
 
-        const locations = [
-            { name: "Hikari Machiya Studio (光町家スタジオ)", coords: [35.0035, 135.7780] },
-            { name: "Akari no Michi (明かりの道)", coords: [35.0040, 135.7790] },
-            { name: "Hozugawa Eco-Island Center (保津川エコアイランドセンター)", coords: [35.0085, 135.6705] },
-            { name: "Bamboo Grove Knowledge Trail (竹林知識トレイル)", coords: [35.0090, 135.6710] },
-            { name: "Tsubasa Wildlife Eco-Bridge (つばさ野生動物エコブリッジ)", coords: [35.0080, 135.6695] },
-            { name: "Kura no Megumi (倉の恵み)", coords: [34.9325, 135.7590] },
-            { name: "Midori no Kura (緑の蔵)", coords: [34.9330, 135.7580] },
-            { name: "Yume no Mizu (夢の水)", coords: [34.9340, 135.7575] }
-        ];
+const locations = [
+    { name: "Hikari Machiya Studio (光町家スタジオ)", coords: [35.0035, 135.7780] },
+    { name: "Akari no Michi (明かりの道)", coords: [35.0040, 135.7790] },
+    { name: "Hozugawa Eco-Island Center (保津川エコアイランドセンター)", coords: [35.0085, 135.6705] },
+    { name: "Bamboo Grove Knowledge Trail (竹林知識トレイル)", coords: [35.0090, 135.6710] },
+    { name: "Tsubasa Wildlife Eco-Bridge (つばさ野生動物エコブリッジ)", coords: [35.0080, 135.6695] },
+    { name: "Kura no Megumi (倉の恵み)", coords: [34.9325, 135.7590] },
+    { name: "Midori no Kura (緑の蔵)", coords: [34.9330, 135.7580] },
+    { name: "Yume no Mizu (夢の水)", coords: [34.9340, 135.7575] }
+];
 
-        locations.forEach(location => {
-            L.marker(location.coords).addTo(map).bindPopup(<b>${location.name}</b>);
-        });
+locations.forEach(location => {
+    L.marker(location.coords).addTo(map).bindPopup(`<b>${location.name}</b>`);
+});
 
         function toggleMenu() {
             const menu = document.getElementById("fullscreen-menu");
