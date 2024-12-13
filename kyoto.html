@@ -19,7 +19,7 @@
             line-height: 1.6;
         }
 
-        /* Navigation - Desktop */
+        /* Navigation */
         nav.desktop-nav {
             display: flex;
             justify-content: space-between;
@@ -50,11 +50,6 @@
             font-weight: bold;
         }
 
-        nav.desktop-nav ul li a:hover {
-            text-decoration: underline;
-        }
-
-        /* Navigation - Mobile */
         nav.mobile-nav {
             display: none;
             justify-content: space-between;
@@ -112,16 +107,11 @@
             font-weight: bold;
         }
 
-        #fullscreen-menu a:hover {
-            text-decoration: underline;
-        }
-
         header {
             background: url('img/kyotoheader.png') no-repeat center center / cover;
             color: white;
             text-align: center;
             padding: 100px 15px;
-            position: relative;
         }
 
         header h1 {
@@ -146,7 +136,6 @@
             font-size: 1rem;
             margin: 0;
             color: #666;
-            font-style: italic;
         }
 
         main {
@@ -160,11 +149,8 @@
 
         #map {
             height: 600px;
-            width: 100%;
             border: 1px solid #ddd;
             border-radius: 8px;
-            position: relative;
-            z-index: 1;
         }
 
         .contributors {
@@ -185,20 +171,7 @@
             width: 100%;
             height: 150px;
             object-fit: cover;
-            border-radius: 8px;
             margin-bottom: 10px;
-        }
-
-        .contributor h3 {
-            margin: 0;
-            font-size: 1.2rem;
-            color: #2c3e50;
-        }
-
-        .contributor p {
-            margin: 5px 0 0;
-            font-size: 0.9rem;
-            color: #555;
         }
 
         footer {
@@ -206,13 +179,6 @@
             padding: 20px;
             background-color: #f4a261;
             color: white;
-            font-size: 1rem;
-            margin-top: 20px;
-        }
-
-        footer a {
-            color: white;
-            text-decoration: underline;
         }
 
         @media (max-width: 768px) {
@@ -265,22 +231,82 @@
     </header>
 
     <section class="intro">
-        <h2>Discover a curated selection of innovative and sustainable projects, blending Kyoto's rich heritage with forward-thinking practices. Handpicked by our lead contributor and local collaborators, these highlights showcase how Kyoto is shaping resilient urban futures, balancing tradition and innovation. Explore them below, inspired by the winter and spring of 2030.</h2>
+        <h2>Discover a curated selection of innovative and sustainable projects, blending Kyoto's rich heritage with forward-thinking practices.</h2>
         <p>Curated by Himari Satō</p>
     </section>
 
     <main>
         <div id="map"></div>
         <div class="contributors">
-            <!-- Example contributions -->
+            <div class="contributor">
+                <img src="img/gion_eco_tours.jpg" alt="Heritage & Eco-Tours in Gion">
+                <h3>Heritage & Eco-Tours in Gion</h3>
+                <p>Workshops in restored machiyas and eco-history trails.</p>
+            </div>
+            <div class="contributor">
+                <img src="img/gion_lanterns.jpg" alt="Eco-Lantern Pathways">
+                <h3>Eco-Lantern Pathways</h3>
+                <p>Solar-powered lanterns line the streets, designed by local artists.</p>
+            </div>
+            <div class="contributor">
+                <img src="img/arashiyama_islands.jpg" alt="Floating Biodiversity Islands">
+                <h3>Floating Biodiversity Islands</h3>
+                <p>Miniature ecosystems along the Hozugawa River.</p>
+            </div>
+            <div class="contributor">
+                <img src="img/arashiyama_bamboo.jpg" alt="Bamboo Smart Forests">
+                <h3>Bamboo Smart Forests</h3>
+                <p>IoT-enabled monitoring of carbon capture and soil health.</p>
+            </div>
+            <div class="contributor">
+                <img src="img/arashiyama_bridges.jpg" alt="Eco-Bridges for Wildlife">
+                <h3>Eco-Bridges for Wildlife</h3>
+                <p>Green bridges for animals, doubling as scenic walking trails.</p>
+            </div>
+            <div class="contributor">
+                <img src="img/fushimi_solar.jpg" alt="Solar Sake Breweries">
+                <h3>Solar Sake Breweries</h3>
+                <p>Traditional sake breweries powered by solar energy.</p>
+            </div>
+            <div class="contributor">
+                <img src="img/fushimi_bioenergy.jpg" alt="Fermentation Waste Bioenergy">
+                <h3>Fermentation Waste Bioenergy</h3>
+                <p>Bioenergy from sake production waste fuels local facilities.</p>
+            </div>
+            <div class="contributor">
+                <img src="img/fushimi_tours.jpg" alt="Sake & Sustainability Tours">
+                <h3>Sake & Sustainability Tours</h3>
+                <p>Guided tours showcasing renewable energy in sake brewing.</p>
+            </div>
         </div>
     </main>
 
     <footer>
-        <p>&copy; 2024 Heated.city | <a href="/contact.html">Contact Us</a></p>
+        <p>&copy; Heated.City</p>
     </footer>
 
     <script>
+        const map = L.map("map").setView([35.0116, 135.7681], 12);
+
+        L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
+            attribution: '&copy; <a href="https://openstreetmap.org">OpenStreetMap</a>'
+        }).addTo(map);
+
+        const locations = [
+            { name: "Heritage & Eco-Tours in Gion", coords: [35.0035, 135.7780] },
+            { name: "Eco-Lantern Pathways", coords: [35.0040, 135.7790] },
+            { name: "Floating Biodiversity Islands", coords: [35.0085, 135.6705] },
+            { name: "Bamboo Smart Forests", coords: [35.0090, 135.6710] },
+            { name: "Eco-Bridges for Wildlife", coords: [35.0080, 135.6695] },
+            { name: "Solar Sake Breweries", coords: [34.9325, 135.7590] },
+            { name: "Fermentation Waste Bioenergy", coords: [34.9330, 135.7580] },
+            { name: "Sake & Sustainability Tours", coords: [34.9340, 135.7575] }
+        ];
+
+        locations.forEach(location => {
+            L.marker(location.coords).addTo(map).bindPopup(`<b>${location.name}</b>`);
+        });
+
         function toggleMenu() {
             const menu = document.getElementById("fullscreen-menu");
             menu.classList.toggle("show");
