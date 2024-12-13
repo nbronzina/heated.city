@@ -390,10 +390,6 @@ locations.forEach(location => {
         .bindPopup(`<b>${location.name}</b>`);
 });
 
-locations.forEach(location => {
-    L.marker(location.coords).addTo(map).bindPopup(`<b>${location.name}</b>`);
-});
-
         function toggleMenu() {
             const menu = document.getElementById("fullscreen-menu");
             menu.classList.toggle("show");
