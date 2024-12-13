@@ -168,10 +168,22 @@
             margin-top: auto;
         }
 
-        footer a {
-            color: white;
-            text-decoration: underline;
-        }
+        /* Footer styles */
+    footer {
+        text-align: center;
+        padding: 20px;
+        background-color: #f4a261;
+        color: white;
+    }
+
+    footer a {
+        color: white; /* Mantener el color blanco */
+        text-decoration: none; /* Eliminar el subrayado */
+    }
+
+    footer a:hover {
+        text-decoration: underline; /* Subrayar al pasar el cursor */
+    }
 
         @media (max-width: 768px) {
             .desktop-nav {
