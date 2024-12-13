@@ -204,71 +204,67 @@ nav.desktop-nav ul li a:hover {
     }
 
         /* Media Queries */
-@media (max-width: 768px) {
-    /* Ocultar desktop-nav en pantallas pequeñas */
-    nav.desktop-nav {
-        display: none;
+    @media (max-width: 768px) {
+        /* Ocultar desktop-nav en pantallas pequeñas */
+        nav.desktop-nav {
+            display: none;
+        }
+
+        /* Mostrar mobile-nav en pantallas pequeñas */
+        nav.mobile-nav {
+            display: flex;
+        }
+
+        /* Map and Contributors in Column */
+        main {
+            display: flex;
+            flex-direction: column; /* Coloca mapa y listado en una columna */
+        }
+
+        #map {
+            order: 1; /* Asegurar que el mapa aparece primero */
+            height: 300px; /* Altura ajustada para móvil */
+            width: 100%;
+            margin-bottom: 15px;
+        }
+
+        .contributors {
+            order: 2; /* Listado después del mapa */
+            display: grid;
+            grid-template-columns: 1fr; /* Listado en una sola columna */
+            gap: 15px;
+        }
     }
 
-    /* Mostrar mobile-nav en pantallas pequeñas */
-    nav.mobile-nav {
-        display: flex;
-    }
+    @media (min-width: 769px) {
+        /* Mostrar desktop-nav en pantallas grandes */
+        nav.desktop-nav {
+            display: flex;
+        }
 
-    /* Estilo para el contenedor del mapa y listado */
-    #map-container {
-        display: flex;
-        flex-direction: column; /* Alinear en columna */
-    }
+        /* Ocultar mobile-nav en pantallas grandes */
+        nav.mobile-nav {
+            display: none;
+        }
 
-    /* Mapa */
-    #map {
-        order: 1; /* Asegurar que el mapa aparece primero */
-        height: 300px; /* Ajustar altura para móviles */
-        width: 100%; /* Usar todo el ancho disponible */
-        margin-bottom: 20px; /* Espacio debajo del mapa */
-    }
+        /* Map and Contributors Side by Side */
+        main {
+            display: grid;
+            grid-template-columns: 1.5fr 1fr; /* Mapa y listado lado a lado */
+            gap: 20px;
+        }
 
-    /* Listado */
-    .contributors {
-        order: 2; /* Listado aparece debajo del mapa */
-        display: grid;
-        grid-template-columns: 1fr; /* Mostrar en una sola columna */
-        gap: 15px; /* Espaciado entre elementos */
-    }
-}
+        #map {
+            height: 600px; /* Altura para escritorio */
+        }
 
-@media (min-width: 769px) {
-    /* Mostrar desktop-nav en pantallas grandes */
-    nav.desktop-nav {
-        display: flex;
+        .contributors {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr); /* Mostrar listado en dos columnas */
+            gap: 15px;
+        }
     }
-
-    /* Ocultar mobile-nav en pantallas grandes */
-    nav.mobile-nav {
-        display: none;
-    }
-
-    /* Contenedor en fila para escritorio */
-    #map-container {
-        display: flex;
-        flex-direction: row; /* Alinear mapa y listado en fila */
-        gap: 20px; /* Espaciado entre mapa y listado */
-    }
-
-    #map {
-        height: 600px; /* Altura mayor en escritorio */
-        flex: 1; /* El mapa ocupa más espacio */
-        margin-bottom: 0; /* Sin margen */
-    }
-
-    .contributors {
-        display: grid;
-        grid-template-columns: repeat(2, 1fr); /* Mostrar en dos columnas */
-        gap: 15px; /* Espaciado entre elementos */
-    }
-}
-
+        
     </style>
 </head>
 <body>
