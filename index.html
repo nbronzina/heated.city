@@ -3,245 +3,166 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Heated.city - Imagine Your City in 2030</title>
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;700&display=swap">
+    <meta name="description" content="Heated.city is a global directory where urban planners, designers, and climate-focused innovators share visions for the cities of 2030 and beyond.">
+    <title>Heated.city - Contributors</title>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css">
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;700&display=swap" rel="stylesheet">
     <style>
-        /* General Styles */
+        /* General styles */
         body {
             margin: 0;
             font-family: 'Open Sans', sans-serif;
             background-color: #fff;
             color: #333;
-            line-height: 1.6;
             display: flex;
             flex-direction: column;
             min-height: 100vh;
         }
 
-        /* Desktop Navigation */
-nav.desktop-nav {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 15px 25px;
-    background-color: #f4a261;
-    color: white;
-}
-
-nav.desktop-nav .logo a {
-    font-size: 1.5rem;
-    font-weight: bold;
-    text-decoration: none;
-    color: white;
-}
-
-nav.desktop-nav ul {
-    list-style: none;
-    display: flex;
-    gap: 15px;
-    margin: 0;
-    padding: 0;
-}
-
-nav.desktop-nav ul li a {
-    text-decoration: none;
-    color: white;
-    font-weight: bold;
-}
-
-nav.desktop-nav ul li a:hover {
-    text-decoration: underline;
-}
-
-/* Mobile Navigation */
-.mobile-nav {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 15px 25px; /* Consistente en todas las páginas */
-    background-color: #f4a261;
-    color: white;
-    height: auto; /* Ajuste automático del alto */
-    box-sizing: border-box; /* Para evitar diferencias por márgenes/padding */
-}
-
-.mobile-nav .logo a {
-    font-size: 1.5rem; /* Consistente para todas */
-    font-weight: bold;
-    text-decoration: none;
-    color: white;
-}
-
-.mobile-nav .menu-icon, .hamburger {
-    font-size: 1.5rem; /* Consistencia del ícono */
-    cursor: pointer;
-}
-
-/* Fullscreen Mobile Menu */
-#fullscreen-menu {
-    display: none;
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100vh;
-    background-color: rgba(244, 162, 97, 0.95);
-    color: white;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-    gap: 20px;
-    z-index: 1000;
-}
-
-#fullscreen-menu.show {
-    display: flex;
-}
-
-#fullscreen-menu .close-icon {
-    position: absolute;
-    top: 20px;
-    right: 20px;
-    font-size: 1.5rem;
-    cursor: pointer;
-    color: white;
-}
-
-#fullscreen-menu a {
-    color: white;
-    text-decoration: none;
-    font-size: 2rem;
-    font-weight: bold;
-}
-
-#fullscreen-menu a:hover {
-    text-decoration: underline;
-}
-
-        header {
-            position: relative;
-            height: 100vh;
-            color: white;
-            text-align: center;
+        /* Navbar styles */
+        nav {
             display: flex;
-            flex-direction: column;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 25px;
+            background-color: #f4a261;
+            color: white;
+            position: relative;
+        }
+
+        nav .logo a {
+            font-size: 1.5rem;
+            font-weight: bold;
+            text-decoration: none;
+            color: white;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            gap: 15px;
+            margin: 0;
+            padding: 0;
+        }
+
+        nav ul li a {
+            text-decoration: none;
+            color: white;
+            font-weight: bold;
+        }
+
+        nav ul li a:hover {
+            text-decoration: underline;
+        }
+
+        /* Mobile menu toggle */
+        .menu-icon {
+            display: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+
+        /* Fullscreen Mobile Menu */
+        #fullscreen-menu {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100vh;
+            background-color: rgba(244, 162, 97, 0.95);
+            color: white;
             justify-content: center;
             align-items: center;
-            background-size: cover;
-            background-position: center;
-            background-repeat: no-repeat;
-            transition: background-image 1s ease-in-out;
-            padding: 0 20px;
+            flex-direction: column;
+            gap: 20px;
+            z-index: 1000;
         }
 
-        header h1 {
-            font-size: 3rem;
-            margin: 0 0 20px;
-            text-shadow: 2px 2px 15px rgba(0, 0, 0, 0.8);
+        #fullscreen-menu.show {
+            display: flex;
         }
 
-        header p {
+        #fullscreen-menu .close-icon {
+            position: absolute;
+            top: 20px;
+            right: 20px;
             font-size: 1.5rem;
-            margin: 0 0 30px;
-            text-shadow: 1px 1px 10px rgba(0, 0, 0, 0.7);
+            cursor: pointer;
+            color: white;
         }
 
-        header .cta a {
-            padding: 15px 30px;
-            background-color: #e76f51;
+        #fullscreen-menu a {
             color: white;
             text-decoration: none;
+            font-size: 2rem;
             font-weight: bold;
-            font-size: 1.2rem;
+        }
+
+        #fullscreen-menu a:hover {
+            text-decoration: underline;
+        }
+
+        /* Contributors section */
+        #contributors {
+            max-width: 1200px;
+            margin: 40px auto;
+            padding: 0 20px;
+            text-align: center;
+        }
+
+        #contributors h2 {
+            font-size: 2rem;
+            margin-bottom: 10px;
+        }
+
+        #contributors p {
+            font-size: 1rem;
+            margin-bottom: 30px;
+            color: #666;
+        }
+
+        #map {
+            height: 500px;
             border-radius: 5px;
-            transition: background-color 0.3s, transform 0.2s;
+            border: 1px solid #ddd;
         }
 
-        header .cta a:hover {
-            background-color: #f4a261;
-            transform: scale(1.1);
-        }
-
+        /* Footer styles */
         footer {
+            margin-top: auto;
             text-align: center;
             padding: 20px;
             background-color: #f4a261;
             color: white;
-            font-size: 1rem;
-            margin-top: auto;
         }
 
-        /* Footer styles */
-    footer {
-        text-align: center;
-        padding: 20px;
-        background-color: #f4a261;
-        color: white;
-    }
-
-    footer a {
-        color: white; /* Mantener el color blanco */
-        text-decoration: none; /* Eliminar el subrayado */
-    }
-
-    footer a:hover {
-        text-decoration: underline; /* Subrayar al pasar el cursor */
-    }
-
-        /* Media Queries */
-@media (max-width: 768px) {
-    /* Ocultar desktop-nav en pantallas pequeñas */
-    nav.desktop-nav {
-        display: none;
-    }
-
-    /* Mostrar mobile-nav en pantallas pequeñas */
-    nav.mobile-nav {
-        display: flex;
-    }
-}
-
-@media (min-width: 769px) {
-    /* Mostrar desktop-nav en pantallas grandes */
-    nav.desktop-nav {
-        display: flex;
-    }
-
-    /* Ocultar mobile-nav en pantallas grandes */
-    nav.mobile-nav {
-        display: none;
-    }
+        footer a {
+            color: white;
+            text-decoration: none;
         }
-    </style>
-    <script>
-        document.addEventListener("DOMContentLoaded", () => {
-            const header = document.getElementById('dynamic-header');
-            const images = [
-                'img/city1.png',
-                'img/city2.png',
-                'img/city3.png'
-            ];
-            let index = 0;
 
-            function changeBackground() {
-                header.style.backgroundImage = `url('${images[index]}')`;
-                index = (index + 1) % images.length;
+        footer a:hover {
+            text-decoration: underline;
+        }
+
+        /* Media queries */
+        @media (max-width: 768px) {
+            nav ul {
+                display: none;
             }
 
-            setInterval(changeBackground, 5000);
-            changeBackground();
-        });
-
-        function toggleMenu() {
-            const menu = document.getElementById('fullscreen-menu');
-            menu.classList.toggle('show');
+            .menu-icon {
+                display: block;
+            }
         }
-    </script>
+    </style>
 </head>
 <body>
-    <!-- Desktop Navigation -->
-    <nav class="desktop-nav">
+    <!-- Navbar -->
+    <nav>
         <div class="logo"><a href="index.html">Heated.city</a></div>
+        <div class="menu-icon" onclick="toggleMenu()">☰</div>
         <ul>
             <li><a href="cities.html">Cities</a></li>
             <li><a href="contributors.html">Contributors</a></li>
@@ -249,12 +170,7 @@ nav.desktop-nav ul li a:hover {
         </ul>
     </nav>
 
-    <!-- Mobile Navigation -->
-    <nav class="mobile-nav">
-        <div class="logo"><a href="index.html">Heated.city</a></div>
-        <div class="menu-icon" onclick="toggleMenu()">☰</div>
-    </nav>
-
+    <!-- Fullscreen Mobile Menu -->
     <div id="fullscreen-menu">
         <span class="close-icon" onclick="toggleMenu()">&times;</span>
         <a href="cities.html">Cities</a>
@@ -262,16 +178,62 @@ nav.desktop-nav ul li a:hover {
         <a href="about.html">About</a>
     </div>
 
-    <header id="dynamic-header">
-        <h1>Future Cities Guide</h1>
-        <p>A curated collection of city visions, transforming how we inhabit our world.</p>
-        <div class="cta">
-            <a href="cities.html">Choose a City</a>
-        </div>
-    </header>
+    <!-- Contributors Section -->
+    <section id="contributors">
+        <h2>Contributors</h2>
+        <p>Heated.city team members and friends worldwide who share their visions for cities in 2030 and beyond. Our contributors are passionate about creating sustainable, resilient, and innovative urban environments that will transform the way we inhabit our world.</p>
+        <div id="map"></div>
+    </section>
 
+    <!-- Footer -->
     <footer>
         <p>&copy; 2024 Heated.city | <a href="/contact.html">Contact Us</a></p>
     </footer>
+
+    <!-- Leaflet.js -->
+    <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+    <script>
+        function toggleMenu() {
+            const menu = document.getElementById("fullscreen-menu");
+            menu.classList.toggle("show");
+        }
+
+        document.addEventListener("DOMContentLoaded", function () {
+            const map = L.map("map").setView([20, 0], 2);
+
+            L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
+                attribution: 'Map data &copy; <a href="https://openstreetmap.org">OpenStreetMap</a>',
+            }).addTo(map);
+
+            const contributors = [
+                { name: "Pablo Sanguinetti", location: [-34.6037, -58.3816], description: "Buenos Aires" },
+                { name: "Ana García", location: [40.4168, -3.7038], description: "Madrid" },
+                { name: "Callagun Smith", location: [-37.8136, 144.9631], description: "Melbourne" },
+                { name: "Kamau Mwangi", location: [-1.2921, 36.8219], description: "Nairobi" },
+                { name: "Priya Sharma", location: [28.6139, 77.2090], description: "New Delhi" },
+                { name: "Himari Satō", location: [35.0116, 135.7681], description: "Kyoto", image: "img/HimariSato.png" }
+            ];
+
+            contributors.forEach(contributor => {
+                let popupContent = `<b>${contributor.name}</b><br>${contributor.description}`;
+                
+                if (contributor.name === "Himari Satō" && contributor.image) {
+                    popupContent = `
+                        <div style="text-align: center; display: flex; flex-direction: column; align-items: center;">
+                            <div style="width: 100px; height: 100px; overflow: hidden; border-radius: 50%; margin-bottom: 10px;">
+                                <img src="${contributor.image}" alt="${contributor.name}" 
+                                    style="width: 100%; height: 100%; object-fit: cover;">
+                            </div>
+                            <b>${contributor.name}</b>
+                            <p style="margin: 0; font-size: 0.9rem;">${contributor.description}</p>
+                        </div>`;
+                }
+
+                L.marker(contributor.location)
+                    .addTo(map)
+                    .bindPopup(popupContent);
+            });
+        });
+    </script>
 </body>
 </html>
