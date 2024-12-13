@@ -215,24 +215,26 @@ nav.desktop-nav ul li a:hover {
         display: flex;
     }
 
-    /* Asegurar que el mapa y el listado estén en una columna */
+    /* Estilo para el contenedor del mapa y listado */
     #map-container {
         display: flex;
-        flex-direction: column; /* Colocar el mapa y el listado en una columna */
+        flex-direction: column; /* Alinear en columna */
     }
 
-    /* Ajustar el mapa */
+    /* Mapa */
     #map {
-        height: 300px; /* Altura ajustada para móviles */
-        width: 100%;   /* Asegurar que ocupa todo el ancho */
-        margin-bottom: 20px; /* Margen inferior para separar del listado */
+        order: 1; /* Asegurar que el mapa aparece primero */
+        height: 300px; /* Ajustar altura para móviles */
+        width: 100%; /* Usar todo el ancho disponible */
+        margin-bottom: 20px; /* Espacio debajo del mapa */
     }
 
-    /* Mostrar las contribuciones en una sola columna */
+    /* Listado */
     .contributors {
+        order: 2; /* Listado aparece debajo del mapa */
         display: grid;
-        grid-template-columns: 1fr; /* Una sola columna para el listado */
-        gap: 15px; /* Espaciado entre elementos del listado */
+        grid-template-columns: 1fr; /* Mostrar en una sola columna */
+        gap: 15px; /* Espaciado entre elementos */
     }
 }
 
@@ -247,28 +249,25 @@ nav.desktop-nav ul li a:hover {
         display: none;
     }
 
-    /* Ajustar el contenedor del mapa y el listado */
+    /* Contenedor en fila para escritorio */
     #map-container {
         display: flex;
-        flex-direction: row; /* Colocar mapa y listado lado a lado */
-        gap: 20px; /* Espaciado entre el mapa y el listado */
+        flex-direction: row; /* Alinear mapa y listado en fila */
+        gap: 20px; /* Espaciado entre mapa y listado */
     }
 
-    /* Ajustar el mapa */
     #map {
-        height: 600px; /* Altura mayor para escritorio */
+        height: 600px; /* Altura mayor en escritorio */
         flex: 1; /* El mapa ocupa más espacio */
-        margin-bottom: 0; /* Sin margen inferior */
+        margin-bottom: 0; /* Sin margen */
     }
 
-    /* Mostrar contribuciones en dos columnas */
     .contributors {
         display: grid;
-        grid-template-columns: repeat(2, 1fr); /* Dos columnas para el listado */
-        gap: 15px; /* Espaciado entre contribuciones */
+        grid-template-columns: repeat(2, 1fr); /* Mostrar en dos columnas */
+        gap: 15px; /* Espaciado entre elementos */
     }
 }
-
 
     </style>
 </head>
