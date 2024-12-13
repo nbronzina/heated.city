@@ -5,97 +5,40 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Heated.city is a global directory where urban planners, designers, and climate-focused innovators share visions for the cities of 2030 and beyond.">
     <title>Heated.city - Contributors</title>
-    <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css">
-    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
     <style>
         html, body {
             height: 100%;
             margin: 0;
             display: flex;
             flex-direction: column;
-            font-family: 'Open Sans', sans-serif;
+            font-family: Arial, sans-serif;
             background-color: #fff;
             color: #333;
         }
 
         #map {
-            height: 400px;
+            height: 500px; /* Altura asegurada */
+            width: 100%;
             border-radius: 5px;
             border: 1px solid #ddd;
             margin-bottom: 20px;
-            z-index: 1;
-        }
-
-        footer {
-            text-align: center;
-            padding: 20px;
-            background-color: #f4a261;
-            color: white;
-        }
-
-        footer a {
-            color: white;
-            text-decoration: none;
-        }
-
-        footer a:hover {
-            text-decoration: underline;
         }
     </style>
 </head>
 <body>
-    <section id="contributors">
-        <div id="description">
-            <h2>Contributors</h2>
-            <p>Heated.city team members and friends worldwide who share their visions for cities in 2030 and beyond. Our contributors are passionate about creating sustainable, resilient, and innovative urban environments that will transform the way we inhabit our world.</p>
-        </div>
-        <div id="map-container">
-            <div id="map"></div>
-        </div>
-    </section>
-
-    <footer>
-        <p>&copy; 2024 Heated.city | <a href="/contact.html">Contact Us</a></p>
-    </footer>
-
+    <div id="map"></div>
     <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
     <script>
         document.addEventListener("DOMContentLoaded", function () {
-            const map = L.map("map").setView([20, 0], 2);
+            const map = L.map("map").setView([20, 0], 2); // Inicializa el mapa
 
             L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
                 attribution: 'Map data &copy; <a href="https://openstreetmap.org">OpenStreetMap</a>',
             }).addTo(map);
 
-            const contributors = [
-                { name: "María Fernanda Domínguez", location: [-34.6037, -58.3816], description: "Buenos Aires" },
-                { name: "Isabél Sánchez", location: [40.4168, -3.7038], description: "Madrid" },
-                { name: "Callagun Smith", location: [-37.8136, 144.9631], description: "Melbourne" },
-                { name: "Kamau Mwangi", location: [-1.2921, 36.8219], description: "Nairobi" },
-                { name: "Priya Sharma", location: [28.6139, 77.2090], description: "New Delhi" },
-                { name: "Himari Satō", location: [35.0116, 135.7681], description: "Kyoto", image: "img/HimariSato.png" }
-            ];
-
-            contributors.forEach(contributor => {
-                let popupContent = `<b>${contributor.name}</b><br>${contributor.description}`;
-                
-                // Añadir imagen circular centrada solo si existe
-                if (contributor.image) {
-                    popupContent = `
-                        <div style="text-align: center; display: flex; flex-direction: column; align-items: center;">
-                            <div style="width: 100px; height: 100px; overflow: hidden; border-radius: 50%; margin-bottom: 10px;">
-                                <img src="${contributor.image}" alt="${contributor.name}" 
-                                    style="width: 100%; height: 100%; object-fit: cover;">
-                            </div>
-                            <b>${contributor.name}</b>
-                            <p style="margin: 0; font-size: 0.9rem;">${contributor.description}</p>
-                        </div>`;
-                }
-
-                L.marker(contributor.location)
-                    .addTo(map)
-                    .bindPopup(popupContent);
-            });
+            // Agrega un marcador básico para probar
+            L.marker([20, 0]).addTo(map).bindPopup("Mapa cargado correctamente").openPopup();
         });
     </script>
 </body>
