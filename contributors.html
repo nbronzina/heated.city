@@ -278,12 +278,23 @@ nav.desktop-nav ul li a:hover {
                 { name: "Himari Satō", location: [35.0116, 135.7681], description: "Kyoto", image: "img/HimariSato.png" }
             ];
 
-            contributors.forEach(contributor => {
-                L.marker(contributor.location)
-                    .addTo(map)
-                    .bindPopup(`<b>${contributor.name}</b><br>${contributor.description}`);
-            });
+           contributors.forEach(contributor => {
+            let popupContent = `<b>${contributor.name}</b><br>${contributor.description}`;
+            
+            // Añadir imagen circular solo para Himari Satō
+            if (contributor.name === "Himari Satō") {
+                popupContent = `
+                    <div style="text-align: center;">
+                        <img src="${contributor.image}" alt="${contributor.name}" style="width: 80px; height: 80px; border-radius: 50%; margin-bottom: 10px;">
+                        <b>${contributor.name}</b><br>${contributor.description}
+                    </div>`;
+            }
+
+            L.marker(contributor.location)
+                .addTo(map)
+                .bindPopup(popupContent);
         });
+    });
 
         function toggleMenu() {
             const menu = document.getElementById("fullscreen-menu");
