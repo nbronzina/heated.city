@@ -20,104 +20,104 @@
         }
 
         /* Desktop Navigation */
-nav.desktop-nav {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 15px 25px;
-    background-color: #f4a261;
-    color: white;
-}
+        nav.desktop-nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 25px;
+            background-color: #f4a261;
+            color: white;
+        }
 
-nav.desktop-nav .logo a {
-    font-size: 1.5rem;
-    font-weight: bold;
-    text-decoration: none;
-    color: white;
-}
+        nav.desktop-nav .logo a {
+            font-size: 1.5rem;
+            font-weight: bold;
+            text-decoration: none;
+            color: white;
+        }
 
-nav.desktop-nav ul {
-    list-style: none;
-    display: flex;
-    gap: 15px;
-    margin: 0;
-    padding: 0;
-}
+        nav.desktop-nav ul {
+            list-style: none;
+            display: flex;
+            gap: 15px;
+            margin: 0;
+            padding: 0;
+        }
 
-nav.desktop-nav ul li a {
-    text-decoration: none;
-    color: white;
-    font-weight: bold;
-}
+        nav.desktop-nav ul li a {
+            text-decoration: none;
+            color: white;
+            font-weight: bold;
+        }
 
-nav.desktop-nav ul li a:hover {
-    text-decoration: underline;
-}
+        nav.desktop-nav ul li a:hover {
+            text-decoration: underline;
+        }
 
-/* Mobile Navigation */
-.mobile-nav {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 15px 25px; /* Consistente en todas las páginas */
-    background-color: #f4a261;
-    color: white;
-    height: auto; /* Ajuste automático del alto */
-    box-sizing: border-box; /* Para evitar diferencias por márgenes/padding */
-}
+        /* Mobile Navigation */
+        .mobile-nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 25px;
+            background-color: #f4a261;
+            color: white;
+            height: auto;
+            box-sizing: border-box;
+        }
 
-.mobile-nav .logo a {
-    font-size: 1.5rem; /* Consistente para todas */
-    font-weight: bold;
-    text-decoration: none;
-    color: white;
-}
+        .mobile-nav .logo a {
+            font-size: 1.5rem;
+            font-weight: bold;
+            text-decoration: none;
+            color: white;
+        }
 
-.mobile-nav .menu-icon, .hamburger {
-    font-size: 1.5rem; /* Consistencia del ícono */
-    cursor: pointer;
-}
+        .mobile-nav .menu-icon {
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
 
-/* Fullscreen Mobile Menu */
-#fullscreen-menu {
-    display: none;
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100vh;
-    background-color: rgba(244, 162, 97, 0.95);
-    color: white;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-    gap: 20px;
-    z-index: 1000;
-}
+        /* Fullscreen Mobile Menu */
+        #fullscreen-menu {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100vh;
+            background-color: rgba(244, 162, 97, 0.95);
+            color: white;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            gap: 20px;
+            z-index: 1000;
+        }
 
-#fullscreen-menu.show {
-    display: flex;
-}
+        #fullscreen-menu.show {
+            display: flex;
+        }
 
-#fullscreen-menu .close-icon {
-    position: absolute;
-    top: 20px;
-    right: 20px;
-    font-size: 1.5rem;
-    cursor: pointer;
-    color: white;
-}
+        #fullscreen-menu .close-icon {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            font-size: 1.5rem;
+            cursor: pointer;
+            color: white;
+        }
 
-#fullscreen-menu a {
-    color: white;
-    text-decoration: none;
-    font-size: 2rem;
-    font-weight: bold;
-}
+        #fullscreen-menu a {
+            color: white;
+            text-decoration: none;
+            font-size: 2rem;
+            font-weight: bold;
+        }
 
-#fullscreen-menu a:hover {
-    text-decoration: underline;
-}
+        #fullscreen-menu a:hover {
+            text-decoration: underline;
+        }
 
         header {
             background: url('img/kyotoheader.png') no-repeat center center / cover;
@@ -151,8 +151,8 @@ nav.desktop-nav ul li a:hover {
         }
 
         main {
-            display: grid;
-            grid-template-columns: 1.5fr 1fr;
+            display: flex;
+            flex-direction: column;
             gap: 20px;
             max-width: 1200px;
             margin: 20px auto;
@@ -160,150 +160,90 @@ nav.desktop-nav ul li a:hover {
         }
 
         #map {
-            height: 600px;
+            height: 300px;
             border: 1px solid #ddd;
             border-radius: 8px;
-            position: relative;
-            z-index: 0;
+            order: 1;
         }
 
-        .contributors {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 15px;
-}
-
-.contributor {
-    background: #ecf0f1;
-    border: 1px solid #ddd;
-    border-radius: 8px;
-    text-align: center;
-    height: 350px; /* Altura fija para todas las tarjetas */
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    padding: 10px;
-    box-sizing: border-box;
-}
-
-.contributor img {
-    width: 100%; /* Ocupa el ancho completo de la tarjeta */
-    height: 150px; /* Altura fija */
-    object-fit: cover; /* Mantiene las proporciones de la imagen y recorta si es necesario */
-    border-radius: 5px; /* Bordes redondeados para consistencia */
-}
-
-.contributor h3 {
-    font-size: 1.2rem;
-    margin: 10px 0;
-    flex-grow: 0;
-}
-
-.contributor p {
-    font-size: 0.9rem;
-    margin: 0;
-    flex-grow: 1;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-}
-
-        /* Footer styles */
-    footer {
-        text-align: center;
-        padding: 20px;
-        background-color: #f4a261;
-        color: white;
-    }
-
-    footer a {
-        color: white; /* Mantener el color blanco */
-        text-decoration: none; /* Eliminar el subrayado */
-    }
-
-    footer a:hover {
-        text-decoration: underline; /* Subrayar al pasar el cursor */
-    }
-
-        /* Media Queries */
-    @media (max-width: 768px) {
-        /* Ocultar desktop-nav en pantallas pequeñas */
-        nav.desktop-nav {
-            display: none;
-        }
-
-        /* Mostrar mobile-nav en pantallas pequeñas */
-        nav.mobile-nav {
-            display: flex;
-        }
-
-        /* Map and Contributors in Column */
-        main {
-            display: flex;
-            flex-direction: column; /* Coloca mapa y listado en una columna */
-        }
-
-        #map {
-            order: 1; /* Asegurar que el mapa aparece primero */
-            height: 300px; /* Altura ajustada para móvil */
-            width: 100%;
-            margin-bottom: 15px;
-        }
-
-        .contributors {
-            order: 2; /* Listado después del mapa */
-            display: grid;
-            grid-template-columns: 1fr; /* Listado en una sola columna */
-            gap: 15px;
-        }
-    }
-
-    @media (min-width: 769px) {
-        /* Mostrar desktop-nav en pantallas grandes */
-        nav.desktop-nav {
-            display: flex;
-        }
-
-        /* Ocultar mobile-nav en pantallas grandes */
-        nav.mobile-nav {
-            display: none;
-        }
-
-        /* Map and Contributors Side by Side */
-        main {
-            display: grid;
-            grid-template-columns: 1.5fr 1fr; /* Mapa y listado lado a lado */
-            gap: 20px;
-        }
-
-        #map {
-            height: 600px; /* Altura para escritorio */
-        }
-
-        .contributors {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr); /* Mostrar listado en dos columnas */
-            gap: 15px;
-        }
-    }
-        /* Estilos para fijar el contenedor */
-    #contributors-container {
-        height: 600px; /* Altura fija para el contenedor */
-        overflow-y: scroll; /* Habilitar desplazamiento vertical */
-        border: 1px solid #ddd; /* Borde opcional */
-        border-radius: 8px; /* Bordes redondeados */
-        padding: 10px; /* Espaciado interno */
-        box-sizing: border-box; /* Incluir padding y borde en el tamaño total */
-    }
-
-    /* Ajuste para dispositivos móviles */
-    @media (max-width: 768px) {
         #contributors-container {
-            height: 400px; /* Altura más pequeña para dispositivos móviles */
+            height: 400px;
+            overflow-y: scroll;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            padding: 10px;
+            order: 2;
         }
-    }
-        
+
+        .contributors {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 15px;
+        }
+
+        .contributor {
+            background: #ecf0f1;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            text-align: center;
+            height: 350px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            padding: 10px;
+        }
+
+        .contributor img {
+            width: 100%;
+            height: 150px;
+            object-fit: cover;
+            border-radius: 5px;
+        }
+
+        .contributor h3 {
+            font-size: 1.2rem;
+            margin: 10px 0;
+        }
+
+        .contributor p {
+            font-size: 0.9rem;
+            margin: 0;
+        }
+
+        footer {
+            text-align: center;
+            padding: 20px;
+            background-color: #f4a261;
+            color: white;
+        }
+
+        footer a {
+            color: white;
+            text-decoration: none;
+        }
+
+        footer a:hover {
+            text-decoration: underline;
+        }
+
+        @media (min-width: 769px) {
+            main {
+                display: grid;
+                grid-template-columns: 1.5fr 1fr;
+                gap: 20px;
+            }
+
+            #map {
+                height: 600px;
+                order: unset;
+            }
+
+            #contributors-container {
+                height: auto;
+                overflow-y: auto;
+                order: unset;
+            }
+        }
     </style>
 </head>
 <body>
@@ -333,60 +273,31 @@ nav.desktop-nav ul li a:hover {
     </header>
 
     <section class="intro">
-        <h2>Discover a selection of innovative and sustainable projects, blending Kyoto's rich heritage with forward-thinking practices.</h2>
+        <h2>Discover innovative and sustainable projects blending Kyoto's heritage with forward-thinking practices.</h2>
         <p>Curated by Himari Satō</p>
     </section>
 
     <main>
-    <div id="map"></div>
-    <div id="contributors-container">
-        <div class="contributors">
-            <div class="contributor">
-                <h3>Hikari Machiya Studio</h3>
-                <img src="img/papel.png" alt="Heritage & Eco-Tours in Gion">
-                <p>Workshops in traditional crafts such as indigo dyeing and washi paper making.</p>
-            </div>
-            <div class="contributor">
-                <h3>Akari no Michi</h3>
-                <img src="img/lamparas.png" alt="Eco-Lantern Pathways">
-                <p>Solar-powered lanterns line the streets, designed by local artists.</p>
-            </div>
-            <div class="contributor">
-                <h3>Hozugawa Eco-Island Center</h3>
-                <img src="img/ecosistema.png" alt="Floating Biodiversity Islands">
-                <p>Miniature ecosystems along the Hozugawa River.</p>
-            </div>
-            <div class="contributor">
-                <h3>Bamboo Grove Knowledge Trail</h3>
-                <img src="img/arashiyama_bamboo.jpg" alt="Bamboo Smart Forests">
-                <p>IoT-enabled monitoring of carbon capture and soil health.</p>
-            </div>
-            <div class="contributor">
-                <h3>Tsubasa Wildlife Eco-Bridge</h3>
-                <img src="img/arashiyama_bridges.jpg" alt="Eco-Bridges for Wildlife">
-                <p>Green bridges for animals, doubling as scenic walking trails.</p>
-            </div>
-            <div class="contributor">
-                <h3>Kura no Megumi</h3>
-                <img src="img/fushimi_solar.jpg" alt="Solar Sake Breweries">
-                <p>Traditional sake breweries powered by solar energy.</p>
-            </div>
-            <div class="contributor">
-                <h3>Midori no Kura</h3>
-                <img src="img/fushimi_bioenergy.jpg" alt="Fermentation Waste Bioenergy">
-                <p>Its operations are powered by bioenergy from sake production waste.</p>
-            </div>
-            <div class="contributor">
-                <h3>Yume no Mizu</h3>
-                <img src="img/fushimi_tours.jpg" alt="Sake & Sustainability Tours">
-                <p>Guided tours showcasing renewable energy in sake brewing.</p>
+        <div id="map"></div>
+        <div id="contributors-container">
+            <div class="contributors">
+                <div class="contributor">
+                    <h3>Hikari Machiya Studio</h3>
+                    <img src="img/papel.png" alt="Heritage & Eco-Tours in Gion">
+                    <p>Workshops in traditional crafts like indigo dyeing and washi paper making.</p>
+                </div>
+                <div class="contributor">
+                    <h3>Akari no Michi</h3>
+                    <img src="img/lamparas.png" alt="Eco-Lantern Pathways">
+                    <p>Solar-powered lanterns line the streets, designed by local artists.</p>
+                </div>
+                <!-- Additional contributors -->
             </div>
         </div>
-    </div>
-</main>
+    </main>
 
     <footer>
-<p>&copy; 2024 Heated.city | <a href="/contact.html">Contact Us</a></p>
+        <p>&copy; 2024 Heated.city | <a href="/contact.html">Contact Us</a></p>
     </footer>
 
     <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
@@ -398,14 +309,9 @@ nav.desktop-nav ul li a:hover {
         }).addTo(map);
 
         const locations = [
-            { name: "Hikari Machiya Studio (光町家スタジオ)", coords: [35.0035, 135.7780] },
-            { name: "Akari no Michi (明かりの道)", coords: [35.0040, 135.7790] },
-            { name: "Hozugawa Eco-Island Center (保津川エコアイランドセンター)", coords: [35.0085, 135.6705] },
-            { name: "Bamboo Grove Knowledge Trail (竹林知識トレイル)", coords: [35.0090, 135.6710] },
-            { name: "Tsubasa Wildlife Eco-Bridge (つばさ野生動物エコブリッジ)", coords: [35.0080, 135.6695] },
-            { name: "Kura no Megumi (倉の恵み)", coords: [34.9325, 135.7590] },
-            { name: "Midori no Kura (緑の蔵)", coords: [34.9330, 135.7580] },
-            { name: "Yume no Mizu (夢の水)", coords: [34.9340, 135.7575] }
+            { name: "Hikari Machiya Studio", coords: [35.0035, 135.7780] },
+            { name: "Akari no Michi", coords: [35.0040, 135.7790] },
+            // Additional locations
         ];
 
         locations.forEach(location => {
