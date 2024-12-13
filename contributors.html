@@ -173,13 +173,17 @@
             margin-bottom: 10px;
         }
 
-        footer {
-            text-align: center;
-            padding: 20px;
-            background-color: #f4a261;
-            color: white;
-            width: 100%;
-        }
+    footer {
+        text-align: center;
+        padding: 20px;
+        background-color: #f4a261;
+        color: white;
+        width: 100%; /* Asegura que el ancho del footer sea igual al viewport */
+        box-sizing: border-box; /* Incluye el padding en el cálculo del ancho */
+        position: fixed; /* Fija el footer en la parte inferior */
+        bottom: 0;
+        left: 0;
+    }
 
         @media (max-width: 768px) {
             nav.desktop-nav {
