@@ -19,8 +19,8 @@
             line-height: 1.6;
         }
 
-        /* Navigation - Desktop */
-        nav.desktop-nav {
+        /* Navigation */
+        nav {
             display: flex;
             justify-content: space-between;
             align-items: center;
@@ -29,14 +29,14 @@
             color: white;
         }
 
-        nav.desktop-nav .logo a {
+        nav .logo a {
             font-size: 1.5rem;
             font-weight: bold;
             text-decoration: none;
             color: white;
         }
 
-        nav.desktop-nav ul {
+        nav ul {
             list-style: none;
             display: flex;
             gap: 15px;
@@ -44,75 +44,13 @@
             padding: 0;
         }
 
-        nav.desktop-nav ul li a {
+        nav ul li a {
             text-decoration: none;
             color: white;
             font-weight: bold;
         }
 
-        nav.desktop-nav ul li a:hover {
-            text-decoration: underline;
-        }
-
-        /* Navigation - Mobile */
-        nav.mobile-nav {
-            display: none;
-            justify-content: space-between;
-            align-items: center;
-            padding: 15px 25px;
-            background-color: #f4a261;
-            color: white;
-        }
-
-        nav.mobile-nav .logo a {
-            font-size: 1.5rem;
-            font-weight: bold;
-            text-decoration: none;
-            color: white;
-        }
-
-        nav.mobile-nav .menu-icon {
-            font-size: 1.5rem;
-            cursor: pointer;
-        }
-
-        #fullscreen-menu {
-            display: none;
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100vh;
-            background-color: rgba(244, 162, 97, 0.95);
-            color: white;
-            justify-content: center;
-            align-items: center;
-            flex-direction: column;
-            gap: 20px;
-            z-index: 2000;
-        }
-
-        #fullscreen-menu.show {
-            display: flex;
-        }
-
-        #fullscreen-menu .close-icon {
-            position: absolute;
-            top: 20px;
-            right: 20px;
-            font-size: 1.5rem;
-            cursor: pointer;
-            color: white;
-        }
-
-        #fullscreen-menu a {
-            color: white;
-            text-decoration: none;
-            font-size: 2rem;
-            font-weight: bold;
-        }
-
-        #fullscreen-menu a:hover {
+        nav ul li a:hover {
             text-decoration: underline;
         }
 
@@ -151,7 +89,7 @@
             border: 1px solid #ddd;
             border-radius: 8px;
             position: relative;
-            z-index: 1;
+            z-index: 1; /* Ensures it is below the fullscreen menu */
         }
 
         .contributors {
@@ -203,22 +141,6 @@
         }
 
         @media (max-width: 768px) {
-            nav.desktop-nav {
-                display: none;
-            }
-
-            nav.mobile-nav {
-                display: flex;
-            }
-
-            header h1 {
-                font-size: 2.5rem;
-            }
-
-            header p {
-                font-size: 1.2rem;
-            }
-
             main {
                 grid-template-columns: 1fr;
             }
@@ -234,7 +156,7 @@
     </style>
 </head>
 <body>
-    <nav class="desktop-nav">
+    <nav>
         <div class="logo"><a href="index.html">Heated.city</a></div>
         <ul>
             <li><a href="cities.html">Cities</a></li>
@@ -242,18 +164,6 @@
             <li><a href="about.html">About</a></li>
         </ul>
     </nav>
-
-    <nav class="mobile-nav">
-        <div class="logo"><a href="index.html">Heated.city</a></div>
-        <div class="menu-icon" onclick="toggleMenu()">☰</div>
-    </nav>
-
-    <div id="fullscreen-menu">
-        <span class="close-icon" onclick="toggleMenu()">&times;</span>
-        <a href="cities.html">Cities</a>
-        <a href="contributors.html">Contributors</a>
-        <a href="about.html">About</a>
-    </div>
 
     <header>
         <h1>Kyoto</h1>
@@ -264,19 +174,19 @@
         <div id="map"></div>
         <div class="contributors">
             <div class="contributor">
-                <img src="img/giondistrict.png" alt="Gion District">
-                <h3>Gion District</h3>
-                <p>Focus: Preserving heritage with eco-tourism strategies.</p>
+                <img src="img/gion.jpg" alt="Gion District">
+                <h3>Heritage & Eco-Tours in Gion</h3>
+                <p>Explore the historical charm with sustainable tourism practices.</p>
             </div>
             <div class="contributor">
-                <img src="img/arashiyama.png" alt="Arashiyama">
-                <h3>Arashiyama</h3>
-                <p>Focus: Enhancing biodiversity and green corridors.</p>
+                <img src="img/arashiyama.jpg" alt="Arashiyama">
+                <h3>Green Biodiversity in Arashiyama</h3>
+                <p>Experience Kyoto’s natural beauty with enhanced green corridors.</p>
             </div>
             <div class="contributor">
-                <img src="img/fushimi.png" alt="Fushimi">
-                <h3>Fushimi</h3>
-                <p>Focus: Renewable energy projects integrated with traditional sake breweries.</p>
+                <img src="img/fushimi.jpg" alt="Fushimi">
+                <h3>Sake & Sustainability in Fushimi</h3>
+                <p>Enjoy traditional sake tours powered by renewable energy.</p>
             </div>
         </div>
     </main>
@@ -294,9 +204,9 @@
         }).addTo(map);
 
         const locations = [
-            { name: "Gion District", coords: [35.0037, 135.7788] },
-            { name: "Arashiyama", coords: [35.0094, 135.6675] },
-            { name: "Fushimi", coords: [34.9336, 135.7572] }
+            { name: "Heritage & Eco-Tours in Gion", coords: [35.0037, 135.7788] },
+            { name: "Green Biodiversity in Arashiyama", coords: [35.0094, 135.6675] },
+            { name: "Sake & Sustainability in Fushimi", coords: [34.9336, 135.7572] }
         ];
 
         locations.forEach(location => {
@@ -304,11 +214,6 @@
                 .addTo(map)
                 .bindPopup(`<b>${location.name}</b>`);
         });
-
-        function toggleMenu() {
-            const menu = document.getElementById('fullscreen-menu');
-            menu.classList.toggle('show');
-        }
     </script>
 </body>
 </html>
