@@ -54,43 +54,6 @@
             text-decoration: underline;
         }
 
-        /* Hamburger Menu */
-        .mobile-nav {
-            display: none;
-        }
-
-        .hamburger {
-            font-size: 1.5rem;
-            cursor: pointer;
-        }
-
-        #fullscreen-menu {
-            display: none;
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100vh;
-            background-color: rgba(244, 162, 97, 0.95);
-            color: white;
-            justify-content: center;
-            align-items: center;
-            flex-direction: column;
-            gap: 20px;
-            z-index: 1000;
-        }
-
-        #fullscreen-menu.show {
-            display: flex;
-        }
-
-        #fullscreen-menu a {
-            text-decoration: none;
-            color: white;
-            font-size: 1.5rem;
-            font-weight: bold;
-        }
-
         header {
             background: url('img/kyotoheader.png') no-repeat center center / cover;
             color: white;
@@ -139,6 +102,7 @@
             border: 1px solid #ddd;
             border-radius: 8px;
             position: relative;
+            z-index: 1; /* Ensures it is below the fullscreen menu */
         }
 
         .contributors {
@@ -190,14 +154,6 @@
         }
 
         @media (max-width: 768px) {
-            nav ul {
-                display: none;
-            }
-
-            .hamburger {
-                display: block;
-            }
-
             main {
                 grid-template-columns: 1fr;
             }
@@ -215,20 +171,12 @@
 <body>
     <nav>
         <div class="logo"><a href="index.html">Heated.city</a></div>
-        <div class="hamburger" onclick="toggleMenu()">☰</div>
         <ul>
             <li><a href="cities.html">Cities</a></li>
             <li><a href="contributors.html">Contributors</a></li>
             <li><a href="about.html">About</a></li>
         </ul>
     </nav>
-
-    <div id="fullscreen-menu">
-        <a href="cities.html">Cities</a>
-        <a href="contributors.html">Contributors</a>
-        <a href="about.html">About</a>
-        <button onclick="toggleMenu()">Close</button>
-    </div>
 
     <header>
         <h1>Kyoto</h1>
@@ -252,6 +200,36 @@
                 <h3>Eco-Lantern Pathways</h3>
                 <p>Solar-powered lanterns line the streets, designed by local artists.</p>
             </div>
+            <div class="contributor">
+                <img src="img/arashiyama_islands.jpg" alt="Floating Biodiversity Islands">
+                <h3>Floating Biodiversity Islands</h3>
+                <p>Miniature ecosystems along the Hozugawa River.</p>
+            </div>
+            <div class="contributor">
+                <img src="img/arashiyama_bamboo.jpg" alt="Bamboo Smart Forests">
+                <h3>Bamboo Smart Forests</h3>
+                <p>IoT-enabled monitoring of carbon capture and soil health.</p>
+            </div>
+            <div class="contributor">
+                <img src="img/arashiyama_bridges.jpg" alt="Eco-Bridges for Wildlife">
+                <h3>Eco-Bridges for Wildlife</h3>
+                <p>Green bridges for animals, doubling as scenic walking trails.</p>
+            </div>
+            <div class="contributor">
+                <img src="img/fushimi_solar.jpg" alt="Solar Sake Breweries">
+                <h3>Solar Sake Breweries</h3>
+                <p>Traditional sake breweries powered by solar energy.</p>
+            </div>
+            <div class="contributor">
+                <img src="img/fushimi_bioenergy.jpg" alt="Fermentation Waste Bioenergy">
+                <h3>Fermentation Waste Bioenergy</h3>
+                <p>Bioenergy from sake production waste fuels local facilities.</p>
+            </div>
+            <div class="contributor">
+                <img src="img/fushimi_tours.jpg" alt="Sake & Sustainability Tours">
+                <h3>Sake & Sustainability Tours</h3>
+                <p>Guided tours showcasing renewable energy in sake brewing.</p>
+            </div>
         </div>
     </main>
 
@@ -261,10 +239,28 @@
 
     <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
     <script>
-        function toggleMenu() {
-            const menu = document.getElementById('fullscreen-menu');
-            menu.classList.toggle('show');
-        }
+        const map = L.map("map").setView([35.0116, 135.7681], 12);
+
+        L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
+            attribution: '&copy; <a href="https://openstreetmap.org">OpenStreetMap</a>',
+        }).addTo(map);
+
+        const locations = [
+            { name: "Heritage & Eco-Tours in Gion", coords: [35.0035, 135.7780] },
+            { name: "Eco-Lantern Pathways", coords: [35.0040, 135.7790] },
+            { name: "Floating Biodiversity Islands", coords: [35.0085, 135.6705] },
+            { name: "Bamboo Smart Forests", coords: [35.0090, 135.6710] },
+            { name: "Eco-Bridges for Wildlife", coords: [35.0080, 135.6695] },
+            { name: "Solar Sake Breweries", coords: [34.9325, 135.7590] },
+            { name: "Fermentation Waste Bioenergy", coords: [34.9330, 135.7580] },
+            { name: "Sake & Sustainability Tours", coords: [34.9340, 135.7575] }
+        ];
+
+        locations.forEach(location => {
+            L.marker(location.coords)
+                .addTo(map)
+                .bindPopup(`<b>${location.name}</b>`);
+        });
     </script>
 </body>
 </html>
