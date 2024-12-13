@@ -174,8 +174,8 @@
 
         /* Estilo del contenedor de la lista */
     .contributors-wrapper {
-        height: 500px; /* Altura fija para el contenedor */
-        overflow-y: auto; /* Habilitar scroll vertical */
+        height: 450px; /* Altura fija */
+        overflow-y: auto; /* Scroll vertical */
         border: 1px solid #ddd;
         border-radius: 8px;
         padding: 10px;
@@ -184,40 +184,46 @@
 
     .contributors {
         display: grid;
-        grid-template-columns: 1fr; /* Una columna para que cada tarjeta ocupe todo el ancho */
+        grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); /* Tarjetas compactas y adaptables */
         gap: 15px;
     }
 
     .contributor {
-        background: #f9f9f9;
+        background: #fefefe;
         border: 1px solid #ddd;
-        border-radius: 8px;
+        border-radius: 10px;
         box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
         padding: 10px;
         display: flex;
         flex-direction: column;
         align-items: center;
+        text-align: center;
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .contributor:hover {
+        transform: scale(1.02); /* Pequeño efecto al pasar el cursor */
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
     }
 
     .contributor img {
-        width: 80%; /* Tamaño reducido para las imágenes */
-        height: auto;
-        aspect-ratio: 1 / 1; /* Mantener formato cuadrado */
+        width: 100px; /* Tamaño más pequeño para las imágenes */
+        height: 100px;
         object-fit: cover;
-        border-radius: 8px;
+        border-radius: 50%; /* Imágenes redondas */
+        margin-bottom: 10px;
     }
 
     .contributor h3 {
         font-size: 1rem;
-        margin: 10px 0 5px;
-        text-align: center;
+        margin: 5px 0;
         color: #333;
+        font-weight: bold;
     }
 
     .contributor p {
         font-size: 0.85rem;
-        text-align: center;
-        color: #666;
+        color: #555;
         line-height: 1.4;
     }
 
