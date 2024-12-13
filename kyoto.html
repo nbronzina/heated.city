@@ -172,12 +172,14 @@
             padding: 10px;
         }
 
-        .contributors {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 15px;
-        }
-
+        /* Estilo del contenedor de la lista */
+    .contributors {
+        height: 600px; /* Altura fija */
+        overflow-y: auto; /* Scroll vertical habilitado */
+        border: 1px solid #ddd;
+        border-radius: 8px;
+        padding: 10px;
+    }
         .contributor {
             background: #ecf0f1;
             border: 1px solid #ddd;
