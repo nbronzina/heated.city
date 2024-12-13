@@ -10,36 +10,36 @@
     <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css">
     <style>
+        /* General Styles */
         body {
             margin: 0;
             font-family: 'Open Sans', sans-serif;
-            color: #333;
             background-color: #fff;
+            color: #333;
+            line-height: 1.6;
             display: flex;
             flex-direction: column;
             min-height: 100vh;
         }
 
-        /* Navbar */
-        nav {
+        /* Desktop Navigation */
+        .desktop-nav {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 15px 20px;
+            padding: 15px 25px;
             background-color: #f4a261;
             color: white;
-            position: fixed;
-            top: 0;
-            width: 100%;
-            z-index: 1000;
         }
 
-        nav .logo {
+        .desktop-nav .logo a {
             font-size: 1.5rem;
             font-weight: bold;
+            text-decoration: none;
+            color: white;
         }
 
-        nav ul {
+        .desktop-nav ul {
             list-style: none;
             display: flex;
             gap: 15px;
@@ -47,28 +47,39 @@
             padding: 0;
         }
 
-        nav ul li {
-            display: inline;
-        }
-
-        nav ul li a {
+        .desktop-nav ul li a {
             text-decoration: none;
             color: white;
             font-weight: bold;
         }
 
-        nav ul li a:hover {
+        .desktop-nav ul li a:hover {
             text-decoration: underline;
         }
 
-        /* Mobile Menu */
-        .menu-icon {
+        /* Mobile Navigation */
+        .mobile-nav {
             display: none;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 25px;
+            background-color: #f4a261;
+            color: white;
+        }
+
+        .mobile-nav .logo a {
+            font-size: 1.5rem;
+            font-weight: bold;
+            text-decoration: none;
+            color: white;
+        }
+
+        .mobile-nav .menu-icon {
             font-size: 1.5rem;
             cursor: pointer;
         }
 
-        #mobile-menu {
+        #fullscreen-menu {
             display: none;
             position: fixed;
             top: 0;
@@ -77,55 +88,79 @@
             height: 100vh;
             background-color: rgba(244, 162, 97, 0.95);
             color: white;
-            z-index: 2000;
             justify-content: center;
             align-items: center;
             flex-direction: column;
             gap: 20px;
+            z-index: 1000;
         }
 
-        #mobile-menu a {
-            color: white;
-            font-size: 1.5rem;
-            text-decoration: none;
-            font-weight: bold;
-        }
-
-        #mobile-menu a:hover {
-            text-decoration: underline;
-        }
-
-        #mobile-menu.show {
+        #fullscreen-menu.show {
             display: flex;
         }
 
-        nav .close-icon {
-            display: none;
+        #fullscreen-menu .close-icon {
             position: absolute;
             top: 20px;
             right: 20px;
             font-size: 1.5rem;
             cursor: pointer;
+            color: white;
+        }
+
+        #fullscreen-menu a {
+            color: white;
+            text-decoration: none;
+            font-size: 2rem;
+            font-weight: bold;
+        }
+
+        #fullscreen-menu a:hover {
+            text-decoration: underline;
         }
 
         header {
-            background: url('img/kyotoheader.png') no-repeat center center / cover;
+            position: relative;
+            height: 100vh;
             color: white;
             text-align: center;
-            padding: 150px 15px;
-            margin-top: 60px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            transition: background-image 1s ease-in-out;
+            padding: 0 20px;
         }
 
         header h1 {
             font-size: 3rem;
-            margin: 0;
-            text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.7);
+            margin: 0 0 20px;
+            text-shadow: 2px 2px 15px rgba(0, 0, 0, 0.8);
         }
 
         header p {
             font-size: 1.5rem;
-            margin: 10px 0 0;
-            text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.6);
+            margin: 0 0 30px;
+            text-shadow: 1px 1px 10px rgba(0, 0, 0, 0.7);
+        }
+
+        header .cta a {
+            padding: 15px 30px;
+            background-color: #e76f51;
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 1.2rem;
+            border-radius: 5px;
+            transition: background-color 0.3s, transform 0.2s;
+        }
+
+        header .cta a:hover {
+            background-color: #f4a261;
+            transform: scale(1.1);
         }
 
         main {
@@ -176,28 +211,35 @@
             padding: 20px;
             background-color: #f4a261;
             color: white;
-            font-size: 0.9rem;
-            position: fixed;
-            bottom: 0;
-            width: 100%;
+            font-size: 1rem;
+            margin-top: auto;
         }
 
         footer a {
-            color: #fff;
+            color: white;
             text-decoration: underline;
         }
 
         @media (max-width: 768px) {
-            nav ul {
+            .desktop-nav {
                 display: none;
             }
 
-            .menu-icon {
-                display: block;
+            .mobile-nav {
+                display: flex;
             }
 
-            nav .close-icon {
-                display: block;
+            header h1 {
+                font-size: 2.5rem;
+            }
+
+            header p {
+                font-size: 1.2rem;
+            }
+
+            header .cta a {
+                font-size: 1rem;
+                padding: 10px 20px;
             }
 
             main {
@@ -211,26 +253,21 @@
     </style>
 </head>
 <body>
-    <nav>
-        <div class="logo">Heated.city</div>
-        <div class="menu-icon" onclick="toggleMenu()">☰</div>
+    <nav class="desktop-nav">
+        <div class="logo"><a href="/">Heated.city</a></div>
         <ul>
-            <li><a href="cities.html">Cities</a></li>
-            <li><a href="contributors.html">Contributors</a></li>
-            <li><a href="about.html">About</a></li>
+            <li><a href="/cities.html">Cities</a></li>
+            <li><a href="/contributors.html">Contributors</a></li>
+            <li><a href="/about.html">About</a></li>
         </ul>
     </nav>
 
-    <div id="mobile-menu">
-        <span class="close-icon" onclick="toggleMenu()">&times;</span>
-        <a href="cities.html">Cities</a>
-        <a href="contributors.html">Contributors</a>
-        <a href="about.html">About</a>
-    </div>
-
-    <header>
-        <h1>Kyoto</h1>
+    <header id="dynamic-header">
+        <h1>Kyoto 2030</h1>
         <p>Organized by Himari Satō</p>
+        <div class="cta">
+            <a href="/contribute.html">Contribute</a>
+        </div>
     </header>
 
     <main>
@@ -274,11 +311,6 @@
                 .addTo(map)
                 .bindPopup(`<b>${location.name}</b>`);
         });
-
-        function toggleMenu() {
-            const menu = document.getElementById('mobile-menu');
-            menu.classList.toggle('show');
-        }
     </script>
 </body>
 </html>
