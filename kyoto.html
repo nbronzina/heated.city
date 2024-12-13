@@ -56,23 +56,25 @@ nav.desktop-nav ul li a:hover {
 
 /* Mobile Navigation */
 .mobile-nav {
-    display: none; /* Por defecto no visible */
+    display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 15px 25px;
+    padding: 15px 25px; /* Consistente en todas las páginas */
     background-color: #f4a261;
     color: white;
+    height: auto; /* Ajuste automático del alto */
+    box-sizing: border-box; /* Para evitar diferencias por márgenes/padding */
 }
 
 .mobile-nav .logo a {
-    font-size: 1.5rem;
+    font-size: 1.5rem; /* Consistente para todas */
     font-weight: bold;
     text-decoration: none;
     color: white;
 }
 
-.mobile-nav .menu-icon {
-    font-size: 1.5rem;
+.mobile-nav .menu-icon, .hamburger {
+    font-size: 1.5rem; /* Consistencia del ícono */
     cursor: pointer;
 }
 
