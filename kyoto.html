@@ -19,8 +19,8 @@
             line-height: 1.6;
         }
 
-        /* Navigation */
-        nav {
+        /* Navigation - Desktop */
+        nav.desktop-nav {
             display: flex;
             justify-content: space-between;
             align-items: center;
@@ -29,14 +29,14 @@
             color: white;
         }
 
-        nav .logo a {
+        nav.desktop-nav .logo a {
             font-size: 1.5rem;
             font-weight: bold;
             text-decoration: none;
             color: white;
         }
 
-        nav ul {
+        nav.desktop-nav ul {
             list-style: none;
             display: flex;
             gap: 15px;
@@ -44,13 +44,75 @@
             padding: 0;
         }
 
-        nav ul li a {
+        nav.desktop-nav ul li a {
             text-decoration: none;
             color: white;
             font-weight: bold;
         }
 
-        nav ul li a:hover {
+        nav.desktop-nav ul li a:hover {
+            text-decoration: underline;
+        }
+
+        /* Navigation - Mobile */
+        nav.mobile-nav {
+            display: none;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 25px;
+            background-color: #f4a261;
+            color: white;
+        }
+
+        nav.mobile-nav .logo a {
+            font-size: 1.5rem;
+            font-weight: bold;
+            text-decoration: none;
+            color: white;
+        }
+
+        nav.mobile-nav .menu-icon {
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+
+        #fullscreen-menu {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100vh;
+            background-color: rgba(244, 162, 97, 0.95);
+            color: white;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            gap: 20px;
+            z-index: 1000;
+        }
+
+        #fullscreen-menu.show {
+            display: flex;
+        }
+
+        #fullscreen-menu .close-icon {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            font-size: 1.5rem;
+            cursor: pointer;
+            color: white;
+        }
+
+        #fullscreen-menu a {
+            color: white;
+            text-decoration: none;
+            font-size: 2rem;
+            font-weight: bold;
+        }
+
+        #fullscreen-menu a:hover {
             text-decoration: underline;
         }
 
@@ -84,7 +146,7 @@
         }
 
         #map {
-            height: 600px; /* Adjusted to match the provided layout */
+            height: 600px;
             width: 100%;
             border: 1px solid #ddd;
             border-radius: 8px;
@@ -131,6 +193,22 @@
         }
 
         @media (max-width: 768px) {
+            nav.desktop-nav {
+                display: none;
+            }
+
+            nav.mobile-nav {
+                display: flex;
+            }
+
+            header h1 {
+                font-size: 2.5rem;
+            }
+
+            header p {
+                font-size: 1.2rem;
+            }
+
             main {
                 grid-template-columns: 1fr;
             }
@@ -146,14 +224,29 @@
     </style>
 </head>
 <body>
-    <nav>
-        <div class="logo"><a href="index.html">Heated.city</a></div>
+    <!-- Desktop Navigation -->
+    <nav class="desktop-nav">
+        <div class="logo"><a href="/">Heated.city</a></div>
         <ul>
-            <li><a href="cities.html">Cities</a></li>
-            <li><a href="contributors.html">Contributors</a></li>
-            <li><a href="about.html">About</a></li>
+            <li><a href="/cities.html">Cities</a></li>
+            <li><a href="/contributors.html">Contributors</a></li>
+            <li><a href="/about.html">About</a></li>
         </ul>
     </nav>
+
+    <!-- Mobile Navigation -->
+    <nav class="mobile-nav">
+        <div class="logo"><a href="/">Heated.city</a></div>
+        <div class="menu-icon" onclick="toggleMenu()">☰</div>
+    </nav>
+
+    <!-- Fullscreen Menu for Mobile -->
+    <div id="fullscreen-menu">
+        <span class="close-icon" onclick="toggleMenu()">&times;</span>
+        <a href="/cities.html">Cities</a>
+        <a href="/contributors.html">Contributors</a>
+        <a href="/about.html">About</a>
+    </div>
 
     <header>
         <h1>Kyoto 2030</h1>
@@ -202,10 +295,10 @@
                 .bindPopup(`<b>${location.name}</b>`);
         });
 
-        // Ensure map is fully rendered
-        setTimeout(() => {
-            map.invalidateSize();
-        }, 200);
+        function toggleMenu() {
+            const menu = document.getElementById('fullscreen-menu');
+            menu.classList.toggle('show');
+        }
     </script>
 </body>
 </html>
