@@ -14,10 +14,14 @@
             margin: 0;
             font-family: 'Open Sans', sans-serif;
             color: #333;
+            background-color: #fff;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
         }
 
         header {
-            background-color: #2c3e50;
+            background-color: #f4a261;
             color: white;
             text-align: center;
             padding: 20px 15px;
@@ -38,50 +42,58 @@
             justify-content: space-between;
             align-items: center;
             padding: 15px 20px;
-            background-color: #34495e;
+            background-color: #f4a261;
             color: white;
         }
 
-        nav a {
-            color: white;
-            text-decoration: none;
+        nav .logo {
+            font-size: 1.5rem;
             font-weight: bold;
-            margin: 0 10px;
         }
 
-        nav a:hover {
+        nav ul {
+            list-style: none;
+            display: flex;
+            gap: 15px;
+            margin: 0;
+            padding: 0;
+        }
+
+        nav ul li {
+            display: inline;
+        }
+
+        nav ul li a {
+            text-decoration: none;
+            color: white;
+            font-weight: bold;
+        }
+
+        nav ul li a:hover {
             text-decoration: underline;
         }
 
         main {
-            display: grid;
-            grid-template-columns: 2fr 1fr;
+            display: flex;
+            flex-direction: row;
             gap: 20px;
             max-width: 1200px;
             margin: 20px auto;
             padding: 15px;
         }
 
-        main h2 {
-            font-size: 1.8rem;
-            color: #2c3e50;
-            margin-bottom: 15px;
-        }
-
-        main p {
-            font-size: 1rem;
-            color: #555;
-        }
-
         #map {
+            flex: 1.5;
             height: 400px;
             border: 1px solid #ddd;
             border-radius: 8px;
         }
 
         .contributors {
+            flex: 1;
             display: flex;
             flex-direction: column;
+            justify-content: flex-start;
         }
 
         .contributor {
@@ -95,7 +107,7 @@
         .contributor h3 {
             margin: 0;
             font-size: 1.2rem;
-            color: #2c3e50;
+            color: #f4a261;
         }
 
         .contributor p {
@@ -107,19 +119,27 @@
         footer {
             text-align: center;
             padding: 20px;
-            background-color: #2c3e50;
+            background-color: #f4a261;
             color: white;
             font-size: 0.9rem;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
         }
 
         footer a {
-            color: #ecf0f1;
+            color: #fff;
             text-decoration: underline;
         }
 
         @media (max-width: 768px) {
+            nav {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
             main {
-                grid-template-columns: 1fr;
+                flex-direction: column;
             }
 
             #map {
@@ -135,18 +155,17 @@
     </header>
 
     <nav>
-        <a href="/cities.html">Cities</a>
-        <a href="/contributors.html">Contributors</a>
-        <a href="/about.html">About</a>
+        <div class="logo">Heated.city</div>
+        <ul>
+            <li><a href="/cities.html">Cities</a></li>
+            <li><a href="/contributors.html">Contributors</a></li>
+            <li><a href="/about.html">About</a></li>
+        </ul>
     </nav>
 
     <main>
-        <div>
-            <h2>About Kyoto</h2>
-            <p>Kyoto, the cultural and historical heart of Japan, is pioneering sustainable urban solutions by integrating green technologies into its traditional cityscape. From smart energy grids to bike-friendly infrastructure, Kyoto is setting a benchmark for sustainable living.</p>
-            <div id="map"></div>
-        </div>
-        <aside class="contributors">
+        <div id="map"></div>
+        <div class="contributors">
             <div class="contributor">
                 <h3>Gion District</h3>
                 <p>Focus: Preserving heritage with eco-tourism strategies.</p>
@@ -159,7 +178,7 @@
                 <h3>Fushimi</h3>
                 <p>Focus: Renewable energy projects integrated with traditional sake breweries.</p>
             </div>
-        </aside>
+        </div>
     </main>
 
     <footer>
