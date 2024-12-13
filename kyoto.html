@@ -278,23 +278,52 @@
     </section>
 
     <main>
-        <div id="map"></div>
-        <div id="contributors-container">
-            <div class="contributors">
-                <div class="contributor">
-                    <h3>Hikari Machiya Studio</h3>
-                    <img src="img/papel.png" alt="Heritage & Eco-Tours in Gion">
-                    <p>Workshops in traditional crafts like indigo dyeing and washi paper making.</p>
-                </div>
-                <div class="contributor">
-                    <h3>Akari no Michi</h3>
-                    <img src="img/lamparas.png" alt="Eco-Lantern Pathways">
-                    <p>Solar-powered lanterns line the streets, designed by local artists.</p>
-                </div>
-                <!-- Additional contributors -->
+    <div id="map"></div>
+    <div id="contributors-container">
+        <div class="contributors">
+            <div class="contributor">
+                <h3>Hikari Machiya Studio</h3>
+                <img src="img/papel.png" alt="Heritage & Eco-Tours in Gion">
+                <p>Workshops in traditional crafts such as indigo dyeing and washi paper making.</p>
+            </div>
+            <div class="contributor">
+                <h3>Akari no Michi</h3>
+                <img src="img/lamparas.png" alt="Eco-Lantern Pathways">
+                <p>Solar-powered lanterns line the streets, designed by local artists.</p>
+            </div>
+            <div class="contributor">
+                <h3>Hozugawa Eco-Island Center</h3>
+                <img src="img/ecosistema.png" alt="Floating Biodiversity Islands">
+                <p>Miniature ecosystems along the Hozugawa River.</p>
+            </div>
+            <div class="contributor">
+                <h3>Bamboo Grove Knowledge Trail</h3>
+                <img src="img/arashiyama_bamboo.jpg" alt="Bamboo Smart Forests">
+                <p>IoT-enabled monitoring of carbon capture and soil health.</p>
+            </div>
+            <div class="contributor">
+                <h3>Tsubasa Wildlife Eco-Bridge</h3>
+                <img src="img/arashiyama_bridges.jpg" alt="Eco-Bridges for Wildlife">
+                <p>Green bridges for animals, doubling as scenic walking trails.</p>
+            </div>
+            <div class="contributor">
+                <h3>Kura no Megumi</h3>
+                <img src="img/fushimi_solar.jpg" alt="Solar Sake Breweries">
+                <p>Traditional sake breweries powered by solar energy.</p>
+            </div>
+            <div class="contributor">
+                <h3>Midori no Kura</h3>
+                <img src="img/fushimi_bioenergy.jpg" alt="Fermentation Waste Bioenergy">
+                <p>Its operations are powered by bioenergy from sake production waste.</p>
+            </div>
+            <div class="contributor">
+                <h3>Yume no Mizu</h3>
+                <img src="img/fushimi_tours.jpg" alt="Sake & Sustainability Tours">
+                <p>Guided tours showcasing renewable energy in sake brewing.</p>
             </div>
         </div>
-    </main>
+    </div>
+</main>
 
     <footer>
         <p>&copy; 2024 Heated.city | <a href="/contact.html">Contact Us</a></p>
@@ -309,9 +338,14 @@
         }).addTo(map);
 
         const locations = [
-            { name: "Hikari Machiya Studio", coords: [35.0035, 135.7780] },
-            { name: "Akari no Michi", coords: [35.0040, 135.7790] },
-            // Additional locations
+            { name: "Hikari Machiya Studio (光町家スタジオ)", coords: [35.0035, 135.7780] },
+            { name: "Akari no Michi (明かりの道)", coords: [35.0040, 135.7790] },
+            { name: "Hozugawa Eco-Island Center (保津川エコアイランドセンター)", coords: [35.0085, 135.6705] },
+            { name: "Bamboo Grove Knowledge Trail (竹林知識トレイル)", coords: [35.0090, 135.6710] },
+            { name: "Tsubasa Wildlife Eco-Bridge (つばさ野生動物エコブリッジ)", coords: [35.0080, 135.6695] },
+            { name: "Kura no Megumi (倉の恵み)", coords: [34.9325, 135.7590] },
+            { name: "Midori no Kura (緑の蔵)", coords: [34.9330, 135.7580] },
+            { name: "Yume no Mizu (夢の水)", coords: [34.9340, 135.7575] }
         ];
 
         locations.forEach(location => {
