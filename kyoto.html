@@ -148,47 +148,48 @@
             color: #666;
         }
 
-        main {
-            display: grid;
-            grid-template-columns: 1.5fr 1fr;
-            gap: 20px;
-            max-width: 1200px;
-            margin: 20px auto;
-            padding: 15px;
-        }
+        /* Contenedor principal */
+main {
+    max-width: 1200px;
+    margin: 20px auto;
+    padding: 15px;
+    position: relative; /* Importante para el posicionamiento de los elementos hijos */
+}
 
-        #map {
-            height: 600px;
-            border: 1px solid #ddd;
-            border-radius: 8px;
-            z-index: 0;
-        }
+/* Contenedor del mapa */
+#map {
+    height: 600px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    z-index: 0;
+}
 
-        #contributors-container {
-            height: 600px;
-            overflow-y: auto;
-            border: 1px solid #ddd;
-            border-radius: 8px;
-            padding: 10px;
-        }
+/* Contenedor de contribuciones */
+.contributors-wrapper {
+    position: relative; /* Para contener el scroll */
+    height: 600px; /* Misma altura que el mapa en desktop */
+    overflow: hidden; /* Oculta el desbordamiento */
+}
 
-        .contributors {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 15px;
-        }
+.contributors {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    overflow-y: auto; /* Permite scroll vertical */
+    padding: 15px;
+    background: #fff;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+}
 
-        .contributor {
-            background: #ecf0f1;
-            border: 1px solid #ddd;
-            border-radius: 8px;
-            text-align: center;
-            height: 350px;
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between;
-            padding: 10px;
-        }
+/* Grid de contribuciones */
+.contributors-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 15px;
+}
 
         .contributor img {
             width: 100%;
@@ -224,31 +225,35 @@
         }
 
         /* Media Queries */
-        @media (max-width: 768px) {
-            nav.desktop-nav {
-                display: none;
-            }
+@media (min-width: 769px) {
+    main {
+        display: grid;
+        grid-template-columns: 1.5fr 1fr;
+        gap: 20px;
+    }
+}
 
-            .mobile-nav {
-                display: flex;
-            }
+@media (max-width: 768px) {
+    main {
+        display: flex;
+        flex-direction: column;
+    }
 
-            main {
-                display: flex;
-                flex-direction: column;
-            }
+    #map {
+        height: 300px;
+        order: 0;
+    }
 
-            #map {
-                order: 0;
-                height: 300px;
-            }
+    .contributors-wrapper {
+        order: 1;
+        height: calc(100vh - 500px); /* Altura dinámica en móvil */
+        min-height: 400px; /* Altura mínima */
+    }
 
-            #contributors-container {
-                order: 1;
-                height: auto;
-                overflow-y: scroll;
-            }
-        }
+    .contributors-grid {
+        grid-template-columns: 1fr; /* Una sola columna en móvil */
+    }
+}
     </style>
 </head>
 <body>
@@ -283,50 +288,55 @@
     </section>
 
     <main>
-        <div id="map"></div>
+    <div id="map"></div>
+    <div class="contributors-wrapper">
         <div class="contributors">
-            <div class="contributor">
-                <h3>Hikari Machiya Studio</h3>
-                <img src="img/papel.png" alt="Heritage & Eco-Tours in Gion">
-                <p>Workshops in traditional crafts such as indigo dyeing and washi paper making.</p>
-            </div>
-            <div class="contributor">
-                <h3>Akari no Michi</h3>
-                <img src="img/lamparas.png" alt="Eco-Lantern Pathways">
-                <p>Solar-powered lanterns line the streets, designed by local artists.</p>
-            </div>
-            <div class="contributor">
-                <h3>Hozugawa Eco-Island Center</h3>
-                <img src="img/ecosistema.png" alt="Floating Biodiversity Islands">
-                <p>Miniature ecosystems along the Hozugawa River.</p>
-            </div>
-            <div class="contributor">
-                <h3>Bamboo Grove Knowledge Trail</h3>
-                <img src="img/arashiyama_bamboo.jpg" alt="Bamboo Smart Forests">
-                <p>IoT-enabled monitoring of carbon capture and soil health.</p>
-            </div>
-            <div class="contributor">
-                <h3>Tsubasa Wildlife Eco-Bridge</h3>
-                <img src="img/arashiyama_bridges.jpg" alt="Eco-Bridges for Wildlife">
-                <p>Green bridges for animals, doubling as scenic walking trails.</p>
-            </div>
-            <div class="contributor">
-                <h3>Kura no Megumi</h3>
-                <img src="img/fushimi_solar.jpg" alt="Solar Sake Breweries">
-                <p>Traditional sake breweries powered by solar energy.</p>
-            </div>
-            <div class="contributor">
-                <h3>Midori no Kura</h3>
-                <img src="img/fushimi_bioenergy.jpg" alt="Fermentation Waste Bioenergy">
-                <p>Its operations are powered by bioenergy from sake production waste.</p>
-            </div>
-            <div class="contributor">
-                <h3>Yume no Mizu</h3>
-                <img src="img/fushimi_tours.jpg" alt="Sake & Sustainability Tours">
-                <p>Guided tours showcasing renewable energy in sake brewing.</p>
+            <div class="contributors-grid">
+                <!-- Contributor cards -->
+                <div class="contributor">
+                    <h3>Hikari Machiya Studio</h3>
+                    <img src="img/papel.png" alt="Heritage & Eco-Tours in Gion">
+                    <p>Workshops in traditional crafts such as indigo dyeing and washi paper making.</p>
+                </div>
+                <div class="contributor">
+            <h3>Akari no Michi</h3>
+            <img src="img/lamparas.png" alt="Eco-Lantern Pathways">
+            <p>Solar-powered lanterns line the streets, designed by local artists.</p>
+        </div>
+        <div class="contributor">
+            <h3>Hozugawa Eco-Island Center</h3>
+            <img src="img/ecosistema.png" alt="Floating Biodiversity Islands">
+            <p>Miniature ecosystems along the Hozugawa River.</p>
+        </div>
+        <div class="contributor">
+            <h3>Bamboo Grove Knowledge Trail</h3>
+            <img src="img/arashiyama_bamboo.jpg" alt="Bamboo Smart Forests">
+            <p>IoT-enabled monitoring of carbon capture and soil health.</p>
+        </div>
+        <div class="contributor">
+            <h3>Tsubasa Wildlife Eco-Bridge</h3>
+            <img src="img/arashiyama_bridges.jpg" alt="Eco-Bridges for Wildlife">
+            <p>Green bridges for animals, doubling as scenic walking trails.</p>
+        </div>
+        <div class="contributor">
+            <h3>Kura no Megumi</h3>
+            <img src="img/fushimi_solar.jpg" alt="Solar Sake Breweries">
+            <p>Traditional sake breweries powered by solar energy.</p>
+        </div>
+        <div class="contributor">
+            <h3>Midori no Kura</h3>
+            <img src="img/fushimi_bioenergy.jpg" alt="Fermentation Waste Bioenergy">
+            <p>Its operations are powered by bioenergy from sake production waste.</p>
+        </div>
+        <div class="contributor">
+            <h3>Yume no Mizu</h3>
+            <img src="img/fushimi_tours.jpg" alt="Sake & Sustainability Tours">
+            <p>Guided tours showcasing renewable energy in sake brewing.</p>
+        </div>
             </div>
         </div>
-    </main>
+    </div>
+</main>
 
     <footer>
         <p>&copy; 2024 Heated.city | <a href="/contact.html">Contact Us</a></p>
