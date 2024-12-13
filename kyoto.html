@@ -89,7 +89,7 @@
             align-items: center;
             flex-direction: column;
             gap: 20px;
-            z-index: 2000; /* Ensures it is above map and controls */
+            z-index: 2000;
         }
 
         #fullscreen-menu.show {
@@ -151,7 +151,7 @@
             border: 1px solid #ddd;
             border-radius: 8px;
             position: relative;
-            z-index: 1; /* Ensures it is below the fullscreen menu */
+            z-index: 1;
         }
 
         .contributors {
@@ -166,6 +166,14 @@
             border: 1px solid #ddd;
             border-radius: 8px;
             text-align: center;
+        }
+
+        .contributor img {
+            width: 100%;
+            height: 150px;
+            object-fit: cover;
+            border-radius: 8px;
+            margin-bottom: 10px;
         }
 
         .contributor h3 {
@@ -226,7 +234,6 @@
     </style>
 </head>
 <body>
-    <!-- Desktop Navigation -->
     <nav class="desktop-nav">
         <div class="logo"><a href="index.html">Heated.city</a></div>
         <ul>
@@ -236,13 +243,11 @@
         </ul>
     </nav>
 
-    <!-- Mobile Navigation -->
     <nav class="mobile-nav">
         <div class="logo"><a href="index.html">Heated.city</a></div>
         <div class="menu-icon" onclick="toggleMenu()">☰</div>
     </nav>
 
-    <!-- Fullscreen Menu for Mobile -->
     <div id="fullscreen-menu">
         <span class="close-icon" onclick="toggleMenu()">&times;</span>
         <a href="cities.html">Cities</a>
@@ -256,25 +261,25 @@
     </header>
 
     <main>
-    <div id="map"></div>
-    <div class="contributors">
-        <div class="contributor">
-            <img src="img/giondistrict.png" alt="Gion District" style="width:100%; border-radius: 8px; margin-bottom: 10px;">
-            <h3>Gion District</h3>
-            <p>Focus: Preserving heritage with eco-tourism strategies.</p>
+        <div id="map"></div>
+        <div class="contributors">
+            <div class="contributor">
+                <img src="img/gion.jpg" alt="Gion District">
+                <h3>Gion District</h3>
+                <p>Focus: Preserving heritage with eco-tourism strategies.</p>
+            </div>
+            <div class="contributor">
+                <img src="img/arashiyama.jpg" alt="Arashiyama">
+                <h3>Arashiyama</h3>
+                <p>Focus: Enhancing biodiversity and green corridors.</p>
+            </div>
+            <div class="contributor">
+                <img src="img/fushimi.jpg" alt="Fushimi">
+                <h3>Fushimi</h3>
+                <p>Focus: Renewable energy projects integrated with traditional sake breweries.</p>
+            </div>
         </div>
-        <div class="contributor">
-            <img src="img/arashiyama.png" alt="Arashiyama" style="width:100%; border-radius: 8px; margin-bottom: 10px;">
-            <h3>Arashiyama</h3>
-            <p>Focus: Enhancing biodiversity and green corridors.</p>
-        </div>
-        <div class="contributor">
-            <img src="img/fushimi.png" alt="Fushimi" style="width:100%; border-radius: 8px; margin-bottom: 10px;">
-            <h3>Fushimi</h3>
-            <p>Focus: Renewable energy projects integrated with traditional sake breweries.</p>
-        </div>
-    </div>
-</main>
+    </main>
 
     <footer>
         <p>&copy; 2024 Heated.city | <a href="/contact.html">Contact Us</a></p>
