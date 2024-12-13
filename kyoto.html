@@ -193,11 +193,12 @@
         }
 
         .contributor img {
-            width: 100%;
-            height: 150px;
-            object-fit: cover;
-            border-radius: 5px;
-        }
+        width: 100%;
+        height: auto; /* Altura automática para evitar deformaciones */
+        aspect-ratio: 1 / 1; /* Proporción cuadrada */
+        object-fit: cover; /* Cubre el área disponible sin distorsión */
+        border-radius: 5px; /* Mantener bordes redondeados */
+    }
 
         .contributor h3 {
             font-size: 1.2rem;
