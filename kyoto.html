@@ -173,49 +173,52 @@
         }
 
         /* Estilo del contenedor de la lista */
+    .contributors-wrapper {
+        height: 500px; /* Altura fija para el contenedor */
+        overflow-y: auto; /* Habilitar scroll vertical */
+        border: 1px solid #ddd;
+        border-radius: 8px;
+        padding: 10px;
+        background: #fff;
+    }
+
     .contributors {
         display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* Adaptable a pantallas */
-        gap: 20px;
-        padding: 15px;
+        grid-template-columns: 1fr; /* Una columna para que cada tarjeta ocupe todo el ancho */
+        gap: 15px;
     }
 
     .contributor {
         background: #f9f9f9;
         border: 1px solid #ddd;
-        border-radius: 10px;
-        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Suave sombra para destacar */
-        overflow: hidden;
+        border-radius: 8px;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        padding: 10px;
         display: flex;
         flex-direction: column;
-        justify-content: space-between;
-        padding: 15px;
+        align-items: center;
     }
 
-        .contributor img {
-        width: 100%;
+    .contributor img {
+        width: 80%; /* Tamaño reducido para las imágenes */
         height: auto;
-        aspect-ratio: 1 / 1; /* Imagen cuadrada */
+        aspect-ratio: 1 / 1; /* Mantener formato cuadrado */
         object-fit: cover;
         border-radius: 8px;
     }
 
-        .contributor h3 {
-        font-size: 1.2rem;
-        margin: 15px 0 10px; /* Espaciado más consistente */
+    .contributor h3 {
+        font-size: 1rem;
+        margin: 10px 0 5px;
+        text-align: center;
         color: #333;
     }
 
     .contributor p {
-        font-size: 0.95rem;
+        font-size: 0.85rem;
+        text-align: center;
         color: #666;
-        line-height: 1.5;
-    }
-
-    .contributor:hover {
-        transform: translateY(-5px); /* Animación suave al pasar el cursor */
-        transition: transform 0.3s ease, box-shadow 0.3s ease;
-        box-shadow: 0 6px 10px rgba(0, 0, 0, 0.15); /* Sombra más fuerte al pasar el cursor */
+        line-height: 1.4;
     }
 
         footer {
