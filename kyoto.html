@@ -174,19 +174,44 @@
         <div id="map"></div>
         <div class="contributors">
             <div class="contributor">
-                <img src="img/gion.jpg" alt="Gion District">
+                <img src="img/gion_eco_tours.jpg" alt="Heritage & Eco-Tours in Gion">
                 <h3>Heritage & Eco-Tours in Gion</h3>
-                <p>Explore the historical charm with sustainable tourism practices.</p>
+                <p>Workshops in restored machiyas and eco-history trails.</p>
             </div>
             <div class="contributor">
-                <img src="img/arashiyama.jpg" alt="Arashiyama">
-                <h3>Green Biodiversity in Arashiyama</h3>
-                <p>Experience Kyoto’s natural beauty with enhanced green corridors.</p>
+                <img src="img/gion_lanterns.jpg" alt="Eco-Lantern Pathways">
+                <h3>Eco-Lantern Pathways</h3>
+                <p>Solar-powered lanterns line the streets, designed by local artists.</p>
             </div>
             <div class="contributor">
-                <img src="img/fushimi.jpg" alt="Fushimi">
-                <h3>Sake & Sustainability in Fushimi</h3>
-                <p>Enjoy traditional sake tours powered by renewable energy.</p>
+                <img src="img/arashiyama_islands.jpg" alt="Floating Biodiversity Islands">
+                <h3>Floating Biodiversity Islands</h3>
+                <p>Miniature ecosystems along the Hozugawa River.</p>
+            </div>
+            <div class="contributor">
+                <img src="img/arashiyama_bamboo.jpg" alt="Bamboo Smart Forests">
+                <h3>Bamboo Smart Forests</h3>
+                <p>IoT-enabled monitoring of carbon capture and soil health.</p>
+            </div>
+            <div class="contributor">
+                <img src="img/arashiyama_bridges.jpg" alt="Eco-Bridges for Wildlife">
+                <h3>Eco-Bridges for Wildlife</h3>
+                <p>Green bridges for animals, doubling as scenic walking trails.</p>
+            </div>
+            <div class="contributor">
+                <img src="img/fushimi_solar.jpg" alt="Solar Sake Breweries">
+                <h3>Solar Sake Breweries</h3>
+                <p>Traditional sake breweries powered by solar energy.</p>
+            </div>
+            <div class="contributor">
+                <img src="img/fushimi_bioenergy.jpg" alt="Fermentation Waste Bioenergy">
+                <h3>Fermentation Waste Bioenergy</h3>
+                <p>Bioenergy from sake production waste fuels local facilities.</p>
+            </div>
+            <div class="contributor">
+                <img src="img/fushimi_tours.jpg" alt="Sake & Sustainability Tours">
+                <h3>Sake & Sustainability Tours</h3>
+                <p>Guided tours showcasing renewable energy in sake brewing.</p>
             </div>
         </div>
     </main>
@@ -204,9 +229,14 @@
         }).addTo(map);
 
         const locations = [
-            { name: "Heritage & Eco-Tours in Gion", coords: [35.0040, 135.7800] },
-            { name: "Green Biodiversity in Arashiyama", coords: [35.0085, 135.6705] },
-            { name: "Sake & Sustainability in Fushimi", coords: [34.9342, 135.7585] }
+            { name: "Heritage & Eco-Tours in Gion", coords: [35.0035, 135.7780] },
+            { name: "Eco-Lantern Pathways", coords: [35.0040, 135.7790] },
+            { name: "Floating Biodiversity Islands", coords: [35.0085, 135.6705] },
+            { name: "Bamboo Smart Forests", coords: [35.0090, 135.6710] },
+            { name: "Eco-Bridges for Wildlife", coords: [35.0080, 135.6695] },
+            { name: "Solar Sake Breweries", coords: [34.9325, 135.7590] },
+            { name: "Fermentation Waste Bioenergy", coords: [34.9330, 135.7580] },
+            { name: "Sake & Sustainability Tours", coords: [34.9340, 135.7575] }
         ];
 
         locations.forEach(location => {
