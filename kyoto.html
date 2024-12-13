@@ -20,7 +20,7 @@
         }
 
         /* Navigation */
-        nav {
+        nav.desktop-nav {
             display: flex;
             justify-content: space-between;
             align-items: center;
@@ -29,14 +29,14 @@
             color: white;
         }
 
-        nav .logo a {
+        nav.desktop-nav .logo a {
             font-size: 1.5rem;
             font-weight: bold;
             text-decoration: none;
             color: white;
         }
 
-        nav ul {
+        nav.desktop-nav ul {
             list-style: none;
             display: flex;
             gap: 15px;
@@ -44,23 +44,30 @@
             padding: 0;
         }
 
-        nav ul li a {
+        nav.desktop-nav ul li a {
             text-decoration: none;
             color: white;
             font-weight: bold;
         }
 
-        nav ul li a:hover {
+        nav.desktop-nav ul li a:hover {
             text-decoration: underline;
         }
 
-        /* Mobile Menu */
+        /* Mobile Navigation */
         nav.mobile-nav {
             display: none;
             justify-content: space-between;
             align-items: center;
             padding: 15px 25px;
             background-color: #f4a261;
+            color: white;
+        }
+
+        nav.mobile-nav .logo a {
+            font-size: 1.5rem;
+            font-weight: bold;
+            text-decoration: none;
             color: white;
         }
 
@@ -148,6 +155,7 @@
             border: 1px solid #ddd;
             border-radius: 8px;
             position: relative;
+            z-index: 1;
         }
 
         .contributors {
@@ -257,7 +265,7 @@
     <main>
         <div id="map"></div>
         <div class="contributors">
-            <!-- Contributors here -->
+            <!-- Contributed content here -->
         </div>
     </main>
 
@@ -265,7 +273,31 @@
         <p>&copy; 2024 Heated.city | <a href="/contact.html">Contact Us</a></p>
     </footer>
 
+    <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
     <script>
+        const map = L.map("map").setView([35.0116, 135.7681], 12);
+
+        L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
+            attribution: '&copy; <a href="https://openstreetmap.org">OpenStreetMap</a>',
+        }).addTo(map);
+
+        const locations = [
+            { name: "Heritage & Eco-Tours in Gion", coords: [35.0035, 135.7780] },
+            { name: "Eco-Lantern Pathways", coords: [35.0040, 135.7790] },
+            { name: "Floating Biodiversity Islands", coords: [35.0085, 135.6705] },
+            { name: "Bamboo Smart Forests", coords: [35.0090, 135.6710] },
+            { name: "Eco-Bridges for Wildlife", coords: [35.0080, 135.6695] },
+            { name: "Solar Sake Breweries", coords: [34.9325, 135.7590] },
+            { name: "Fermentation Waste Bioenergy", coords: [34.9330, 135.7580] },
+            { name: "Sake & Sustainability Tours", coords: [34.9340, 135.7575] }
+        ];
+
+        locations.forEach(location => {
+            L.marker(location.coords)
+                .addTo(map)
+                .bindPopup(`<b>${location.name}</b>`);
+        });
+
         function toggleMenu() {
             const menu = document.getElementById('fullscreen-menu');
             menu.classList.toggle('show');
