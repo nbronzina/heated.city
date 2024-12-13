@@ -173,17 +173,25 @@
             margin-bottom: 10px;
         }
 
+   <style>
+    /* Footer styles */
     footer {
         text-align: center;
         padding: 20px;
         background-color: #f4a261;
         color: white;
-        width: 100%; /* Asegura que el ancho del footer sea igual al viewport */
-        box-sizing: border-box; /* Incluye el padding en el cálculo del ancho */
-        position: fixed; /* Fija el footer en la parte inferior */
-        bottom: 0;
-        left: 0;
     }
+
+    footer a {
+        color: white; /* Mantener el color blanco */
+        text-decoration: none; /* Eliminar el subrayado */
+    }
+
+    footer a:hover {
+        text-decoration: underline; /* Subrayar al pasar el cursor */
+    }
+</style>
+
 
         @media (max-width: 768px) {
             nav.desktop-nav {
