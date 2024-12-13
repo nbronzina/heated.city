@@ -18,23 +18,23 @@
         }
 
         /* Navigation */
-        nav.desktop-nav {
+        nav {
             display: flex;
             justify-content: space-between;
             align-items: center;
             padding: 15px 25px;
-            background-color: #f4a261;
+            background-color: #34495e;
             color: white;
         }
 
-        nav.desktop-nav .logo a {
+        nav .logo a {
             font-size: 1.5rem;
             font-weight: bold;
             text-decoration: none;
             color: white;
         }
 
-        nav.desktop-nav ul {
+        nav ul {
             list-style: none;
             display: flex;
             gap: 15px;
@@ -42,110 +42,43 @@
             padding: 0;
         }
 
-        nav.desktop-nav ul li a {
+        nav ul li a {
             text-decoration: none;
             color: white;
             font-weight: bold;
         }
 
-        nav.desktop-nav ul li a:hover {
+        nav ul li a:hover {
             text-decoration: underline;
         }
 
-        nav.mobile-nav {
-            display: none;
-            justify-content: space-between;
-            align-items: center;
-            padding: 15px 25px;
-            background-color: #f4a261;
-            color: white;
-        }
-
-        nav.mobile-nav .logo a {
-            font-size: 1.5rem;
-            font-weight: bold;
-            text-decoration: none;
-            color: white;
-        }
-
-        nav.mobile-nav .menu-icon {
-            font-size: 1.5rem;
-            cursor: pointer;
-        }
-
-        #fullscreen-menu {
-            display: none;
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100vh;
-            background-color: rgba(244, 162, 97, 0.95);
-            color: white;
-            justify-content: center;
-            align-items: center;
-            flex-direction: column;
-            gap: 20px;
-            z-index: 1000;
-        }
-
-        #fullscreen-menu.show {
+        /* Title Section */
+        .title-section {
             display: flex;
-        }
-
-        #fullscreen-menu .close-icon {
-            position: absolute;
-            top: 20px;
-            right: 20px;
-            font-size: 1.5rem;
-            cursor: pointer;
-            color: white;
-        }
-
-        #fullscreen-menu a {
-            color: white;
-            text-decoration: none;
-            font-size: 2rem;
-            font-weight: bold;
-        }
-
-        #fullscreen-menu a:hover {
-            text-decoration: underline;
-        }
-
-        header {
-            text-align: center;
-            color: white;
-            background: #34495e;
-            padding: 60px 20px;
-        }
-
-        header h1 {
-            font-size: 3rem;
-            margin: 0 0 20px;
-        }
-
-        header p {
-            font-size: 1.5rem;
-            margin: 0 0 30px;
-        }
-
-        header .cta a {
-            padding: 15px 30px;
-            background-color: #e76f51;
-            color: white;
-            text-decoration: none;
-            font-weight: bold;
-            font-size: 1.2rem;
-            border-radius: 5px;
-        }
-
-        header .cta a:hover {
+            flex-direction: column;
+            align-items: center;
+            padding: 20px;
             background-color: #f4a261;
+            color: white;
         }
 
-        main {
-            flex: 1;
+        .title-section h1 {
+            font-size: 3rem;
+            margin: 0 0 10px;
+        }
+
+        .title-section p {
+            margin: 5px 0;
+        }
+
+        .title-section img {
+            width: 50px;
+            height: 50px;
+            margin: 15px 0;
+        }
+
+        /* Content Layout */
+        .content {
             display: flex;
             flex-wrap: wrap;
             max-width: 1200px;
@@ -156,39 +89,47 @@
 
         #map {
             flex: 2;
-            height: 400px;
+            height: 600px;
             border-radius: 8px;
             border: 1px solid #ddd;
         }
 
-        .contributors {
+        .districts {
             flex: 1;
-            display: flex;
-            flex-direction: column;
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
             gap: 15px;
         }
 
-        .contributor {
-            background: #ecf0f1;
+        .district {
+            background-color: #2ecc71;
+            color: white;
             padding: 15px;
             border-radius: 8px;
-            border: 1px solid #ddd;
+            text-align: center;
+            font-weight: bold;
         }
 
-        .contributor h3 {
-            margin: 0 0 10px;
-            font-size: 1.2rem;
+        .district:nth-child(2n) {
+            background-color: #3498db;
         }
 
-        .contributor p {
-            margin: 0;
-            font-size: 0.9rem;
+        .district:nth-child(3n) {
+            background-color: #e74c3c;
+        }
+
+        .district a {
+            color: white;
+            text-decoration: none;
+            font-size: 1rem;
+            margin-top: 5px;
+            display: block;
         }
 
         footer {
             text-align: center;
             padding: 20px;
-            background-color: #f4a261;
+            background-color: #34495e;
             color: white;
             font-size: 1rem;
             position: fixed;
@@ -197,7 +138,7 @@
         }
 
         @media (max-width: 768px) {
-            main {
+            .content {
                 flex-direction: column;
             }
 
@@ -208,8 +149,7 @@
     </style>
 </head>
 <body>
-    <!-- Desktop Navigation -->
-    <nav class="desktop-nav">
+    <nav>
         <div class="logo"><a href="index.html">Heated.city</a></div>
         <ul>
             <li><a href="cities.html">Cities</a></li>
@@ -218,44 +158,34 @@
         </ul>
     </nav>
 
-    <!-- Mobile Navigation -->
-    <nav class="mobile-nav">
-        <div class="logo"><a href="index.html">Heated.city</a></div>
-        <div class="menu-icon" onclick="toggleMenu()">☰</div>
-    </nav>
-
-    <div id="fullscreen-menu">
-        <span class="close-icon" onclick="toggleMenu()">&times;</span>
-        <a href="cities.html">Cities</a>
-        <a href="contributors.html">Contributors</a>
-        <a href="about.html">About</a>
-    </div>
-
-    <header>
-        <h1>Kyoto 2030</h1>
+    <section class="title-section">
+        <h1>Kyoto</h1>
+        <p>Japan</p>
         <p>Organized by Kyoto Sustainability Council</p>
-        <div class="cta">
-            <a href="contributors.html">Meet the Contributors</a>
-        </div>
-    </header>
+        <img src="kyoto-icon.png" alt="Kyoto Icon">
+    </section>
 
-    <main>
+    <div class="content">
         <div id="map"></div>
-        <div class="contributors">
-            <div class="contributor">
-                <h3>Gion District</h3>
-                <p>Focus: Preserving heritage with eco-tourism strategies.</p>
+        <div class="districts">
+            <div class="district">
+                <p>Gion District</p>
+                <a href="#">Learn More</a>
             </div>
-            <div class="contributor">
-                <h3>Arashiyama</h3>
-                <p>Focus: Enhancing biodiversity and green corridors.</p>
+            <div class="district">
+                <p>Arashiyama</p>
+                <a href="#">Learn More</a>
             </div>
-            <div class="contributor">
-                <h3>Fushimi</h3>
-                <p>Focus: Renewable energy projects integrated with traditional sake breweries.</p>
+            <div class="district">
+                <p>Fushimi</p>
+                <a href="#">Learn More</a>
+            </div>
+            <div class="district">
+                <p>Higashiyama</p>
+                <a href="#">Learn More</a>
             </div>
         </div>
-    </main>
+    </div>
 
     <footer>
         <p>&copy; 2024 Heated.city</p>
@@ -269,22 +199,18 @@
             attribution: '&copy; <a href="https://openstreetmap.org">OpenStreetMap</a>',
         }).addTo(map);
 
-        const locations = [
+        const districts = [
             { name: "Gion District", coords: [35.0037, 135.7788] },
             { name: "Arashiyama", coords: [35.0094, 135.6675] },
-            { name: "Fushimi", coords: [34.9336, 135.7572] }
+            { name: "Fushimi", coords: [34.9336, 135.7572] },
+            { name: "Higashiyama", coords: [35.0015, 135.7809] }
         ];
 
-        locations.forEach(location => {
-            L.marker(location.coords)
+        districts.forEach(district => {
+            L.marker(district.coords)
                 .addTo(map)
-                .bindPopup(`<b>${location.name}</b>`);
+                .bindPopup(`<b>${district.name}</b>`);
         });
-
-        function toggleMenu() {
-            const menu = document.getElementById("fullscreen-menu");
-            menu.classList.toggle("show");
-        }
     </script>
 </body>
 </html>
