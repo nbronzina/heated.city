@@ -214,6 +214,24 @@ nav.desktop-nav ul li a:hover {
     nav.mobile-nav {
         display: flex;
     }
+
+    /* Ajustar el contenedor del mapa y el listado */
+    #map-container {
+        flex-direction: column; /* Mostrar mapa y lista en columnas */
+    }
+
+    /* Ajustar el mapa */
+    #map {
+        height: 300px; /* Reducir la altura del mapa */
+        width: 100%;   /* Asegurar que ocupa todo el ancho */
+        margin-bottom: 20px; /* Espaciado debajo del mapa */
+    }
+
+    /* Mostrar contribuciones en una sola columna */
+    .contributors {
+        grid-template-columns: 1fr; /* Una sola columna */
+        gap: 15px; /* Espaciado entre las contribuciones */
+    }
 }
 
 @media (min-width: 769px) {
@@ -226,7 +244,27 @@ nav.desktop-nav ul li a:hover {
     nav.mobile-nav {
         display: none;
     }
+
+    /* Ajustar el contenedor del mapa y el listado */
+    #map-container {
+        flex-direction: row; /* Mostrar mapa y lista lado a lado */
+        gap: 20px; /* Espaciado entre el mapa y el listado */
+    }
+
+    /* Ajustar el mapa */
+    #map {
+        height: 600px; /* Altura más grande para desktop */
+        flex: 1; /* El mapa ocupa más espacio */
+        margin-bottom: 0; /* Sin margen */
+    }
+
+    /* Mostrar contribuciones en dos columnas */
+    .contributors {
+        grid-template-columns: repeat(2, 1fr); /* Dos columnas */
+        gap: 15px; /* Espaciado entre las contribuciones */
+    }
 }
+
     </style>
 </head>
 <body>
