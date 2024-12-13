@@ -22,104 +22,103 @@
         }
 
         /* Desktop Navigation */
-nav.desktop-nav {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 15px 25px;
-    background-color: #f4a261;
-    color: white;
-}
+        nav.desktop-nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 25px;
+            background-color: #f4a261;
+            color: white;
+        }
 
-nav.desktop-nav .logo a {
-    font-size: 1.5rem;
-    font-weight: bold;
-    text-decoration: none;
-    color: white;
-}
+        nav.desktop-nav .logo a {
+            font-size: 1.5rem;
+            font-weight: bold;
+            text-decoration: none;
+            color: white;
+        }
 
-nav.desktop-nav ul {
-    list-style: none;
-    display: flex;
-    gap: 15px;
-    margin: 0;
-    padding: 0;
-}
+        nav.desktop-nav ul {
+            list-style: none;
+            display: flex;
+            gap: 15px;
+            margin: 0;
+            padding: 0;
+        }
 
-nav.desktop-nav ul li a {
-    text-decoration: none;
-    color: white;
-    font-weight: bold;
-}
+        nav.desktop-nav ul li a {
+            text-decoration: none;
+            color: white;
+            font-weight: bold;
+        }
 
-nav.desktop-nav ul li a:hover {
-    text-decoration: underline;
-}
+        nav.desktop-nav ul li a:hover {
+            text-decoration: underline;
+        }
 
-/* Mobile Navigation */
-.mobile-nav {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 15px 25px; /* Consistente en todas las páginas */
-    background-color: #f4a261;
-    color: white;
-    height: auto; /* Ajuste automático del alto */
-    box-sizing: border-box; /* Para evitar diferencias por márgenes/padding */
-}
+        /* Mobile Navigation */
+        .mobile-nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 25px;
+            background-color: #f4a261;
+            color: white;
+        }
 
-.mobile-nav .logo a {
-    font-size: 1.5rem; /* Consistente para todas */
-    font-weight: bold;
-    text-decoration: none;
-    color: white;
-}
+        .mobile-nav .logo a {
+            font-size: 1.5rem;
+            font-weight: bold;
+            text-decoration: none;
+            color: white;
+        }
 
-.mobile-nav .menu-icon, .hamburger {
-    font-size: 1.5rem; /* Consistencia del ícono */
-    cursor: pointer;
-}
+        .mobile-nav .menu-icon {
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
 
-/* Fullscreen Mobile Menu */
-#fullscreen-menu {
-    display: none;
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100vh;
-    background-color: rgba(244, 162, 97, 0.95);
-    color: white;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-    gap: 20px;
-    z-index: 1000;
-}
+        /* Fullscreen Mobile Menu */
+        #fullscreen-menu {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100vh;
+            background-color: rgba(244, 162, 97, 0.95);
+            color: white;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            gap: 20px;
+            z-index: 1000;
+        }
 
-#fullscreen-menu.show {
-    display: flex;
-}
+        #fullscreen-menu.show {
+            display: flex;
+        }
 
-#fullscreen-menu .close-icon {
-    position: absolute;
-    top: 20px;
-    right: 20px;
-    font-size: 1.5rem;
-    cursor: pointer;
-    color: white;
-}
+        #fullscreen-menu .close-icon {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            font-size: 1.5rem;
+            cursor: pointer;
+            color: white;
+        }
 
-#fullscreen-menu a {
-    color: white;
-    text-decoration: none;
-    font-size: 2rem;
-    font-weight: bold;
-}
+        #fullscreen-menu a {
+            color: white;
+            text-decoration: none;
+            font-size: 2rem;
+            font-weight: bold;
+        }
 
-#fullscreen-menu a:hover {
-    text-decoration: underline;
-}
+        #fullscreen-menu a:hover {
+            text-decoration: underline;
+        }
+
         /* Title Section */
         #title {
             text-align: center;
@@ -167,7 +166,7 @@ nav.desktop-nav ul li a:hover {
 
         .city-card img {
             width: 100%;
-            height: 200px; /* Set a fixed height for all images */
+            height: 200px;
             object-fit: cover;
         }
 
@@ -177,53 +176,58 @@ nav.desktop-nav ul li a:hover {
             text-align: center;
         }
 
-        .city-card p {
-            margin: 0 15px 15px;
-            font-size: 0.9rem;
-            text-align: center;
+        /* City links */
+        .city-card a {
+            color: inherit; /* Hereda el color del texto original */
+            text-decoration: none; /* Elimina el subrayado */
         }
 
-         /* Footer styles */
-    footer {
-        text-align: center;
-        padding: 20px;
-        background-color: #f4a261;
-        color: white;
-    }
+        .city-card a:hover {
+            color: inherit; /* Mantiene el color original al pasar el mouse */
+            text-decoration: none; /* Evita subrayado en hover */
+        }
 
-    footer a {
-        color: white; /* Mantener el color blanco */
-        text-decoration: none; /* Eliminar el subrayado */
-    }
+        .city-card a:visited {
+            color: inherit; /* Mantiene el color original después de visitar el enlace */
+        }
 
-    footer a:hover {
-        text-decoration: underline; /* Subrayar al pasar el cursor */
-    }
+        /* Footer styles */
+        footer {
+            text-align: center;
+            padding: 20px;
+            background-color: #f4a261;
+            color: white;
+        }
+
+        footer a {
+            color: white;
+            text-decoration: none;
+        }
+
+        footer a:hover {
+            text-decoration: underline;
+        }
 
         /* Media Queries */
-@media (max-width: 768px) {
-    /* Ocultar desktop-nav en pantallas pequeñas */
-    nav.desktop-nav {
-        display: none;
-    }
+        @media (max-width: 768px) {
+            nav.desktop-nav {
+                display: none;
+            }
 
-    /* Mostrar mobile-nav en pantallas pequeñas */
-    nav.mobile-nav {
-        display: flex;
-    }
-}
+            .mobile-nav {
+                display: flex;
+            }
+        }
 
-@media (min-width: 769px) {
-    /* Mostrar desktop-nav en pantallas grandes */
-    nav.desktop-nav {
-        display: flex;
-    }
+        @media (min-width: 769px) {
+            nav.desktop-nav {
+                display: flex;
+            }
 
-    /* Ocultar mobile-nav en pantallas grandes */
-    nav.mobile-nav {
-        display: none;
-    }
-}
+            .mobile-nav {
+                display: none;
+            }
+        }
     </style>
     <script>
         function toggleMenu() {
@@ -233,7 +237,7 @@ nav.desktop-nav ul li a:hover {
     </script>
 </head>
 <body>
-    <!-- Desktop Navigation --> 
+    <!-- Desktop Navigation -->
     <nav class="desktop-nav">
         <div class="logo"><a href="index.html">Heated.city</a></div>
         <ul>
@@ -262,33 +266,33 @@ nav.desktop-nav ul li a:hover {
     </section>
 
     <section id="cities-section">
-    <div class="city-card">
-        <img src="img/BsAs.png" alt="Buenos Aires">
-        <h3>Buenos Aires, Argentina</h3>
-    </div>
-    <div class="city-card">
-        <img src="img/Madrid.png" alt="Madrid">
-        <h3>Madrid, Spain</h3>
-    </div>
-    <div class="city-card">
-        <img src="img/Melbourne.png" alt="Melbourne">
-        <h3>Melbourne, Australia</h3>
-    </div>
-    <div class="city-card">
-        <img src="img/Nairobi.png" alt="Nairobi">
-        <h3>Nairobi, Kenya</h3>
-    </div>
-    <div class="city-card">
-        <img src="img/delhi.png" alt="New Delhi">
-        <h3>New Delhi, India</h3>
-    </div>
-    <div class="city-card">
-        <a href="kyoto.html">
-            <img src="img/kyoto.png" alt="Kyoto">
-            <h3>Kyoto, Japan</h3>
-        </a>
-    </div>
-</section>
+        <div class="city-card">
+            <img src="img/BsAs.png" alt="Buenos Aires">
+            <h3>Buenos Aires, Argentina</h3>
+        </div>
+        <div class="city-card">
+            <img src="img/Madrid.png" alt="Madrid">
+            <h3>Madrid, Spain</h3>
+        </div>
+        <div class="city-card">
+            <img src="img/Melbourne.png" alt="Melbourne">
+            <h3>Melbourne, Australia</h3>
+        </div>
+        <div class="city-card">
+            <img src="img/Nairobi.png" alt="Nairobi">
+            <h3>Nairobi, Kenya</h3>
+        </div>
+        <div class="city-card">
+            <img src="img/delhi.png" alt="New Delhi">
+            <h3>New Delhi, India</h3>
+        </div>
+        <div class="city-card">
+            <a href="kyoto.html">
+                <img src="img/kyoto.png" alt="Kyoto">
+                <h3>Kyoto, Japan</h3>
+            </a>
+        </div>
+    </section>
 
     <footer>
         <p>&copy; 2024 Heated.city | <a href="/contact.html">Contact Us</a></p>
