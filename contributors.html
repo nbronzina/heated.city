@@ -27,7 +27,6 @@
             padding: 15px 25px;
             background-color: #f4a261;
             color: white;
-            position: relative;
         }
 
         nav .logo a {
@@ -55,41 +54,51 @@
             text-decoration: underline;
         }
 
-        /* Mobile menu toggle */
+        /* Fullscreen Mobile Menu */
+        #fullscreen-menu {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100vh;
+            background-color: rgba(244, 162, 97, 0.95);
+            color: white;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            gap: 20px;
+            z-index: 1000;
+        }
+
+        #fullscreen-menu.show {
+            display: flex;
+        }
+
+        #fullscreen-menu .close-icon {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            font-size: 1.5rem;
+            cursor: pointer;
+            color: white;
+        }
+
+        #fullscreen-menu a {
+            color: white;
+            text-decoration: none;
+            font-size: 2rem;
+            font-weight: bold;
+        }
+
+        #fullscreen-menu a:hover {
+            text-decoration: underline;
+        }
+
         .menu-icon {
             display: none;
             font-size: 1.5rem;
             cursor: pointer;
-        }
-
-        #mobile-menu {
-            display: none;
-            position: absolute;
-            top: 60px;
-            right: 0;
-            background-color: #f4a261;
-            color: white;
-            flex-direction: column;
-            width: 100%;
-            max-height: 0;
-            overflow: hidden;
-            transition: max-height 0.3s ease-in-out;
-        }
-
-        #mobile-menu.active {
-            max-height: 200px;
-            display: flex;
-        }
-
-        #mobile-menu a {
-            padding: 10px 20px;
-            text-decoration: none;
-            color: white;
-            font-weight: bold;
-        }
-
-        #mobile-menu a:hover {
-            background-color: #e0763b;
         }
 
         /* Contributors section */
@@ -151,18 +160,21 @@
     <!-- Navbar -->
     <nav>
         <div class="logo"><a href="index.html">Heated.city</a></div>
+        <div class="menu-icon" onclick="toggleMenu()">☰</div>
         <ul>
             <li><a href="cities.html">Cities</a></li>
             <li><a href="contributors.html">Contributors</a></li>
             <li><a href="about.html">About</a></li>
         </ul>
-        <div class="menu-icon" onclick="toggleMenu()">☰</div>
-        <div id="mobile-menu">
-            <a href="cities.html">Cities</a>
-            <a href="contributors.html">Contributors</a>
-            <a href="about.html">About</a>
-        </div>
     </nav>
+
+    <!-- Fullscreen Mobile Menu -->
+    <div id="fullscreen-menu">
+        <span class="close-icon" onclick="toggleMenu()">&times;</span>
+        <a href="cities.html">Cities</a>
+        <a href="contributors.html">Contributors</a>
+        <a href="about.html">About</a>
+    </div>
 
     <!-- Contributors Section -->
     <section id="contributors">
@@ -180,8 +192,8 @@
     <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
     <script>
         function toggleMenu() {
-            const mobileMenu = document.getElementById("mobile-menu");
-            mobileMenu.classList.toggle("active");
+            const menu = document.getElementById("fullscreen-menu");
+            menu.classList.toggle("show");
         }
 
         document.addEventListener("DOMContentLoaded", function () {
@@ -192,8 +204,8 @@
             }).addTo(map);
 
             const contributors = [
-                { name: "Pablo Sosa", location: [-34.6037, -58.3816], description: "Buenos Aires" },
-                { name: "Ana García", location: [40.4168, -3.7038], description: "Madrid" },
+                { name: "María Fernanda Domínguez", location: [-34.6037, -58.3816], description: "Buenos Aires" },
+                { name: "Isabél Sánchez", location: [40.4168, -3.7038], description: "Madrid" },
                 { name: "Callagun Smith", location: [-37.8136, 144.9631], description: "Melbourne" },
                 { name: "Kamau Mwangi", location: [-1.2921, 36.8219], description: "Nairobi" },
                 { name: "Priya Sharma", location: [28.6139, 77.2090], description: "New Delhi" },
