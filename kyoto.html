@@ -20,6 +20,7 @@
             min-height: 100vh;
         }
 
+        /* Navbar */
         nav {
             display: flex;
             justify-content: space-between;
@@ -27,6 +28,10 @@
             padding: 15px 20px;
             background-color: #f4a261;
             color: white;
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 1000;
         }
 
         nav .logo {
@@ -56,13 +61,60 @@
             text-decoration: underline;
         }
 
+        /* Mobile Menu */
+        .menu-icon {
+            display: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+
+        #mobile-menu {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100vh;
+            background-color: rgba(244, 162, 97, 0.95);
+            color: white;
+            z-index: 2000;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        #mobile-menu a {
+            color: white;
+            font-size: 1.5rem;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        #mobile-menu a:hover {
+            text-decoration: underline;
+        }
+
+        #mobile-menu.show {
+            display: flex;
+        }
+
+        nav .close-icon {
+            display: none;
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+
         header {
-    background: url('img/kyotoheader.png') no-repeat center center / cover;
-    color: white;
-    text-align: center;
-    padding: 100px 15px;
-    position: relative;
-}
+            background: url('img/kyotoheader.png') no-repeat center center / cover;
+            color: white;
+            text-align: center;
+            padding: 150px 15px;
+            margin-top: 60px;
+        }
 
         header h1 {
             font-size: 3rem;
@@ -136,9 +188,16 @@
         }
 
         @media (max-width: 768px) {
-            nav {
-                flex-direction: column;
-                align-items: flex-start;
+            nav ul {
+                display: none;
+            }
+
+            .menu-icon {
+                display: block;
+            }
+
+            nav .close-icon {
+                display: block;
             }
 
             main {
@@ -154,12 +213,20 @@
 <body>
     <nav>
         <div class="logo">Heated.city</div>
+        <div class="menu-icon" onclick="toggleMenu()">☰</div>
         <ul>
             <li><a href="cities.html">Cities</a></li>
             <li><a href="contributors.html">Contributors</a></li>
             <li><a href="about.html">About</a></li>
         </ul>
     </nav>
+
+    <div id="mobile-menu">
+        <span class="close-icon" onclick="toggleMenu()">&times;</span>
+        <a href="cities.html">Cities</a>
+        <a href="contributors.html">Contributors</a>
+        <a href="about.html">About</a>
+    </div>
 
     <header>
         <h1>Kyoto</h1>
@@ -185,7 +252,7 @@
     </main>
 
     <footer>
-        <p>&copy; 2024 Heated.city</a></p>
+        <p>&copy; 2024 Heated.city | <a href="/contact.html">Contact Us</a></p>
     </footer>
 
     <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
@@ -207,6 +274,11 @@
                 .addTo(map)
                 .bindPopup(`<b>${location.name}</b>`);
         });
+
+        function toggleMenu() {
+            const menu = document.getElementById('mobile-menu');
+            menu.classList.toggle('show');
+        }
     </script>
 </body>
 </html>
