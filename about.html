@@ -3,23 +3,21 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Heated.city is a global directory where urban planners, designers, and climate-focused innovators share visions for the cities of 2030 and beyond.">
-    <title>Heated.city - Contributors</title>
-    <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;700&display=swap" rel="stylesheet">
+    <title>Heated.city - About</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;700&display=swap">
     <style>
-        html, body {
-            height: 100%;
+        /* General Styles */
+        body {
             margin: 0;
-            display: flex;
-            flex-direction: column;
             font-family: 'Open Sans', sans-serif;
             background-color: #fff;
             color: #333;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
         }
 
+        /* Desktop Navigation */
         nav.desktop-nav {
             display: flex;
             justify-content: space-between;
@@ -54,8 +52,9 @@
             text-decoration: underline;
         }
 
-        nav.mobile-nav {
-            display: none;
+        /* Mobile Navigation */
+        .mobile-nav {
+            display: none; /* Por defecto no visible */
             justify-content: space-between;
             align-items: center;
             padding: 15px 25px;
@@ -63,18 +62,19 @@
             color: white;
         }
 
-        nav.mobile-nav .logo a {
+        .mobile-nav .logo a {
             font-size: 1.5rem;
             font-weight: bold;
             text-decoration: none;
             color: white;
         }
 
-        nav.mobile-nav .menu-icon {
-            font-size: 1.5rem;
+        .hamburger {
+            font-size: 2rem; /* Ajuste de tamaño para consistencia */
             cursor: pointer;
         }
 
+        /* Fullscreen Mobile Menu */
         #fullscreen-menu {
             display: none;
             position: fixed;
@@ -101,6 +101,7 @@
             right: 20px;
             font-size: 1.5rem;
             cursor: pointer;
+            color: white;
         }
 
         #fullscreen-menu a {
@@ -114,102 +115,114 @@
             text-decoration: underline;
         }
 
-        #contributors {
-            flex: 1;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            padding: 20px;
-            max-width: 1200px;
-            margin: 30px auto;
-        }
-
-        #description {
-            width: 100%;
+        .about-header {
             text-align: center;
+            padding: 40px 20px;
+            margin: 20px auto;
+            max-width: 800px;
+        }
+
+        .about-header h1 {
+            font-size: 2.5rem;
             margin-bottom: 20px;
+            color: #222;
         }
 
-        #map-container {
-            display: flex;
-            flex-direction: column;
-            width: 100%;
+        .about-header p {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            margin-bottom: 15px;
         }
 
-        #map {
-            height: 400px;
-            border-radius: 5px;
-            border: 1px solid #ddd;
-            margin-bottom: 20px;
-            z-index: 1;
-        }
-
-        #contributor-list {
+        .cta-section {
+            text-align: center;
+            margin: 20px auto;
             padding: 20px;
-            background: #f9f9f9;
-            border: 1px solid #ddd;
+            background-color: #f9f9f9;
             border-radius: 5px;
-            overflow-y: auto;
-            max-height: 600px;
+            max-width: 800px;
         }
 
-        .contributor-category {
-            margin-bottom: 20px;
+        .cta-section p {
+            font-size: 1rem;
+            line-height: 1.6;
+            margin: 0;
         }
 
-        .contributor-category h4 {
+        .cta-section a {
+            color: #e76f51;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        .cta-section a:hover {
+            text-decoration: underline;
+        }
+
+        footer {
+            text-align: center;
+            padding: 15px;
             background-color: #f4a261;
             color: white;
-            padding: 10px;
-            border-radius: 5px;
-            margin-bottom: 10px;
+            font-size: 0.9rem;
+            margin-top: auto;
         }
 
-        .contributor {
-            background: #fff;
-            border: 1px solid #ddd;
-            border-radius: 5px;
-            padding: 10px;
-            margin-bottom: 10px;
-        }
-
+       /* Footer styles */
         footer {
             text-align: center;
             padding: 20px;
             background-color: #f4a261;
             color: white;
-            width: 100%;
         }
 
+        footer a {
+            color: white; /* Mantener el color blanco */
+            text-decoration: none; /* Eliminar el subrayado */
+        }
+
+        footer a:hover {
+            text-decoration: underline; /* Subrayar al pasar el cursor */
+        }
+
+        /* Media Queries */
         @media (max-width: 768px) {
+            /* Ocultar desktop-nav en pantallas pequeñas */
             nav.desktop-nav {
                 display: none;
             }
 
+            /* Mostrar mobile-nav en pantallas pequeñas */
             nav.mobile-nav {
                 display: flex;
             }
+        }
 
-            #map-container {
-                flex-direction: column;
+        @media (min-width: 769px) {
+            /* Mostrar desktop-nav en pantallas grandes */
+            nav.desktop-nav {
+                display: flex;
             }
 
-            #map {
-                height: 300px;
-                margin-bottom: 20px;
-            }
-
-            #contributor-list {
-                max-height: 300px;
-                overflow-y: scroll;
+            /* Ocultar mobile-nav en pantallas grandes */
+            nav.mobile-nav {
+                display: none;
             }
         }
     </style>
+    <script>
+        function toggleMenu() {
+            const menu = document.getElementById('fullscreen-menu');
+            menu.classList.toggle('show');
+        }
+    </script>
 </head>
 <body>
     <!-- Desktop Navigation -->
     <nav class="desktop-nav">
-        <div class="logo"><a href="index.html">Heated.city</a></div>
+        <div class="logo">
+            <a href="index.html">Heated.city</a>
+        </div>
         <ul>
             <li><a href="cities.html">Cities</a></li>
             <li><a href="contributors.html">Contributors</a></li>
@@ -219,8 +232,10 @@
 
     <!-- Mobile Navigation -->
     <nav class="mobile-nav">
-        <div class="logo"><a href="index.html">Heated.city</a></div>
-        <div class="menu-icon" onclick="toggleMenu()">☰</div>
+        <div class="logo">
+            <a href="index.html">Heated.city</a>
+        </div>
+        <div class="hamburger" onclick="toggleMenu()">☰</div>
     </nav>
 
     <div id="fullscreen-menu">
@@ -230,48 +245,19 @@
         <a href="about.html">About</a>
     </div>
 
-    <section id="contributors">
-        <div id="description">
-            <h2>Contributors</h2>
-            <p>Heated.city team members and friends worldwide who share their visions for cities in 2030 and beyond. Our contributors are passionate about creating sustainable, resilient, and innovative urban environments that will transform the way we inhabit our world.</p>
-        </div>
-        <div id="map-container">
-            <div id="map"></div>
-        </div>
-    </section>
+    <div class="about-header">
+        <h1>Reimagining Cities: A Global Guide for 2030 and Beyond</h1>
+        <p>Heated.city is your gateway to the vibrant communities redefining urban living. Through curated stories and innovative ideas, we explore how neighborhoods around the world are shaping the cities of tomorrow.</p>
+        <p>This guide is a beacon of urban transformation, highlighting the intersection of creativity and resilience. From sustainable infrastructure to cultural breakthroughs, we delve into how forward-thinking communities are reimagining what it means to live, work, and thrive in urban spaces.</p>
+        <p>At Heated.city, we collaborate with architects, planners, and innovators to inspire action and foster connections. By sharing transformative stories and showcasing pioneering projects, we empower communities to design cities that are not only inclusive but also equipped to flourish amid global challenges. Together, we shape future cities—adaptable, resilient, and alive with possibility.</p>
+    </div>
+
+    <div class="cta-section">
+        <p>Have an idea or a vision for your city? <a href="#contact">Contact us</a> and join the movement to shape the future of urban living.</p>
+    </div>
 
     <footer>
-        <p>&copy; 2024 Heated.city</p>
+        <p>&copy; 2024 Heated.city | <a href="/contact.html">Contact Us</a></p>
     </footer>
-    <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
-    <script>
-        document.addEventListener("DOMContentLoaded", function () {
-            const map = L.map("map").setView([20, 0], 2);
-
-            L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
-                attribution: 'Map data &copy; <a href="https://openstreetmap.org">OpenStreetMap</a>',
-            }).addTo(map);
-
-            const contributors = [
-                { name: "María Fernanda Domínguez", location: [-34.6037, -58.3816], description: "Buenos Aires" },
-                { name: "Isabél Sánchez", location: [40.4168, -3.7038], description: "Madrid" },
-                { name: "Callagun Smith", location: [-37.8136, 144.9631], description: "Melbourne" },
-                { name: "Kamau Mwangi", location: [-1.2921, 36.8219], description: "Nairobi" },
-                { name: "Priya Sharma", location: [28.6139, 77.2090], description: "New Delhi" },
-                { name: "Himari Satō", location: [35.0116, 135.7681], description: "Kyoto" }
-            ];
-
-            contributors.forEach(contributor => {
-                L.marker(contributor.location)
-                    .addTo(map)
-                    .bindPopup(`<b>${contributor.name}</b><br>${contributor.description}`);
-            });
-        });
-
-        function toggleMenu() {
-            const menu = document.getElementById("fullscreen-menu");
-            menu.classList.toggle("show");
-        }
-    </script>
 </body>
 </html>
