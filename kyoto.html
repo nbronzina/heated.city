@@ -174,8 +174,8 @@
 
         /* Estilo del contenedor de la lista */
     .contributors-wrapper {
-        height: 450px; /* Altura fija */
-        overflow-y: auto; /* Scroll vertical */
+        height: 450px; /* Altura fija del contenedor */
+        overflow-y: auto; /* Scroll vertical habilitado */
         border: 1px solid #ddd;
         border-radius: 8px;
         padding: 10px;
@@ -184,7 +184,7 @@
 
     .contributors {
         display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); /* Tarjetas compactas y adaptables */
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); /* Tarjetas compactas y adaptables */
         gap: 15px;
     }
 
@@ -193,11 +193,12 @@
         border: 1px solid #ddd;
         border-radius: 10px;
         box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-        padding: 10px;
+        overflow: hidden;
         display: flex;
         flex-direction: column;
+        justify-content: flex-start;
         align-items: center;
-        text-align: center;
+        height: 250px; /* Tarjeta más cuadrada */
         transition: transform 0.3s ease, box-shadow 0.3s ease;
     }
 
@@ -207,15 +208,16 @@
     }
 
     .contributor img {
-        width: 100px; /* Tamaño más pequeño para las imágenes */
-        height: 150px;
-        object-fit: cover;
+        width: 100%; /* Ocupa todo el ancho de la tarjeta */
+        height: 120px; /* Altura fija */
+        object-fit: cover; /* Recorta la imagen para ajustarse al contenedor */
     }
 
     .contributor h3 {
         font-size: 1rem;
-        margin: 5px 0;
+        margin: 10px 0 5px;
         color: #333;
+        text-align: center;
         font-weight: bold;
     }
 
@@ -223,6 +225,8 @@
         font-size: 0.85rem;
         color: #555;
         line-height: 1.4;
+        text-align: center;
+        padding: 0 10px;
     }
 
         footer {
