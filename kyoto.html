@@ -287,6 +287,22 @@ nav.desktop-nav ul li a:hover {
             gap: 15px;
         }
     }
+        /* Estilos para fijar el contenedor */
+    #contributors-container {
+        height: 600px; /* Altura fija para el contenedor */
+        overflow-y: scroll; /* Habilitar desplazamiento vertical */
+        border: 1px solid #ddd; /* Borde opcional */
+        border-radius: 8px; /* Bordes redondeados */
+        padding: 10px; /* Espaciado interno */
+        box-sizing: border-box; /* Incluir padding y borde en el tamaño total */
+    }
+
+    /* Ajuste para dispositivos móviles */
+    @media (max-width: 768px) {
+        #contributors-container {
+            height: 400px; /* Altura más pequeña para dispositivos móviles */
+        }
+    }
         
     </style>
 </head>
@@ -322,7 +338,8 @@ nav.desktop-nav ul li a:hover {
     </section>
 
     <main>
-        <div id="map"></div>
+    <div id="map"></div>
+    <div id="contributors-container">
         <div class="contributors">
             <div class="contributor">
                 <h3>Hikari Machiya Studio</h3>
@@ -365,7 +382,8 @@ nav.desktop-nav ul li a:hover {
                 <p>Guided tours showcasing renewable energy in sake brewing.</p>
             </div>
         </div>
-    </main>
+    </div>
+</main>
 
     <footer>
 <p>&copy; 2024 Heated.city | <a href="/contact.html">Contact Us</a></p>
