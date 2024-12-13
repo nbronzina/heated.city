@@ -174,41 +174,49 @@
 
         /* Estilo del contenedor de la lista */
     .contributors {
-        height: 600px; /* Altura fija */
-        overflow-y: auto; /* Scroll vertical habilitado */
-        border: 1px solid #ddd;
-        border-radius: 8px;
-        padding: 10px;
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* Adaptable a pantallas */
+        gap: 20px;
+        padding: 15px;
     }
-        .contributor {
-            background: #ecf0f1;
-            border: 1px solid #ddd;
-            border-radius: 8px;
-            text-align: center;
-            height: 350px;
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between;
-            padding: 10px;
-        }
+
+    .contributor {
+        background: #f9f9f9;
+        border: 1px solid #ddd;
+        border-radius: 10px;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Suave sombra para destacar */
+        overflow: hidden;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        padding: 15px;
+    }
 
         .contributor img {
         width: 100%;
-        height: auto; /* Altura automática para evitar deformaciones */
-        aspect-ratio: 1 / 1; /* Proporción cuadrada */
-        object-fit: cover; /* Cubre el área disponible sin distorsión */
-        border-radius: 5px; /* Mantener bordes redondeados */
+        height: auto;
+        aspect-ratio: 1 / 1; /* Imagen cuadrada */
+        object-fit: cover;
+        border-radius: 8px;
     }
 
         .contributor h3 {
-            font-size: 1.2rem;
-            margin: 10px 0;
-        }
+        font-size: 1.2rem;
+        margin: 15px 0 10px; /* Espaciado más consistente */
+        color: #333;
+    }
 
-        .contributor p {
-            font-size: 0.9rem;
-            margin: 0;
-        }
+    .contributor p {
+        font-size: 0.95rem;
+        color: #666;
+        line-height: 1.5;
+    }
+
+    .contributor:hover {
+        transform: translateY(-5px); /* Animación suave al pasar el cursor */
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+        box-shadow: 0 6px 10px rgba(0, 0, 0, 0.15); /* Sombra más fuerte al pasar el cursor */
+    }
 
         footer {
             text-align: center;
