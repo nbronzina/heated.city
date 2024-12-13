@@ -223,20 +223,51 @@
             text-decoration: underline;
         }
 
+          /* Estilo general para main */
+    main {
+        display: flex;
+        flex-direction: column; /* Apila mapa y contribuciones */
+        gap: 20px; /* Espaciado entre el mapa y el listado */
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 15px;
+    }
+
+    #map {
+        height: 300px; /* Ajustar la altura para dispositivos móviles */
+        border: 1px solid #ddd;
+        border-radius: 8px;
+        order: 1; /* Asegura que el mapa aparece primero */
+    }
+
+    #contributors-container {
+        height: 400px; /* Altura fija para dispositivos móviles */
+        overflow-y: scroll; /* Habilitar desplazamiento vertical */
+        border: 1px solid #ddd;
+        border-radius: 8px;
+        padding: 10px;
+        order: 2; /* Asegura que el listado aparece después del mapa */
+    }
+
         /* Media Queries */
-        @media (max-width: 768px) {
-            nav.desktop-nav {
-                display: none;
-            }
-
-            .mobile-nav {
-                display: flex;
-            }
-
-            main {
-                flex-direction: column;
-            }
+         @media (min-width: 769px) {
+        main {
+            display: grid;
+            grid-template-columns: 1.5fr 1fr; /* Mapa y listado lado a lado */
+            gap: 20px;
         }
+
+        #map {
+            height: 600px; /* Altura más grande para escritorio */
+            order: unset; /* Elimina el orden explícito */
+        }
+
+        #contributors-container {
+            height: auto; /* Altura ajustable al contenido */
+            overflow-y: auto; /* Desplazamiento si es necesario */
+            order: unset;
+        }
+    }
 
         @media (min-width: 769px) {
             main {
