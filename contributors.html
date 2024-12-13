@@ -279,21 +279,25 @@ nav.desktop-nav ul li a:hover {
             ];
 
            contributors.forEach(contributor => {
-            let popupContent = `<b>${contributor.name}</b><br>${contributor.description}`;
-            
-            // Añadir imagen circular solo para Himari Satō
-            if (contributor.name === "Himari Satō") {
-                popupContent = `
-                    <div style="text-align: center;">
-                        <img src="${contributor.image}" alt="${contributor.name}" style="width: 80px; height: 80px; border-radius: 50%; margin-bottom: 10px;">
-                        <b>${contributor.name}</b><br>${contributor.description}
-                    </div>`;
-            }
+    let popupContent = `<b>${contributor.name}</b><br>${contributor.description>`;
+    
+    // Añadir imagen circular centrada solo para Himari Satō
+    if (contributor.name === "Himari Satō") {
+        popupContent = `
+            <div style="text-align: center; display: flex; flex-direction: column; align-items: center;">
+                <div style="width: 100px; height: 100px; overflow: hidden; border-radius: 50%; margin-bottom: 10px;">
+                    <img src="${contributor.image}" alt="${contributor.name}" 
+                        style="width: 100%; height: 100%; object-fit: cover;">
+                </div>
+                <b>${contributor.name}</b>
+                <p style="margin: 0; font-size: 0.9rem;">${contributor.description}</p>
+            </div>`;
+    }
 
-            L.marker(contributor.location)
-                .addTo(map)
-                .bindPopup(popupContent);
-        });
+    L.marker(contributor.location)
+        .addTo(map)
+        .bindPopup(popupContent);
+});
     });
 
         function toggleMenu() {
