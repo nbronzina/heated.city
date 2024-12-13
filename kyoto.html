@@ -89,7 +89,7 @@
             align-items: center;
             flex-direction: column;
             gap: 20px;
-            z-index: 1000;
+            z-index: 2000; /* Ensures it is above map and controls */
         }
 
         #fullscreen-menu.show {
@@ -150,6 +150,8 @@
             width: 100%;
             border: 1px solid #ddd;
             border-radius: 8px;
+            position: relative;
+            z-index: 1; /* Ensures it is below the fullscreen menu */
         }
 
         .contributors {
