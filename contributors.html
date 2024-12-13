@@ -68,7 +68,7 @@
             align-items: center;
             flex-direction: column;
             gap: 20px;
-            z-index: 1000;
+            z-index: 1000; /* Prioridad más alta */
         }
 
         #fullscreen-menu.show {
@@ -124,6 +124,12 @@
             height: 500px;
             border-radius: 5px;
             border: 1px solid #ddd;
+            z-index: 1; /* Detrás del menú desplegable */
+            position: relative;
+        }
+
+        .leaflet-control-container {
+            z-index: 1; /* Detrás del menú desplegable */
         }
 
         /* Footer styles */
@@ -204,8 +210,8 @@
             }).addTo(map);
 
             const contributors = [
-                { name: "María Fernanda Domínguez", location: [-34.6037, -58.3816], description: "Buenos Aires" },
-                { name: "Isabél Sánchez", location: [40.4168, -3.7038], description: "Madrid" },
+                { name: "Pablo Sanguinetti", location: [-34.6037, -58.3816], description: "Buenos Aires" },
+                { name: "Ana García", location: [40.4168, -3.7038], description: "Madrid" },
                 { name: "Callagun Smith", location: [-37.8136, 144.9631], description: "Melbourne" },
                 { name: "Kamau Mwangi", location: [-1.2921, 36.8219], description: "Nairobi" },
                 { name: "Priya Sharma", location: [28.6139, 77.2090], description: "New Delhi" },
