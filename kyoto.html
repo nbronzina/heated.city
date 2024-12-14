@@ -310,33 +310,33 @@
         <div id="map"></div>
         <div class="contributors-wrapper">
     <div class="contributors">
-            <div class="contributor">
-                <h3>Hikari Machiya Studio</h3>
+            <div class="contributor" data-id="1">
+                <h3>1. Hikari Machiya Studio</h3>
                 <img src="img/papel.png" alt="Heritage & Eco-Tours in Gion">
                 <p>Workshops in traditional crafts such as indigo dyeing and washi paper making.</p>
             </div>
-            <div class="contributor">
-                <h3>Akari no Michi</h3>
+            <div class="contributor" data-id="2">
+                <h3>2. Akari no Michi</h3>
                 <img src="img/lamparas.png" alt="Eco-Lantern Pathways">
                 <p>Solar-powered lanterns line the streets, designed by local artists.</p>
             </div>
-            <div class="contributor">
-                <h3>Katzura Eco-Island Center</h3>
+            <div class="contributor" data-id="3">
+                <h3>3. Katzura Eco-Island Center</h3>
                 <img src="img/ecosistema.png" alt="Floating Biodiversity Islands">
                 <p>Miniature ecosystems along the Katzura River.</p>
             </div>
-            <div class="contributor">
-                <h3>Bamboo Grove Knowledge Trail</h3>
+            <div class="contributor" data-id="4">
+                <h3>4. Bamboo Grove Knowledge Trail</h3>
                 <img src="img/iot.png" alt="Bamboo Smart Forests">
                 <p>IoT-enabled monitoring of carbon capture and soil health.</p>
             </div>
-            <div class="contributor">
-                <h3>Kura no Megumi</h3>
+            <div class="contributor" data-id="5">
+                <h3>5. Kura no Megumi</h3>
                 <img src="img/sake1.png" alt="Solar Sake Breweries">
                 <p>Traditional sake breweries powered by solar energy.</p>
             </div>
-            <div class="contributor">
-                <h3>Midori no Kura</h3>
+            <div class="contributor" data-id="6">
+                <h3>6. Midori no Kura</h3>
                 <img src="img/sake2.png" alt="Fermentation Waste Bioenergy">
                 <p>Its operations are powered by bioenergy from sake production waste.</p>
             </div>
@@ -357,25 +357,30 @@ L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
 }).addTo(map);
 
 const locations = [
-    { name: "Hikari Machiya Studio (光町家スタジオ)", coords: [35.0035, 135.7780] },
-    { name: "Akari no Michi (明かりの道)", coords: [35.0045, 135.7795] },
-    { name: "Hozugawa Eco-Island Center (保津川エコアイランドセンター)", coords: [35.0129, 135.6778] },
-    { name: "Bamboo Grove Knowledge Trail (竹林知識トレイル)", coords: [35.0168, 135.6713] },
-    { name: "Kura no Megumi (倉の恵み)", coords: [34.9305, 135.7630] },
-    { name: "Midori no Kura (緑の蔵)", coords: [34.9310, 135.7645] },
+    { id: 1, name: "Hikari Machiya Studio (光町家スタジオ)", coords: [35.0035, 135.7780] },
+    { id: 2, name: "Akari no Michi (明かりの道)", coords: [35.0045, 135.7795] },
+    { id: 3, name: "Katzura Eco-Island Center (保津川エコアイランドセンター)", coords: [35.0129, 135.6778] },
+    { id: 4, name: "Bamboo Grove Knowledge Trail (竹林知識トレイル)", coords: [35.0168, 135.6713] },
+    { id: 5, name: "Kura no Megumi (倉の恵み)", coords: [34.9305, 135.7630] },
+    { id: 6, name: "Midori no Kura (緑の蔵)", coords: [34.9310, 135.7645] },
 ];
+        locations.forEach(location => {
+    L.marker(location.coords, { icon: customIcon })
+        .addTo(map)
+        .bindPopup(`<b>${location.id}. ${location.name}</b>`);
+});
 
-const customIcon = L.divIcon({
+const customIcon = (id) => L.divIcon({
     className: 'custom-marker',
-    html: `<div style="width: 24px; height: 24px; background-color: #f4a261; border-radius: 50%; border: 2px solid white;"></div>`,
+    html: `<div style="width: 24px; height: 24px; background-color: #f4a261; border-radius: 50%; border: 2px solid white; display: flex; align-items: center; justify-content: center; color: white; font-weight: bold;">${id}</div>`,
     iconSize: [24, 24],
     iconAnchor: [12, 12]
 });
 
 locations.forEach(location => {
-    L.marker(location.coords, { icon: customIcon })
+    L.marker(location.coords, { icon: customIcon(location.id) })
         .addTo(map)
-        .bindPopup(`<b>${location.name}</b>`);
+        .bindPopup(`<b>${location.id}. ${location.name}</b>`);
 });
 
         function toggleMenu() {
