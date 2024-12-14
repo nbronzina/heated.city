@@ -440,12 +440,12 @@ document.addEventListener('DOMContentLoaded', function () {
 });
 
     function toggleReadMore(element) {
-    const paragraph = element.previousElementSibling; // Selecciona el <p> anterior
+    const paragraph = element.previousElementSibling; // Selecciona el párrafo anterior
     if (paragraph.style.maxHeight === "none") {
         paragraph.style.maxHeight = "60px"; // Limita la altura
         element.textContent = "Read More"; // Cambia el texto del botón
     } else {
-        paragraph.style.maxHeight = "none"; // Expande el texto
+        paragraph.style.maxHeight = "none"; // Expande el texto completamente
         element.textContent = "Read Less"; // Cambia el texto del botón
     }
 }
