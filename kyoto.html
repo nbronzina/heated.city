@@ -209,47 +209,55 @@
     }
 
     .contributor {
-        background: #fefefe;
-        border: 1px solid #ddd;
-        border-radius: 10px;
-        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-        overflow: hidden;
-        display: flex;
-        flex-direction: column;
-        justify-content: space-between;
-        align-items: center;
-        height: 320px; /* Incremento de tamaño */
-        padding: 15px;
-        transition: transform 0.3s ease, box-shadow 0.3s ease;
-    }
+    background: #fefefe;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+    height: auto; /* Ajusta dinámicamente la altura según el contenido */
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    text-align: center;
+}
 
-    .contributor:hover {
-        transform: scale(1.03); /* Efecto sutil al pasar el cursor */
-        box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
-    }
+.contributor:hover {
+    transform: scale(1.03); /* Efecto sutil al pasar el cursor */
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+}
 
-    .contributor img {
-        width: 100%; /* Ocupa todo el ancho */
-        height: 160px; /* Ajustar altura proporcional */
-        object-fit: cover;
-        border-radius: 8px;
-    }
+.contributor img {
+    width: 100%;
+    height: 160px; /* Ajustar la altura proporcional */
+    object-fit: cover;
+    border-radius: 8px;
+}
 
-    .contributor h3 {
-        font-size: 1.2rem; /* Fuente más grande para el título */
-        margin: 15px 0 10px;
-        color: #333;
-        text-align: center;
-        font-weight: bold;
-    }
+.contributor h3 {
+    font-size: 1.2rem; /* Fuente más grande para el título */
+    margin: 15px 0 10px;
+    color: #333;
+    font-weight: bold;
+}
 
-    .contributor p {
-        font-size: 0.95rem; /* Texto más claro */
-        color: #555;
-        line-height: 1.5;
-        text-align: center;
-        padding: 0 10px;
-    }
+.contributor p {
+    font-size: 0.95rem; /* Fuente clara */
+    color: #555;
+    line-height: 1.5;
+    text-align: center;
+    margin: 10px 0 0;
+}
+        
+.read-more {
+    margin-top: 10px;
+    color: #007BFF;
+    font-size: 0.9rem;
+    cursor: pointer;
+    text-decoration: underline;
+}
 
         footer {
             text-align: center;
@@ -335,32 +343,49 @@
             <div class="contributor" data-id="1">
                 <h3>1. Hikari Machiya Studio</h3>
                 <img src="img/papel.png" alt="Heritage & Eco-Tours in Gion">
-                <p>Workshops in traditional crafts such as indigo dyeing and washi paper making.</p>
+                <p>
+    Step into the world of traditional Japanese crafts at Hikari Machiya Studio. Here, visitors can participate in workshops that revive ancient techniques such as indigo dyeing and handmade washi paper production. Nestled in Kyoto's historic district, the studio offers a hands-on experience for those eager to connect with Japan's rich cultural heritage.
+</p>
             </div>
             <div class="contributor" data-id="2">
                 <h3>2. Akari no Michi</h3>
                 <img src="img/lamparas.png" alt="Eco-Lantern Pathways">
-                <p>Solar-powered lanterns line the streets, designed by local artists.</p>
+                <p>
+    Akari no Michi transforms Kyoto's streets with its stunning solar-powered lanterns. Designed by local artists, these eco-friendly installations illuminate pathways with a warm, sustainable glow, blending beauty and innovation. Walk through Kyoto at night and discover how tradition and technology meet to create magic.
+</p>
+                <span class="read-more" onclick="toggleReadMore(this)">Read More</span>
             </div>
             <div class="contributor" data-id="3">
                 <h3>3. Katzura Eco-Island Center</h3>
                 <img src="img/ecosistema.png" alt="Floating Biodiversity Islands">
-                <p>Miniature ecosystems along the Katzura River.</p>
+                <p>
+    Discover the ecological wonders of the Katzura Eco-Island Center, where miniature ecosystems thrive along the riverbanks of Kyoto. This initiative fosters biodiversity and environmental awareness, offering visitors a serene escape while learning about the importance of sustainable practices in preserving natural habitats.
+</p>
+                <span class="read-more" onclick="toggleReadMore(this)">Read More</span>
             </div>
             <div class="contributor" data-id="4">
                 <h3>4. Bamboo Grove Knowledge Trail</h3>
                 <img src="img/iot.png" alt="Bamboo Smart Forests">
-                <p>IoT-enabled monitoring of carbon capture and soil health.</p>
+                <p>
+    Explore the iconic bamboo forests of Kyoto like never before with the Bamboo Grove Knowledge Trail. This smart forest integrates IoT technology to monitor carbon capture and soil health, showcasing how innovation can coexist with natural beauty. Visitors can enjoy guided walks while learning about Kyoto's commitment to a sustainable future.
+</p>
+                <span class="read-more" onclick="toggleReadMore(this)">Read More</span>
             </div>
             <div class="contributor" data-id="5">
                 <h3>5. Kura no Megumi</h3>
                 <img src="img/sake1.png" alt="Solar Sake Breweries">
-                <p>Traditional sake breweries powered by solar energy.</p>
+                <p>
+    Experience the art of traditional sake brewing at Kura no Megumi, where solar energy powers the entire process. This brewery preserves the ancient craft of sake-making and embraces renewable energy to create a truly sustainable and delicious product. A must-visit for sake enthusiasts!
+</p>
+                <span class="read-more" onclick="toggleReadMore(this)">Read More</span>
             </div>
             <div class="contributor" data-id="6">
                 <h3>6. Midori no Kura</h3>
                 <img src="img/sake2.png" alt="Fermentation Waste Bioenergy">
-                <p>Its operations are powered by bioenergy from sake production waste.</p>
+                <p>
+    Midori no Kura redefines sustainable innovation by turning sake fermentation waste into bioenergy. This cutting-edge initiative is a model for circular economy practices, blending tradition with a forward-thinking approach. Visitors can tour the facilities and witness how waste becomes a power source.
+</p>
+                <span class="read-more" onclick="toggleReadMore(this)">Read More</span>
             </div>
         </div>
 </div>
@@ -406,6 +431,17 @@ document.addEventListener('DOMContentLoaded', function () {
             .bindPopup(`<b>${location.id}. ${location.name}</b>`);
     });
 });
+
+    function toggleReadMore(element) {
+    const paragraph = element.previousElementSibling; // Selecciona el <p> anterior
+    if (paragraph.style.maxHeight === "none") {
+        paragraph.style.maxHeight = "60px"; // Limita la altura
+        element.textContent = "Read More"; // Cambia el texto del botón
+    } else {
+        paragraph.style.maxHeight = "none"; // Expande el texto
+        element.textContent = "Read Less"; // Cambia el texto del botón
+    }
+}
 
 </script>
     
