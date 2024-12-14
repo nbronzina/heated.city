@@ -372,9 +372,9 @@ const locations = [
 
 const customIcon = (id) => L.divIcon({
     className: 'custom-marker',
-    html: `<div style="width: 24px; height: 24px; background-color: #f4a261; border-radius: 50%; border: 2px solid white; display: flex; align-items: center; justify-content: center; color: white; font-weight: bold;">${id}</div>`,
-    iconSize: [24, 24],
-    iconAnchor: [12, 12]
+    html: `<div style="width: 30px; height: 30px; background-color: #f4a261; border-radius: 50%; border: 2px solid white; display: flex; align-items: center; justify-content: center; color: white; font-weight: bold;">${id}</div>`,
+    iconSize: [30, 30],
+    iconAnchor: [15, 15] // Centra el icono correctamente
 });
 
 locations.forEach(location => {
