@@ -8,12 +8,13 @@
     <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;700&display=swap" rel="stylesheet">
     <style>
         body {
-            margin: 0;
-            font-family: 'Open Sans', sans-serif;
-            display: flex;
-            flex-direction: column;
-            min-height: 100vh;
-        }
+    margin: 0;
+    font-family: 'Open Sans', sans-serif;
+    display: flex;
+    flex-direction: column; /* Organiza el contenido en columnas */
+    min-height: 100vh; /* Asegura que el body ocupe toda la altura de la ventana */
+    justify-content: space-between; /* Separa el header, contenido principal y footer */
+}
 
         nav {
             display: flex;
@@ -161,13 +162,16 @@
             background-color: #ffe0b2;
         }
 
-        footer {
-            text-align: center;
-            padding: 20px;
-            background-color: #f4a261;
-            color: white;
-            margin-top: auto;
-        }
+        /* El footer estará siempre al final */
+footer {
+    background-color: #f4a261; /* Color del footer */
+    color: white; /* Texto del footer */
+    text-align: center; /* Centra el texto */
+    padding: 20px; /* Espaciado interno */
+    flex-shrink: 0; /* Evita que el footer se reduzca */
+    position: relative; /* Permite que esté estático al final */
+    width: 100%; /* Asegura que ocupe todo el ancho */
+}
 
         footer a {
             color: white;
@@ -178,6 +182,9 @@
             text-decoration: underline;
         }
 
+        main {
+    flex-grow: 1; /* Permite que el contenido principal (main) ocupe todo el espacio disponible */
+}
         @media (max-width: 768px) {
             nav ul {
                 display: none;
