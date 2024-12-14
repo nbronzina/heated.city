@@ -132,10 +132,18 @@
         }
 
         .intro {
-            padding: 40px 15px;
-            text-align: center;
-            background-color: #f9f9f9;
-        }
+    display: flex; /* Habilita el modelo de caja flexible */
+    flex-direction: column; /* Asegura que los elementos se apilen verticalmente */
+    justify-content: center; /* Centra verticalmente */
+    align-items: center; /* Centra horizontalmente */
+    text-align: center; /* Centra el texto dentro del contenedor */
+    padding: 60px 20px; /* Espaciado adicional alrededor del contenido */
+    background-color: #f9f9f9; /* Fondo claro para contraste */
+    margin: 0 auto; /* Asegura que la sección esté centrada */
+    max-width: 800px; /* Limita el ancho para que el texto no sea demasiado extenso */
+    border-radius: 8px; /* Bordes suaves para una estética moderna */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Añade un leve sombreado */
+}
 
         .intro h2 {
             font-size: 1.5rem;
